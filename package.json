@@ -1,0 +1,23 @@
+{
+  "name": "julien-wff",
+  "type": "module",
+  "version": "0.0.1",
+  "author": {
+    "name": "Julien Wolff",
+    "email": "cefadrom1@gmail.com"
+  },
+  "license": "GPLv3",
+  "packageManager": "pnpm@7.3.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^1.0.2",
+    "astro": "^1.6.14",
+    "svelte": "^3.46.4"
+  }
+}

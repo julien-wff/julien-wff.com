@@ -7,10 +7,10 @@
     div {
         background: var(--gray);
         box-shadow: var(--block-shadow);
-        padding: 1rem;
+        padding: var(--spacing);
         border-radius: 1rem;
         display: flex;
-        gap: 1rem;
+        gap: var(--spacing);
     }
 </style>
 

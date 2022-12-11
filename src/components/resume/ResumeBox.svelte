@@ -1,5 +1,6 @@
 <script lang="ts">
     export let direction: 'row' | 'column' = 'column';
+    export let mb = false;
 </script>
 
 
@@ -12,9 +13,13 @@
         display: flex;
         gap: var(--spacing);
     }
+
+    div.mb {
+        margin-bottom: var(--spacing);
+    }
 </style>
 
 
-<div style:flex-direction={direction}>
+<div style:flex-direction={direction} class:mb>
     <slot/>
 </div>

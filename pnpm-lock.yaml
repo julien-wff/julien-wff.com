@@ -4,11 +4,13 @@ specifiers:
   '@astrojs/svelte': ^1.0.2
   astro: ^1.6.14
   svelte: ^3.46.4
+  svelte-ionicons: ^0.2.3
 
 dependencies:
   '@astrojs/svelte': 1.0.2_svelte@3.54.0
   astro: 1.6.14
   svelte: 3.54.0
+  svelte-ionicons: 0.2.3
 
 packages:
 
@@ -3210,6 +3212,10 @@ packages:
       svelte: '>=3.19.0'
     dependencies:
       svelte: 3.54.0
+    dev: false
+
+  /svelte-ionicons/0.2.3:
+    resolution: {integrity: sha512-yi5ToHdKp+h64gnha4/AvXsThRpUS5m3Aj668ev/0qSKF8dolYFYooh2kx5sbJ1+PMlCIvwHMdRFfKDtBOUJDA==}
     dev: false
 
   /svelte-preprocess/4.10.7_mg5evwpvntvsqb5u3cgiaxlhty:

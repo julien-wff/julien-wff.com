@@ -3,6 +3,7 @@
 
     export let title: string;
     export let gap: 'small' | 'medium' = 'medium';
+    export let mb = false;
 </script>
 
 
@@ -22,7 +23,7 @@
 </style>
 
 
-<ResumeBox>
+<ResumeBox {mb}>
     <h2>{title}</h2>
     <div class:gap-small={gap == 'small'} class:gap-medium={gap == 'medium'}>
         <slot />

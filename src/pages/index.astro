@@ -10,6 +10,8 @@ import Mail from 'svelte-ionicons/Mail.svelte';
 import Globe from 'svelte-ionicons/Globe.svelte';
 import LinkedIn from 'svelte-ionicons/LogoLinkedin.svelte';
 import Github from 'svelte-ionicons/LogoGithub.svelte';
+import BagHandle from 'svelte-ionicons/BagHandle.svelte';
+import MaleFemale from 'svelte-ionicons/MaleFemale.svelte';
 ---
 
 <Layout title="Julien Wolff - CV">
@@ -17,12 +19,24 @@ import Github from 'svelte-ionicons/LogoGithub.svelte';
         <ResumeHeader />
         <div class="content">
             <div>
-                <ResumeElement title="Formation">
+                <ResumeElement title="Formation" mb>
                     <ResumeElementSection title="Lycée Charles Jully" subtitle="2018 - 2021, Saint Avold" icon={School}>
                         Baccalauréat général mention bien avec les spécialités mathématiques, physique chimie et informatique
                     </ResumeElementSection>
                     <ResumeElementSection title="CESI Ecole d'ingenieurs" subtitle="2021 - 2026, Nancy" icon={School}>
                         Baccalauréat général mention bien avec les spécialités mathématiques, physique chimie et informatique
+                    </ResumeElementSection>
+                </ResumeElement>
+
+                <ResumeElement title="Expériences, projets et engagements">
+                    <ResumeElementSection title="Chargé informatique pour la vie lycéenne" subtitle="2020 - 2021, Lycée Charles Jully" icon={BagHandle}>
+                        Réalisation d'un site web de présentation du lycéeet d'un site d'e-commerce pour vendre les produits fabriqués par le lycée
+                    </ResumeElementSection>
+                    <ResumeElementSection title="Label Les Elles du Numérique" subtitle="2021, CESI" icon={MaleFemale}>
+                        Projet visant à sensibiliser sur le sujet de la mixité dans les métiers du numérique
+                    </ResumeElementSection>
+                    <ResumeElementSection title="Responsable informatique du BDE" subtitle="2021 - aujourd'hui, CESI" icon={MaleFemale}>
+                        Réalisation d’outils internes et du site <a href="https://bdecesinancy.fr">bdecesinancy.fr</a>
                     </ResumeElementSection>
                 </ResumeElement>
             </div>

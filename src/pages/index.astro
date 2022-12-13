@@ -14,6 +14,8 @@ import BagHandle from 'svelte-ionicons/BagHandle.svelte';
 import MaleFemale from 'svelte-ionicons/MaleFemale.svelte';
 import People from 'svelte-ionicons/People.svelte';
 import Language from 'svelte-ionicons/Language.svelte';
+import Mic from 'svelte-ionicons/Mic.svelte';
+import Help from 'svelte-ionicons/Help.svelte';
 ---
 
 <Layout title="Julien Wolff - CV">
@@ -61,7 +63,7 @@ import Language from 'svelte-ionicons/Language.svelte';
                     </ResumeIconElement>
                 </ResumeElement>
 
-                <ResumeElement title="Langues" gap="small">
+                <ResumeElement title="Langues" gap="small" mb>
                     <ResumeIconElement icon={Language}>
                         <div class="lang-element">
                             <span>Français</span>
@@ -73,6 +75,18 @@ import Language from 'svelte-ionicons/Language.svelte';
                             <span>Anglais</span>
                             <span class="small">Niveau B2 / C1, 870 TOEIC</span>
                         </div>
+                    </ResumeIconElement>
+                </ResumeElement>
+
+                <ResumeElement title="Soft Skills" gap="small">
+                    <ResumeIconElement icon={People}>
+                        Travail d'équipe
+                    </ResumeIconElement>
+                    <ResumeIconElement icon={Mic}>
+                        Aisance orale
+                    </ResumeIconElement>
+                    <ResumeIconElement icon={Help}>
+                        Curiosité
                     </ResumeIconElement>
                 </ResumeElement>
             </div>

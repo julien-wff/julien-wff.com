@@ -13,6 +13,7 @@ import Github from 'svelte-ionicons/LogoGithub.svelte';
 import BagHandle from 'svelte-ionicons/BagHandle.svelte';
 import MaleFemale from 'svelte-ionicons/MaleFemale.svelte';
 import People from 'svelte-ionicons/People.svelte';
+import Language from 'svelte-ionicons/Language.svelte';
 ---
 
 <Layout title="Julien Wolff - CV">
@@ -43,7 +44,7 @@ import People from 'svelte-ionicons/People.svelte';
             </div>
 
             <div>
-                <ResumeElement title="Contact" gap="small">
+                <ResumeElement title="Contact" gap="small" mb>
                     <ResumeIconElement icon={Location}>Nancy, France</ResumeIconElement>
                     <ResumeIconElement icon={Location} letterspacing="-0.012rem">Boulay Moselle, France</ResumeIconElement>
                     <ResumeIconElement icon={Mail} href="mailto:julien.wolff1@viacesi.fr">
@@ -57,6 +58,21 @@ import People from 'svelte-ionicons/People.svelte';
                     </ResumeIconElement>
                     <ResumeIconElement icon={Github} href="https://github.com/julien-wff">
                         github.com/julien-wff
+                    </ResumeIconElement>
+                </ResumeElement>
+
+                <ResumeElement title="Langues" gap="small">
+                    <ResumeIconElement icon={Language}>
+                        <div class="lang-element">
+                            <span>Français</span>
+                            <span class="small">Langue maternelle</span>
+                        </div>
+                    </ResumeIconElement>
+                    <ResumeIconElement icon={Language}>
+                        <div class="lang-element">
+                            <span>Anglais</span>
+                            <span class="small">Niveau B2 / C1, 870 TOEIC</span>
+                        </div>
                     </ResumeIconElement>
                 </ResumeElement>
             </div>
@@ -78,5 +94,11 @@ import People from 'svelte-ionicons/People.svelte';
         display: grid;
         grid-template-columns: 2fr 1fr;
         gap: var(--spacing);
+    }
+
+    .lang-element {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 </style>

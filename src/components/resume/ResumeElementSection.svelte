@@ -1,6 +1,4 @@
 <script lang="ts">
-    import type { SvelteComponentTyped } from 'svelte';
-
     export let title: string;
     export let subtitle: string;
     export let icon: ConstructorOfATypedSvelteComponent;

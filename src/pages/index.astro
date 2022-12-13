@@ -2,8 +2,14 @@
 import ResumeHeader from '../components/resume/ResumeHeader.svelte';
 import ResumeElement from '../components/resume/ResumeElement.svelte';
 import ResumeElementSection from '../components/resume/ResumeElementSection.svelte';
+import ResumeIconElement from '../components/resume/ResumeIconElement.svelte';
 import Layout from '../layouts/Layout.astro';
 import School from 'svelte-ionicons/School.svelte';
+import Location from 'svelte-ionicons/Location.svelte';
+import Mail from 'svelte-ionicons/Mail.svelte';
+import Globe from 'svelte-ionicons/Globe.svelte';
+import LinkedIn from 'svelte-ionicons/LogoLinkedin.svelte';
+import Github from 'svelte-ionicons/LogoGithub.svelte';
 ---
 
 <Layout title="Julien Wolff - CV">
@@ -20,7 +26,25 @@ import School from 'svelte-ionicons/School.svelte';
                     </ResumeElementSection>
                 </ResumeElement>
             </div>
-            <div></div>
+
+            <div>
+                <ResumeElement title="Contact" gap="small">
+                    <ResumeIconElement icon={Location}>Nancy, France</ResumeIconElement>
+                    <ResumeIconElement icon={Location} letterspacing="-0.012rem">Boulay Moselle, France</ResumeIconElement>
+                    <ResumeIconElement icon={Mail} href="mailto:julien.wolff1@viacesi.fr">
+                        julien.wolff1@viacesi.fr
+                    </ResumeIconElement>
+                    <ResumeIconElement icon={Globe} href="https://julien-wff.com">
+                        julien-wff.com
+                    </ResumeIconElement>
+                    <ResumeIconElement icon={LinkedIn} href="https://linkedin.com/in/julien-wff" letterspacing="-0.065rem">
+                        linkedin.com/in/julien-wff
+                    </ResumeIconElement>
+                    <ResumeIconElement icon={Github} href="https://github.com/julien-wff">
+                        github.com/julien-wff
+                    </ResumeIconElement>
+                </ResumeElement>
+            </div>
         </div>
     </div>
 </Layout>

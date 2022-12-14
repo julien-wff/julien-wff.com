@@ -3,6 +3,7 @@ import ResumeHeader from '../components/resume/ResumeHeader.svelte';
 import ResumeElement from '../components/resume/ResumeElement.svelte';
 import ResumeElementSection from '../components/resume/ResumeElementSection.svelte';
 import ResumeIconElement from '../components/resume/ResumeIconElement.svelte';
+import ResumeCompetenceElement from '../components/resume/ResumeCompetenceElement.svelte';
 import Layout from '../layouts/Layout.astro';
 import School from 'svelte-ionicons/School.svelte';
 import Location from 'svelte-ionicons/Location.svelte';
@@ -32,7 +33,7 @@ import Help from 'svelte-ionicons/Help.svelte';
                     </ResumeElementSection>
                 </ResumeElement>
 
-                <ResumeElement title="Expériences, projets et engagements">
+                <ResumeElement title="Expériences, projets et engagements" mb>
                     <ResumeElementSection title="Chargé informatique pour la vie lycéenne" subtitle="2020 - 2021, Lycée Charles Jully" icon={BagHandle}>
                         Réalisation d'un site web de présentation du lycéeet d'un site d'e-commerce pour vendre les produits fabriqués par le lycée
                     </ResumeElementSection>
@@ -42,6 +43,24 @@ import Help from 'svelte-ionicons/Help.svelte';
                     <ResumeElementSection title="Responsable informatique du BDE" subtitle="2021 - aujourd'hui, CESI" icon={People}>
                         Réalisation d'outils internes et du site <a href="https://bdecesinancy.fr">bdecesinancy.fr</a>
                     </ResumeElementSection>
+                </ResumeElement>
+
+                <ResumeElement title="Compétences" gap="small">
+                    <ResumeCompetenceElement level={3}>
+                        Frontend / Backend / Design web
+                    </ResumeCompetenceElement>
+                    <ResumeCompetenceElement level={3}>
+                        Base de données (SQL / noSQL)
+                    </ResumeCompetenceElement>
+                    <ResumeCompetenceElement level={2}>
+                        Réseau
+                    </ResumeCompetenceElement>
+                    <ResumeCompetenceElement level={2}>
+                        Administration système
+                    </ResumeCompetenceElement>
+                    <ResumeCompetenceElement level={2}>
+                        Embarqué / applications en C / C++
+                    </ResumeCompetenceElement>
                 </ResumeElement>
             </div>
 

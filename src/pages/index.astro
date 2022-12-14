@@ -17,6 +17,9 @@ import People from 'svelte-ionicons/People.svelte';
 import Language from 'svelte-ionicons/Language.svelte';
 import Mic from 'svelte-ionicons/Mic.svelte';
 import Help from 'svelte-ionicons/Help.svelte';
+import Barbell from 'svelte-ionicons/Barbell.svelte';
+import Code from 'svelte-ionicons/Code.svelte';
+import Body from 'svelte-ionicons/Body.svelte';
 ---
 
 <Layout title="Julien Wolff - CV">
@@ -97,7 +100,7 @@ import Help from 'svelte-ionicons/Help.svelte';
                     </ResumeIconElement>
                 </ResumeElement>
 
-                <ResumeElement title="Soft Skills" gap="small">
+                <ResumeElement title="Soft Skills" gap="small" mb>
                     <ResumeIconElement icon={People}>
                         Travail d'équipe
                     </ResumeIconElement>
@@ -106,6 +109,18 @@ import Help from 'svelte-ionicons/Help.svelte';
                     </ResumeIconElement>
                     <ResumeIconElement icon={Help}>
                         Curiosité
+                    </ResumeIconElement>
+                </ResumeElement>
+
+                <ResumeElement title="Passions" gap="small">
+                    <ResumeIconElement icon={Barbell}>
+                        Sport
+                    </ResumeIconElement>
+                    <ResumeIconElement icon={Code}>
+                        Informatique
+                    </ResumeIconElement>
+                    <ResumeIconElement icon={Body}>
+                        Théâtre (4 ans)
                     </ResumeIconElement>
                 </ResumeElement>
             </div>

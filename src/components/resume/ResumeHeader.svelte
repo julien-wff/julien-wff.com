@@ -13,7 +13,7 @@
     div {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 </style>
 
@@ -26,6 +26,5 @@
             Étudiant en 2ème année de classe préparatoire à CESI école d’ingénieur, 
             spécialité informatique
         </span>
-        <span>À la recherche d’un stage en IT du 3 avril au 28 juillet 2023</span>
     </div>
 </ResumeBox>

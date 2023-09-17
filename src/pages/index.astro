@@ -73,62 +73,66 @@ import Body from 'svelte-ionicons/Body.svelte';
                 </ResumeElement>
             </div>
 
-            <div>
-                <ResumeElement title="Contact" gap="small" mb>
-                    <ResumeIconElement icon={Location}>Nancy, France</ResumeIconElement>
-                    <ResumeIconElement icon={Location} letterspacing="-0.012rem">Boulay Moselle, France</ResumeIconElement>
-                    <ResumeIconElement icon={Mail} href="mailto:julien.wolff1@viacesi.fr">
-                        julien.wolff1@viacesi.fr
-                    </ResumeIconElement>
-                    <ResumeIconElement icon={Globe} href="https://julien-wff.com">
-                        julien-wff.com
-                    </ResumeIconElement>
-                    <ResumeIconElement icon={LinkedIn} href="https://linkedin.com/in/julien-wff" letterspacing="-0.065rem">
-                        linkedin.com/in/julien-wff
-                    </ResumeIconElement>
-                    <ResumeIconElement icon={Github} href="https://github.com/julien-wff">
-                        github.com/julien-wff
-                    </ResumeIconElement>
-                </ResumeElement>
+            <div class="resume-small-elements">
+                <div>
+                    <ResumeElement title="Contact" gap="small" mb>
+                        <ResumeIconElement icon={Location}>Nancy, France</ResumeIconElement>
+                        <ResumeIconElement icon={Location} letterspacing="-0.012rem">Boulay Moselle, France</ResumeIconElement>
+                        <ResumeIconElement icon={Mail} href="mailto:julien.wolff1@viacesi.fr">
+                            julien.wolff1@viacesi.fr
+                        </ResumeIconElement>
+                        <ResumeIconElement icon={Globe} href="https://julien-wff.com">
+                            julien-wff.com
+                        </ResumeIconElement>
+                        <ResumeIconElement icon={LinkedIn} href="https://linkedin.com/in/julien-wff" letterspacing="-0.065rem">
+                            linkedin.com/in/julien-wff
+                        </ResumeIconElement>
+                        <ResumeIconElement icon={Github} href="https://github.com/julien-wff">
+                            github.com/julien-wff
+                        </ResumeIconElement>
+                    </ResumeElement>
+    
+                    <ResumeElement title="Langues" gap="small" mb>
+                        <ResumeIconElement icon={Language}>
+                            <div class="lang-element">
+                                <span>Français</span>
+                                <span class="small">Langue maternelle</span>
+                            </div>
+                        </ResumeIconElement>
+                        <ResumeIconElement icon={Language}>
+                            <div class="lang-element">
+                                <span>Anglais</span>
+                                <span class="small">Niveau B2 / C1, 945 TOEIC</span>
+                            </div>
+                        </ResumeIconElement>
+                    </ResumeElement>
+                </div>
 
-                <ResumeElement title="Langues" gap="small" mb>
-                    <ResumeIconElement icon={Language}>
-                        <div class="lang-element">
-                            <span>Français</span>
-                            <span class="small">Langue maternelle</span>
-                        </div>
-                    </ResumeIconElement>
-                    <ResumeIconElement icon={Language}>
-                        <div class="lang-element">
-                            <span>Anglais</span>
-                            <span class="small">Niveau B2 / C1, 945 TOEIC</span>
-                        </div>
-                    </ResumeIconElement>
-                </ResumeElement>
-
-                <ResumeElement title="Soft Skills" gap="small" mb>
-                    <ResumeIconElement icon={People}>
-                        Travail d'équipe
-                    </ResumeIconElement>
-                    <ResumeIconElement icon={Mic}>
-                        Aisance orale
-                    </ResumeIconElement>
-                    <ResumeIconElement icon={Help}>
-                        Curiosité
-                    </ResumeIconElement>
-                </ResumeElement>
-
-                <ResumeElement title="Passions" gap="small">
-                    <ResumeIconElement icon={Barbell}>
-                        Sport
-                    </ResumeIconElement>
-                    <ResumeIconElement icon={Code}>
-                        Informatique
-                    </ResumeIconElement>
-                    <ResumeIconElement icon={Body}>
-                        Théâtre (4 ans)
-                    </ResumeIconElement>
-                </ResumeElement>
+                <div>
+                    <ResumeElement title="Soft Skills" gap="small" mb>
+                        <ResumeIconElement icon={People}>
+                            Travail d'équipe
+                        </ResumeIconElement>
+                        <ResumeIconElement icon={Mic}>
+                            Aisance orale
+                        </ResumeIconElement>
+                        <ResumeIconElement icon={Help}>
+                            Curiosité
+                        </ResumeIconElement>
+                    </ResumeElement>
+    
+                    <ResumeElement title="Passions" gap="small">
+                        <ResumeIconElement icon={Barbell}>
+                            Sport
+                        </ResumeIconElement>
+                        <ResumeIconElement icon={Code}>
+                            Informatique
+                        </ResumeIconElement>
+                        <ResumeIconElement icon={Body}>
+                            Théâtre (4 ans)
+                        </ResumeIconElement>
+                    </ResumeElement>
+                </div>
             </div>
         </div>
     </div>
@@ -162,5 +166,23 @@ import Body from 'svelte-ionicons/Body.svelte';
 
     .cesi-description:nth-of-type(2) {
         margin-top: .5rem;
+    }
+
+    @media all and (max-width: 53rem) {
+        .content {
+            grid-template-columns: 1fr;
+        }
+
+        .resume-small-elements {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: var(--spacing);
+        }
+    }
+
+    @media all and (max-width: 35rem) {
+        .resume-small-elements {
+            grid-template-columns: 1fr;
+        }
     }
 </style>

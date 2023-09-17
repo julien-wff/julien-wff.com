@@ -9,7 +9,7 @@
     .header {
         display: flex;
         align-items: center;
-        height: 2.5rem;
+        min-height: 2.5rem;
         gap: .8rem;
         margin-bottom: .5rem;
     }

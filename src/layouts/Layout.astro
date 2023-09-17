@@ -32,6 +32,19 @@ const { title } = Astro.props;
         --block-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
         --spacing: 1.5rem;
     }
+
+    @media all and (max-width: 53rem) {
+        :root {
+            --spacing: 1.2rem;
+        }
+    }
+
+    @media all and (max-width: 35rem) {
+        :root {
+            --spacing: 1rem;
+        }
+    }
+
     html {
         color: var(--black);
         font-family: 'Montserrat', system-ui, sans-serif;
@@ -40,6 +53,13 @@ const { title } = Astro.props;
         font-size: 1rem;
         min-height: calc(100vh - 2rem);
         padding: 1rem;
+    }
+
+    @media all and (max-width: 35rem) {
+        html {
+            padding: .25rem;
+            font-size: .9rem;
+        }
     }
 
     h1, h2, h3, h4, h5, h6 {

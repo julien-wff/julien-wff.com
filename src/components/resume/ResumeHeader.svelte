@@ -22,6 +22,12 @@
         justify-content: space-evenly;
     }
 
+    @media all and (max-width: 53rem) {
+        .info-container {
+            gap: .5rem;
+        }
+    }
+
     @media all and (max-width: 35rem) {
         img {
             height: 6rem;
@@ -44,8 +50,10 @@
     <div class="info-container">
         <h1>Julien WOLFF</h1>
         <span>
-            Étudiant en 2ème année de classe préparatoire à CESI école d’ingénieur, 
-            spécialité informatique
+            Étudiant en 1ère année de cycle ingénieur (BAC +3) à CESI école d'ingénieur, spécialité informatique.
+        </span>
+        <span>
+            À la recherche d'un stage en IT du 15 janvier au 26 avril 2024
         </span>
     </div>
 </ResumeBox>

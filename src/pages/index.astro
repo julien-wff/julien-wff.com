@@ -11,7 +11,7 @@ import Mail from 'svelte-ionicons/Mail.svelte';
 import Globe from 'svelte-ionicons/Globe.svelte';
 import LinkedIn from 'svelte-ionicons/LogoLinkedin.svelte';
 import Github from 'svelte-ionicons/LogoGithub.svelte';
-import BagHandle from 'svelte-ionicons/BagHandle.svelte';
+import Business from 'svelte-ionicons/Business.svelte';
 import MaleFemale from 'svelte-ionicons/MaleFemale.svelte';
 import People from 'svelte-ionicons/People.svelte';
 import Language from 'svelte-ionicons/Language.svelte';
@@ -33,7 +33,7 @@ import Body from 'svelte-ionicons/Body.svelte';
                     </ResumeElementSection>
                     <ResumeElementSection title="CESI Ecole d'ingenieurs" subtitle="2021 - 2026, Nancy" icon={School}>
                         <p class="cesi-description">
-                            Actuellement en seconde année de classe préparatoire intégrée, en spécialité informatique. 
+                            Actuellement en première année de cycle ingénieur informatique
                         </p>
                         <p class="cesi-description">
                             La particularité de cette école est qu'elle fonctionne sur le modèle de l'entreprise. 
@@ -43,14 +43,14 @@ import Body from 'svelte-ionicons/Body.svelte';
                 </ResumeElement>
 
                 <ResumeElement title="Expériences, projets et engagements" mb>
-                    <ResumeElementSection title="Chargé informatique pour la vie lycéenne" subtitle="2020 - 2021, Lycée Charles Jully" icon={BagHandle}>
-                        Réalisation d'un site web de présentation du lycée et d'un site d'e-commerce pour vendre les produits fabriqués par le lycée
-                    </ResumeElementSection>
                     <ResumeElementSection title="Label Les Elles du Numérique" subtitle="2021, CESI" icon={MaleFemale}>
                         Projet visant à sensibiliser sur le sujet de la mixité dans les métiers du numérique
                     </ResumeElementSection>
                     <ResumeElementSection title="Responsable informatique du BDE" subtitle="2021 - aujourd'hui, CESI" icon={People}>
                         Réalisation d'outils internes et du site <a href="https://bdecesinancy.fr">bdecesinancy.fr</a>
+                    </ResumeElementSection>
+                    <ResumeElementSection title="Stage à la Chambre des Métiers et de l'Artisanat" subtitle="Avril - juillet 2023, CMA Grand Est" icon={Business}>
+                        Stage de 4 mois en entreprise, travail sur un ESB / ETL, visualisation et traitement de données, scripts de migrations
                     </ResumeElementSection>
                 </ResumeElement>
 
@@ -60,6 +60,9 @@ import Body from 'svelte-ionicons/Body.svelte';
                     </ResumeCompetenceElement>
                     <ResumeCompetenceElement level={3}>
                         Base de données (SQL / noSQL)
+                    </ResumeCompetenceElement>
+                    <ResumeCompetenceElement level={2}>
+                        Analyse / visualisation / traitement de data
                     </ResumeCompetenceElement>
                     <ResumeCompetenceElement level={2}>
                         Réseau
@@ -91,7 +94,7 @@ import Body from 'svelte-ionicons/Body.svelte';
                             github.com/julien-wff
                         </ResumeIconElement>
                     </ResumeElement>
-    
+
                     <ResumeElement title="Langues" gap="small" mb>
                         <ResumeIconElement icon={Language}>
                             <div class="lang-element">
@@ -102,7 +105,7 @@ import Body from 'svelte-ionicons/Body.svelte';
                         <ResumeIconElement icon={Language}>
                             <div class="lang-element">
                                 <span>Anglais</span>
-                                <span class="small">Niveau B2 / C1, 945 TOEIC</span>
+                                <span class="small">Niveau C1, 945 au TOEIC</span>
                             </div>
                         </ResumeIconElement>
                     </ResumeElement>
@@ -120,7 +123,7 @@ import Body from 'svelte-ionicons/Body.svelte';
                             Curiosité
                         </ResumeIconElement>
                     </ResumeElement>
-    
+
                     <ResumeElement title="Passions" gap="small">
                         <ResumeIconElement icon={Barbell}>
                             Sport

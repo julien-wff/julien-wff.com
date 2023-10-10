@@ -30,18 +30,12 @@ const { title } = Astro.props;
         --blue: #001aff;
         --black: #17171c;
         --block-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
-        --spacing: 1.5rem;
-    }
-
-    @media all and (max-width: 53rem) {
-        :root {
-            --spacing: 1.2rem;
-        }
+        --spacing: 1rem;
     }
 
     @media all and (max-width: 35rem) {
         :root {
-            --spacing: 1rem;
+            --spacing: .75rem;
         }
     }
 
@@ -88,5 +82,9 @@ const { title } = Astro.props;
     a, a:link, a:visited {
         color: inherit;
         text-decoration: inherit;
+    }
+
+    .no-break {
+        white-space: nowrap;
     }
 </style>

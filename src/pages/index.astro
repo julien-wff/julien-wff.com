@@ -20,6 +20,11 @@ import Help from 'svelte-ionicons/Help.svelte';
 import Barbell from 'svelte-ionicons/Barbell.svelte';
 import Code from 'svelte-ionicons/Code.svelte';
 import Body from 'svelte-ionicons/Body.svelte';
+import Server from 'svelte-ionicons/Server.svelte';
+import LogoDiscord from 'svelte-ionicons/LogoDiscord.svelte';
+import Car from 'svelte-ionicons/Car.svelte';
+import Barcode from 'svelte-ionicons/Barcode.svelte';
+import Cloud from 'svelte-ionicons/Cloud.svelte';
 ---
 
 <Layout title="Julien Wolff - CV">
@@ -28,50 +33,50 @@ import Body from 'svelte-ionicons/Body.svelte';
         <div class="content">
             <div>
                 <ResumeElement title="Formation" mb>
-                    <ResumeElementSection title="Lycée Charles Jully" subtitle="2018 - 2021, Saint Avold" icon={School}>
-                        Baccalauréat général mention bien avec les spécialités mathématiques, physique chimie et informatique
+                    <ResumeElementSection title="CESI École d'Ingénieurs" subtitle="2021 - 2026, Nancy" icon={School}>
+                        Actuellement en première année de cycle ingénieur informatique
                     </ResumeElementSection>
-                    <ResumeElementSection title="CESI Ecole d'ingenieurs" subtitle="2021 - 2026, Nancy" icon={School}>
-                        <p class="cesi-description">
-                            Actuellement en première année de cycle ingénieur informatique
-                        </p>
-                        <p class="cesi-description">
-                            La particularité de cette école est qu'elle fonctionne sur le modèle de l'entreprise. 
-                            Il n'y a pas vraiment de cours, mais plus des projets à réaliser en groupe tout au long de l'année
-                        </p>
+                    <ResumeElementSection title="Lycée Charles Jully" subtitle="2018 - 2021, Saint-Avold" icon={School}>
+                        Baccalauréat général mention bien avec les spécialités mathématiques, physique-chimie et informatique
                     </ResumeElementSection>
                 </ResumeElement>
 
                 <ResumeElement title="Expériences, projets et engagements" mb>
-                    <ResumeElementSection title="Label Les Elles du Numérique" subtitle="2021, CESI" icon={MaleFemale}>
-                        Projet visant à sensibiliser sur le sujet de la mixité dans les métiers du numérique
+                    <ResumeElementSection title="Développeur / Data Scientist" subtitle="Avril - juillet 2023, CMA Grand Est, Metz" icon={Business}>
+                        Travail sur un ESB / ETL, visualisation et traitement de données, scripts de migrations de bases de données
+                    </ResumeElementSection>
+                    <ResumeElementSection title="Projet personnel : serveur cloud" subtitle="Mai 2022 - aujourd'hui" icon={Server}>
+                        Infrastructure Docker complète dans le cloud, avec de nombreux services auto-hébergés, le tout monitoré
                     </ResumeElementSection>
                     <ResumeElementSection title="Responsable informatique du BDE" subtitle="2021 - aujourd'hui, CESI" icon={People}>
                         Réalisation d'outils internes et du site <a href="https://bdecesinancy.fr">bdecesinancy.fr</a>
                     </ResumeElementSection>
-                    <ResumeElementSection title="Stage à la Chambre des Métiers et de l'Artisanat" subtitle="Avril - juillet 2023, CMA Grand Est" icon={Business}>
-                        Stage de 4 mois en entreprise, travail sur un ESB / ETL, visualisation et traitement de données, scripts de migrations
+                    <ResumeElementSection title="Label Les Elles du Numérique" subtitle="2021, CESI" icon={MaleFemale}>
+                        Projet CESI, en partenariat avec Orange, visant à sensibiliser sur le sujet de la mixité dans les métiers du numérique
+                    </ResumeElementSection>
+                    <ResumeElementSection title="Projet personnel : bot Discord" subtitle="Février 2020 - avril 2021" icon={LogoDiscord}>
+                        Infrastructure de bot Discord complète et modulaire
                     </ResumeElementSection>
                 </ResumeElement>
 
-                <ResumeElement title="Compétences" gap="small">
-                    <ResumeCompetenceElement level={3}>
-                        Frontend / Backend / Design web
+                <ResumeElement title="Compétences clés" gap="small">
+                    <ResumeCompetenceElement>
+                        Web : NodeJS, React, Svelte, PWA, Firebase, Figma
                     </ResumeCompetenceElement>
-                    <ResumeCompetenceElement level={3}>
-                        Base de données (SQL / noSQL)
+                    <ResumeCompetenceElement>
+                        Base de données : MySQL, SQL Server, MongoDB
                     </ResumeCompetenceElement>
-                    <ResumeCompetenceElement level={2}>
-                        Analyse / visualisation / traitement de data
+                    <ResumeCompetenceElement>
+                        Data : Blueway, Metabase, Power BI, Python
                     </ResumeCompetenceElement>
-                    <ResumeCompetenceElement level={2}>
-                        Réseau
+                    <ResumeCompetenceElement>
+                        Admin. système : cloud, Linux, Docker, virtualisation
                     </ResumeCompetenceElement>
-                    <ResumeCompetenceElement level={2}>
-                        Administration système
+                    <ResumeCompetenceElement>
+                        Réseau : matériel Cisco, CCNA1, pfSense
                     </ResumeCompetenceElement>
-                    <ResumeCompetenceElement level={2}>
-                        Embarqué / applications en C / C++
+                    <ResumeCompetenceElement>
+                        Développement : Arduino, C, C++, C#
                     </ResumeCompetenceElement>
                 </ResumeElement>
             </div>
@@ -79,10 +84,14 @@ import Body from 'svelte-ionicons/Body.svelte';
             <div class="resume-small-elements">
                 <div>
                     <ResumeElement title="Contact" gap="small" mb>
-                        <ResumeIconElement icon={Location}>Nancy, France</ResumeIconElement>
-                        <ResumeIconElement icon={Location} letterspacing="-0.012rem">Boulay Moselle, France</ResumeIconElement>
-                        <ResumeIconElement icon={Mail} href="mailto:julien.wolff1@viacesi.fr">
-                            julien.wolff1@viacesi.fr
+                        <ResumeIconElement icon={Location} href="https://www.google.com/maps/place/Nancy/">
+                            Nancy, France
+                        </ResumeIconElement>
+                        <ResumeIconElement icon={Location} letterspacing="-0.012rem" href="https://www.google.com/maps/place/57220+Boulay-Moselle/">
+                            Boulay Moselle, France
+                        </ResumeIconElement>
+                        <ResumeIconElement icon={Mail} href="mailto:julien.wff@gmail.com">
+                            julien.wff@gmail.com
                         </ResumeIconElement>
                         <ResumeIconElement icon={Globe} href="https://julien-wff.com">
                             julien-wff.com
@@ -92,6 +101,9 @@ import Body from 'svelte-ionicons/Body.svelte';
                         </ResumeIconElement>
                         <ResumeIconElement icon={Github} href="https://github.com/julien-wff">
                             github.com/julien-wff
+                        </ResumeIconElement>
+                        <ResumeIconElement icon={Car}>
+                            Permis B
                         </ResumeIconElement>
                     </ResumeElement>
 
@@ -108,6 +120,12 @@ import Body from 'svelte-ionicons/Body.svelte';
                                 <span class="small">Niveau C1, 945 au TOEIC</span>
                             </div>
                         </ResumeIconElement>
+                        <ResumeIconElement icon={Language}>
+                            <div class="lang-element">
+                                <span>Allemand</span>
+                                <span class="small">Notions</span>
+                            </div>
+                        </ResumeIconElement>
                     </ResumeElement>
                 </div>
 
@@ -121,6 +139,12 @@ import Body from 'svelte-ionicons/Body.svelte';
                         </ResumeIconElement>
                         <ResumeIconElement icon={Help}>
                             Curiosité
+                        </ResumeIconElement>
+                        <ResumeIconElement icon={Barcode}>
+                            Rigueur
+                        </ResumeIconElement>
+                        <ResumeIconElement icon={Cloud}>
+                            Autonomie
                         </ResumeIconElement>
                     </ResumeElement>
 
@@ -161,14 +185,6 @@ import Body from 'svelte-ionicons/Body.svelte';
         display: flex;
         flex-direction: column;
         justify-content: center;
-    }
-
-    .cesi-description {
-        margin: 0;
-    }
-
-    .cesi-description:nth-of-type(2) {
-        margin-top: .5rem;
     }
 
     @media all and (max-width: 53rem) {

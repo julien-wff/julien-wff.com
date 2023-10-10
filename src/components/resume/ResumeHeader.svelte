@@ -22,6 +22,10 @@
         justify-content: space-evenly;
     }
 
+    .bold {
+        font-weight: bold;
+    }
+
     @media all and (max-width: 53rem) {
         .info-container {
             gap: .5rem;
@@ -49,11 +53,11 @@
     </div>
     <div class="info-container">
         <h1>Julien WOLFF</h1>
-        <span>
-            Étudiant en 1ère année de cycle ingénieur (BAC +3) à CESI école d'ingénieur, spécialité informatique.
+        <span class="bold">
+            Stage en développement informatique du 15 janvier au 26 avril 2024.
         </span>
         <span>
-            À la recherche d'un stage en IT du 15 janvier au 26 avril 2024
+            Étudiant en 1ʳᵉ année de cycle ingénieur <span class="no-break">(BAC +3)</span> à CESI École d'Ingénieurs, spécialité informatique.
         </span>
     </div>
 </ResumeBox>

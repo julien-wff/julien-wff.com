@@ -3,7 +3,7 @@ export const indexTranslations = {
         'nav.projects': 'Projects',
         'nav.resume': 'Résumé',
         'landing.hello': 'Hi there,',
-        'landing.im': 'I am',
+        'landing.im': 'My name\'s',
         'landing.cs-student': 'CS Engineering Student',
         'landing.fullstack-dev': 'Fullstack Developer',
         'landing.it-passionate': 'IT Passionate',

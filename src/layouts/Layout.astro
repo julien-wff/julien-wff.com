@@ -1,5 +1,9 @@
 ---
 import { defaultLanguage } from '../i18n/utils';
+import '@fontsource/albert-sans/400.css';
+import '@fontsource/albert-sans/700.css';
+import albert400 from '@fontsource/albert-sans/files/albert-sans-latin-400-normal.woff2';
+import albert700 from '@fontsource/albert-sans/files/albert-sans-latin-700-normal.woff2';
 
 interface Props {
 	title: string;
@@ -18,10 +22,9 @@ const defaultDescription = 'Site personnel de Julien WOLFF';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="preload" href={albert400} as="font" type="font/woff2" />
+		<link rel="preload" href={albert700} as="font" type="font/woff2" />
 		<title>{title}</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<main>

@@ -11,6 +11,9 @@ dependencies:
   '@astrojs/svelte':
     specifier: ^5.2.0
     version: 5.2.0(astro@4.5.5)(svelte@4.2.12)(typescript@5.4.2)(vite@5.1.6)
+  '@fontsource/albert-sans':
+    specifier: ^5.0.12
+    version: 5.0.12
   astro:
     specifier: ^4.5.5
     version: 4.5.5(typescript@5.4.2)
@@ -625,6 +628,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource/albert-sans@5.0.12:
+    resolution: {integrity: sha512-iA/+wln0a/1kBpZqyzf97X0z1IoJv55ncVJ5/oFGc8zP4Vlm3nOVNX3wyfW4M2Ui6JW8kMsuJ7+zBy92ZjIeRQ==}
+    dev: false
 
   /@img/sharp-darwin-arm64@0.33.2:
     resolution: {integrity: sha512-itHBs1rPmsmGF9p4qRe++CzCgd+kFYktnsoR1sbIAfsRMrJZau0Tt1AH9KVnufc2/tU02Gf6Ibujx+15qRE03w==}

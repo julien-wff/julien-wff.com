@@ -1,6 +1,8 @@
-<script lang="ts">
-    import ResumeBox from './ResumeBox.svelte';
-</script>
+---
+import ResumeBox from './ResumeBox.svelte';
+import { Image } from 'astro:assets';
+import profilePic from '../../assets/resume/profile.png';
+---
 
 
 <style>
@@ -49,7 +51,7 @@
 
 <ResumeBox direction="row">
     <div class="img-container">
-        <img src="/resume/profile.png" alt="Julien Wolff" height="160" width="160" />
+        <Image src={profilePic} alt="Julien Wolff" loading="eager"/>
     </div>
     <div class="info-container">
         <h1>Julien WOLFF</h1>

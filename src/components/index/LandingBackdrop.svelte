@@ -51,8 +51,7 @@
         inset: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(255, 255, 255, 0.6);
+        background-color: color-mix(in srgb, var(--background-color) 60%, transparent 40%);
         backdrop-filter: blur(100px);
     }
 </style>
-

@@ -29,21 +29,25 @@ const defaultDescription = 'Site personnel de Julien WOLFF';
 </html>
 
 <style is:global>
+	:root {
+		--gradient-blue: #4DA4F4;
+		--gradient-purple: #E926FA;
+		--primary-color: #9d65f7;
+		--background-color: #f1f1f1;
+		--text-color: #002c45;
+	}
+
 	html, body {
 		margin: 0;
 		padding: 0;
 		font-family: 'Albert Sans', sans-serif;
+		color: var(--text-color);
+		background-color: var(--background-color);
 	}
 
 	::selection {
 		background: var(--primary-color);
 		color: white;
 		-webkit-text-fill-color: initial;
-	}
-
-	:root {
-		--gradient-blue: #4DA4F4;
-		--gradient-purple: #E926FA;
-		--primary-color: #9d65f7;
 	}
 </style>

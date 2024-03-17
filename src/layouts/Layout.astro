@@ -1,4 +1,6 @@
 ---
+import { defaultLanguage } from '../i18n/utils';
+
 interface Props {
 	title: string;
 	description?: string | null;
@@ -9,7 +11,7 @@ const defaultDescription = 'Site personnel de Julien WOLFF';
 ---
 
 <!doctype html>
-<html lang={Astro.currentLocale || 'fr'}>
+<html lang={Astro.currentLocale || defaultLanguage}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description || defaultDescription} />

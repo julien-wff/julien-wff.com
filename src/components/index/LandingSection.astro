@@ -1,11 +1,20 @@
 ---
 import LandingBackdrop from './LandingBackdrop.svelte';
+import LandingSubtitle from './LandingSubtitle.svelte';
 import { useTranslations } from '../../i18n/utils';
 import { indexTranslations } from '../../i18n/translations';
 
-
 const language = Astro.currentLocale;
 const t = useTranslations(indexTranslations, language as keyof typeof indexTranslations);
+
+const subtitles = [
+    { emoji: '👨‍🎓', text: t('landing.cs-student') },
+    { emoji: '⌨️', text: t('landing.fullstack-dev') },
+    { emoji: '🇫🇷', text: t('landing.french') },
+    { emoji: '💻', text: t('landing.it-passionate') },
+    { emoji: '🐈', text: t('landing.love-cats') },
+];
+const delayPerSubtitle = 4;
 ---
 
 <section>
@@ -18,10 +27,13 @@ const t = useTranslations(indexTranslations, language as keyof typeof indexTrans
             {t('landing.im')} <span class="text-gradient">Julien</span>
         </h1>
         <div class="subtitle-container">
-            <span>👨‍🎓 {t('landing.cs-student')}</span>
-            <span>⌨️ {t('landing.fullstack-dev')}</span>
-            <span>💻 {t('landing.it-passionate')}</span>
-            <span>🐈 {t('landing.love-cats')}</span>
+            {subtitles.map((subtitle, index) => (
+                    <LandingSubtitle
+                            emoji={subtitle.emoji}
+                            text={subtitle.text}
+                            delay={index * delayPerSubtitle}
+                            animationDuration={delayPerSubtitle * subtitles.length}/>
+            ))}
         </div>
     </div>
 </section>
@@ -55,40 +67,5 @@ const t = useTranslations(indexTranslations, language as keyof typeof indexTrans
 
     .subtitle-container {
         position: relative;
-    }
-
-    .subtitle-container span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        animation: appear 16s linear infinite;
-    }
-
-    .subtitle-container span:nth-child(2) {
-        animation-delay: 4s;
-    }
-
-    .subtitle-container span:nth-child(3) {
-        animation-delay: 8s;
-    }
-
-    .subtitle-container span:nth-child(4) {
-        animation-delay: 12s;
-    }
-
-    @keyframes appear {
-        5% {
-            opacity: 0;
-        }
-        10% {
-            opacity: 1;
-        }
-        25% {
-            opacity: 1;
-        }
-        30% {
-            opacity: 0;
-        }
     }
 </style>

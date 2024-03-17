@@ -1,21 +1,27 @@
-<script>
-    import LandingBackdrop from "./LandingBackdrop.svelte";
-</script>
+---
+import LandingBackdrop from './LandingBackdrop.svelte';
+import { useTranslations } from '../../i18n/utils';
+import { indexTranslations } from '../../i18n/translations';
+
+
+const language = Astro.currentLocale;
+const t = useTranslations(indexTranslations, language as keyof typeof indexTranslations);
+---
 
 <section>
-    <LandingBackdrop/>
+    <LandingBackdrop client:idle/>
 
     <div class="content">
         <h1>
-            Salut,
+            {t('landing.hello')}
             <br>
-            Moi c'est <span class="text-gradient">Julien</span>
+            {t('landing.im')} <span class="text-gradient">Julien</span>
         </h1>
         <div class="subtitle-container">
-            <span>👨‍🎓 Étudiant en école d'ingénieur</span>
-            <span>⌨️ Développeur fullstack</span>
-            <span>💻 Passionné d'informatique</span>
-            <span>🐈 J'adore les chats</span>
+            <span>👨‍🎓 {t('landing.cs-student')}</span>
+            <span>⌨️ {t('landing.fullstack-dev')}</span>
+            <span>💻 {t('landing.it-passionate')}</span>
+            <span>🐈 {t('landing.love-cats')}</span>
         </div>
     </div>
 </section>

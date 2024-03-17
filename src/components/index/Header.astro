@@ -1,0 +1,100 @@
+---
+import LanguageSelector from "./LanguageSelector.svelte";
+import { useTranslations, type Language } from '../../i18n/utils';
+import { indexTranslations } from '../../i18n/translations';
+
+const language = Astro.currentLocale as Language;
+const t = useTranslations(indexTranslations, language);
+---
+
+<header>
+    <nav>
+        <a href="/">{t('nav.projects')}</a>
+        <a href="/resume">{t('nav.resume')}</a>
+        <a href="https://github.com/julien-wff" rel="noreferrer noopener">GitHub</a>
+        <a href="https://linkedin.com/in/julien-wff" rel="noreferrer noopener">LinkedIn</a>
+        <div class="language-mobile">
+            <LanguageSelector currentLanguage={language} client:idle/>
+        </div>
+    </nav>
+    <div class="language-desktop">
+        <LanguageSelector currentLanguage={language} client:idle/>
+    </div>
+</header>
+
+<style>
+    header {
+        --header-color: color-mix(in srgb, var(--background-color) 60%, transparent 40%);
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        width: 100%;
+        height: 7rem;
+        z-index: 10;
+        background: linear-gradient(
+            180deg,
+            var(--header-color) 0%,
+            var(--header-color) 75%,
+            transparent 100%
+        );
+        backdrop-filter: blur(1rem);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        padding-block: 1.5rem;
+        width: 50%;
+        max-width: 36rem;
+    }
+
+    a {
+        padding: 1rem 2rem;
+        text-decoration: none;
+        color: inherit;
+        line-height: 1rem;
+    }
+
+    .language-desktop {
+        position: absolute;
+        right: 1.5rem;
+        top: 1.5rem;
+    }
+
+    .language-mobile {
+        display: none;
+    }
+
+    @media screen and (max-width: 48rem) {
+        header {
+            height: 5rem;
+        }
+
+        nav {
+            width: 100%;
+            justify-content: space-evenly;
+            height: 4rem;
+            padding: 1rem;
+        }
+
+        a {
+            padding: 1rem;
+        }
+
+        .language-desktop {
+            display: none;
+        }
+
+        .language-mobile {
+            display: block;
+        }
+    }
+
+    @media screen and (max-width: 28rem) {
+        a {
+            padding: 1rem 0.5rem;
+        }
+    }
+</style>

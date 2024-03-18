@@ -2,9 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/index/Header.astro';
 import LandingSection from '../../components/index/LandingSection.astro';
+import LandingBackdrop from '../../components/index/LandingBackdrop.svelte';
 ---
 
 <Layout title="Julien WOLFF">
 	<Header/>
+	<LandingBackdrop client:idle/>
 	<LandingSection/>
 </Layout>

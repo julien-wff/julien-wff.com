@@ -1,5 +1,6 @@
 ---
 import LandingSubtitle from './LandingSubtitle.astro';
+import { ChevronDownOutline } from 'svelte-ionicons';
 import { useTranslations } from '../../i18n/utils';
 import { indexTranslations } from '../../i18n/translations';
 
@@ -33,12 +34,16 @@ const delayPerSubtitle = 4;
             ))}
         </div>
     </div>
+
+    <a href="#about" class="arrow-down" aria-label="Scroll down to about section">
+        <ChevronDownOutline size="2rem" color="var(--text-color)"/>
+    </a>
 </section>
 
 <style>
     section {
         width: 100%;
-        height: 100vh;
+        height: 100svh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -63,5 +68,18 @@ const delayPerSubtitle = 4;
 
     .subtitle-container {
         position: relative;
+    }
+
+    .arrow-down {
+        position: absolute;
+        bottom: 0;
+        padding: 2rem;
+        animation: bounce 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes bounce {
+        to {
+            transform: translateY(.5rem);
+        }
     }
 </style>

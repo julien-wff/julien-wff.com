@@ -1,0 +1,49 @@
+---
+import DynamicAge from './DynamicAge.svelte';
+---
+
+<section id="about">
+    <div class="content">
+        <h1>Qui suis-je ? 🤔</h1>
+
+        <p>
+            Julien. Je pense que vous l'avez compris.
+        </p>
+        <p>
+            J'ai <DynamicAge client:idle/>, et j'ai passé à peu près toute ma vie dans le Grand Est de la France.
+        </p>
+        <p>
+            Au début, mes parents m'ont orienté vers architecte. Et puis, après avoir passé quelques milliers
+            d'heures sur Scratch, mon Lego Mindstorms et Automate, j'ai commencé à avoir une autre idée derrière la
+            tête.
+        </p>
+        <p>
+            J'ai tapé mes premières lignes de code en 2018, et je n'ai jamais vraiment arrêté depuis. Aujourd'hui, je
+            suis en école d'ingénieur, et l'informatique est au centre de ma vie.
+        </p>
+    </div>
+</section>
+
+<style>
+    section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        min-height: calc(80svh);
+        padding: 2rem;
+        scroll-margin-top: 8rem;
+    }
+
+    .content {
+        max-width: 40rem;
+        width: 100%;
+        font-size: 1.125rem;
+    }
+
+    @media screen and (max-width: 28rem) {
+        .content {
+            font-size: 1rem;
+        }
+    }
+</style>

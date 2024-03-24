@@ -2,6 +2,7 @@
     from = "/"
     to = "/fr"
     status = 302
+    force = true
     query = {path = ":path"}
     conditions = {Language = ["fr"]}
 
@@ -9,4 +10,5 @@
     from = "/"
     to = "/en"
     status = 302
+    force = true
     query = {path = ":path"}

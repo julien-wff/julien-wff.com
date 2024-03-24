@@ -17,6 +17,9 @@ dependencies:
   astro:
     specifier: ^4.5.5
     version: 4.5.5(typescript@5.4.2)
+  dedent:
+    specifier: ^1.5.1
+    version: 1.5.1
   sharp:
     specifier: ^0.33.2
     version: 0.33.2
@@ -1640,6 +1643,15 @@ packages:
 
   /dedent-js@1.0.1:
     resolution: {integrity: sha512-OUepMozQULMLUmhxS95Vudo0jb0UchLimi3+pQ2plj61Fcy8axbP9hbiD4Sz6DPqn6XG3kfmziVfQ1rSys5AJQ==}
+    dev: false
+
+  /dedent@1.5.1:
+    resolution: {integrity: sha512-+LxW+KLWxu3HW3M2w2ympwtqPrqYRzU8fqi6Fhd18fBALe15blJPI/I4+UHveMVG6lJqB4JNd4UG0S5cnVHwIg==}
+    peerDependencies:
+      babel-plugin-macros: ^3.1.0
+    peerDependenciesMeta:
+      babel-plugin-macros:
+        optional: true
     dev: false
 
   /deep-extend@0.6.0:

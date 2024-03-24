@@ -1,5 +1,11 @@
 <script lang="ts">
     import { onDestroy } from 'svelte';
+    import { type Language, useTranslations } from '../../i18n/utils.ts';
+    import { indexTranslations } from '../../i18n/translations';
+
+    export let language: Language;
+
+    const t = useTranslations(indexTranslations, language);
 
     const birthday = new Date('2003-05-29 08:00:00').getTime();
 
@@ -52,15 +58,15 @@
 
 <span on:mouseenter={handleMouseHover} on:mouseleave={handleMouseLeave} role="note">
     {#if !revealFullAge}
-        {currentAge.years}&nbsp;ans*
+        {currentAge.years}&nbsp;{t("age.years-old")}*,
     {:else}
-        très&nbsp;exactement
-        {currentAge.years}&nbsp;ans
-        {currentAge.months}&nbsp;mois
-        {currentAge.days}&nbsp;jours
-        {currentAge.hours}&nbsp;heures
-        {currentAge.minutes}&nbsp;minutes
-        {currentAge.seconds}&nbsp;secondes et
-        {currentAge.milliseconds}&nbsp;millisecondes
+        {t("age.precisely")}
+        {currentAge.years}&nbsp;{t("age.years")}
+        {currentAge.months}&nbsp;{t("age.months")}
+        {currentAge.days}&nbsp;{t("age.days")}
+        {currentAge.hours}&nbsp;{t("age.hours")}
+        {currentAge.minutes}&nbsp;{t("age.minutes")}
+        {currentAge.seconds}&nbsp;{t("age.seconds")}
+        {currentAge.milliseconds}&nbsp;{t("age.milliseconds")}
     {/if}
 </span>

@@ -3,10 +3,12 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/index/Header.astro';
 import LandingSection from '../../components/index/LandingSection.astro';
 import LandingBackdrop from '../../components/index/LandingBackdrop.svelte';
+import AboutMeSection from '../../components/index/AboutMeSection.astro';
 ---
 
 <Layout title="Julien WOLFF">
-	<Header/>
-	<LandingBackdrop client:idle/>
-	<LandingSection/>
+    <Header/>
+    <LandingBackdrop client:idle/>
+    <LandingSection/>
+    <AboutMeSection/>
 </Layout>

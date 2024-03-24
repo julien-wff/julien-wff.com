@@ -1,26 +1,24 @@
 ---
 import DynamicAge from './DynamicAge.svelte';
+import { useTranslations, type Language } from '../../i18n/utils';
+import { indexTranslations } from '../../i18n/translations';
+
+const language = Astro.currentLocale as Language;
+const t = useTranslations(indexTranslations, language);
 ---
 
 <section id="about">
     <div class="content">
-        <h1>Qui suis-je ? 🤔</h1>
+        <h1>{t('about-me.who-am-i')}</h1>
 
+        <p>{t('about-me.julien')}</p>
         <p>
-            Julien. Je pense que vous l'avez compris.
+            {t('about-me.age-im')}
+            <DynamicAge {language} client:idle/>
+            {t('about-me.life-in-france')}
         </p>
-        <p>
-            J'ai <DynamicAge client:idle/>, et j'ai passé à peu près toute ma vie dans le Grand Est de la France.
-        </p>
-        <p>
-            Au début, mes parents m'ont orienté vers architecte. Et puis, après avoir passé quelques milliers
-            d'heures sur Scratch, mon Lego Mindstorms et Automate, j'ai commencé à avoir une autre idée derrière la
-            tête.
-        </p>
-        <p>
-            J'ai tapé mes premières lignes de code en 2018, et je n'ai jamais vraiment arrêté depuis. Aujourd'hui, je
-            suis en école d'ingénieur, et l'informatique est au centre de ma vie.
-        </p>
+        <p>{t('about-me.early-years')}</p>
+        <p>{t('about-me.code')}</p>
     </div>
 </section>
 

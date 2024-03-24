@@ -15,7 +15,7 @@
         {languagesDisplay[currentLanguage]}
     </button>
     {#each Array.from(languagesKeys) as language}
-        <a class="language" href="/{language}">
+        <a class="language" href="/{language}/">
             {languagesDisplay[language]}
         </a>
     {/each}

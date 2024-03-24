@@ -1,5 +1,4 @@
 ---
-import { defaultLanguage } from '../i18n/utils';
 import '@fontsource/albert-sans/400.css';
 import '@fontsource/albert-sans/700.css';
 import albert400 from '@fontsource/albert-sans/files/albert-sans-latin-400-normal.woff2';
@@ -15,7 +14,7 @@ const defaultDescription = 'Site personnel de Julien WOLFF';
 ---
 
 <!doctype html>
-<html lang={Astro.currentLocale || defaultLanguage}>
+<html lang={Astro.currentLocale}>
 <head>
     <meta charset="UTF-8"/>
     <meta name="description" content={description || defaultDescription}/>

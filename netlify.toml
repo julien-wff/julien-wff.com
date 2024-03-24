@@ -1,0 +1,12 @@
+[[redirects]]
+    from = "/"
+    to = "/fr"
+    status = 302
+    query = {path = ":path"}
+    conditions = {Language = ["fr"]}
+
+[[redirects]]
+    from = "/"
+    to = "/en"
+    status = 302
+    query = {path = ":path"}

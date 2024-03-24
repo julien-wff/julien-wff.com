@@ -11,8 +11,6 @@ export const languagesDisplay = {
 
 export type Language = keyof typeof languagesDisplay;
 
-export const defaultLanguage: Language = 'fr';
-
 export type Translations = {
     [key in Language]: {
         [key: string]: string;

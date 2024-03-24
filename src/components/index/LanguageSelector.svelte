@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { defaultLanguage, languagesDisplay, type Language } from '../../i18n/utils.ts';
+    import { languagesDisplay, type Language } from '../../i18n/utils.ts';
 
     export let currentLanguage: Language;
 
@@ -15,7 +15,7 @@
         {languagesDisplay[currentLanguage]}
     </button>
     {#each Array.from(languagesKeys) as language}
-        <a class="language" href="/{language === defaultLanguage ? '' : language}">
+        <a class="language" href="/{language}">
             {languagesDisplay[language]}
         </a>
     {/each}

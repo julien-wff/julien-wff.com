@@ -3,3 +3,6 @@
 
 /* /fr/:splat 301 Language=fr
 /* /en/:splat 301
+
+/* /fr 301 Language=fr
+/* /en 301

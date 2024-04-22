@@ -26,7 +26,7 @@
     <a {href} rel="noreferrer, noopener">
         <div class="container" style:letter-spacing={letterspacing}>
             <div class="icon">
-                <svelte:component this="{icon}" color="var(--blue)" size="1.5rem" />
+                <svelte:component this="{icon}" color="var(--primary-color)" size="1.5rem" />
             </div>
             <slot />
         </div>
@@ -34,7 +34,7 @@
 {:else}
     <div class="container" style:letter-spacing={letterspacing}>
         <div class="icon">
-            <svelte:component this="{icon}" color="var(--blue)" size="1.5rem" />
+            <svelte:component this="{icon}" color="var(--primary-color)" size="1.5rem" />
         </div>
         <slot />
     </div>

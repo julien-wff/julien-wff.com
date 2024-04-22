@@ -1,10 +1,11 @@
 ---
-import ResumeLayout from '../../layouts/Resume.astro';
+import ResumeLayout from '../../layouts/ResumeLayout.astro';
 import ResumeHeader from '../../components/resume/ResumeHeader.astro';
 import ResumeElement from '../../components/resume/ResumeElement.svelte';
 import ResumeElementSection from '../../components/resume/ResumeElementSection.svelte';
 import ResumeIconElement from '../../components/resume/ResumeIconElement.svelte';
 import ResumeCompetenceElement from '../../components/resume/ResumeCompetenceElement.svelte';
+import LandingBackdrop from '../../components/common/LandingBackdrop.svelte';
 import {
     School,
     Location,
@@ -30,6 +31,8 @@ import {
 ---
 
 <ResumeLayout title="Julien Wolff - CV">
+    <LandingBackdrop client:idle/>
+
     <div class="resume">
         <ResumeHeader/>
         <div class="content">
@@ -115,8 +118,7 @@ import {
                             julien-wff.com
                         </ResumeIconElement>
                         <ResumeIconElement icon={LogoLinkedin}
-                                           href="https://linkedin.com/in/julien-wff"
-                                           letterspacing="-0.065rem">
+                                           href="https://linkedin.com/in/julien-wff">
                             linkedin.com/in/julien-wff
                         </ResumeIconElement>
                         <ResumeIconElement icon={LogoGithub} href="https://github.com/julien-wff">
@@ -189,6 +191,7 @@ import {
     .resume {
         width: 100%;
         max-width: 50rem;
+        position: relative;
         margin: 0 auto;
         display: flex;
         flex-direction: column;

@@ -33,7 +33,7 @@
 <div class="section">
     <div class="header">
         <div class="icon">
-            <svelte:component this={icon} color="var(--blue)" size="2rem" />
+            <svelte:component this={icon} color="var(--primary-color)" size="2rem" />
         </div>
         <div class="header-text">
             <h3>{title}</h3>

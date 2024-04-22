@@ -11,7 +11,7 @@
         width: .75rem;
         height: .75rem;
         border-radius: .3rem;
-        background-color: var(--blue);
+        background: var(--gradient);
     }
 </style>
 

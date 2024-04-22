@@ -6,8 +6,8 @@
 
 <style>
     div {
-        background: var(--gray);
-        box-shadow: var(--block-shadow);
+        background: var(--box-background);
+        box-shadow: var(--box-shadow);
         padding: var(--spacing);
         border-radius: 1rem;
         display: flex;

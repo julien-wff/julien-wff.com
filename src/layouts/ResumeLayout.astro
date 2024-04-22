@@ -1,0 +1,89 @@
+---
+import '../assets/style/main.css';
+import albert400 from '@fontsource/albert-sans/files/albert-sans-latin-400-normal.woff2';
+import albert700 from '@fontsource/albert-sans/files/albert-sans-latin-700-normal.woff2';
+
+export interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preload" href={albert400} as="font" type="font/woff2"/>
+    <link rel="preload" href={albert700} as="font" type="font/woff2"/>
+    <title>{title}</title>
+</head>
+<body>
+<slot />
+<svg style="width:0; height:0; position:absolute;" aria-hidden="true" focusable="false">
+    <linearGradient id="icon-gradient" x2="1" y2="1">
+        <stop offset="0%" stop-color="var(--gradient-blue)"/>
+        <stop offset="100%" stop-color="var(--gradient-purple)"/>
+    </linearGradient>
+</svg>
+</body>
+</html>
+
+<style is:global>
+    :root {
+        --box-background: rgba(228, 228, 237, 0.53);
+        --box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        --spacing: 1rem;
+    }
+
+    @media all and (max-width: 35rem) {
+        :root {
+            --spacing: .75rem;
+        }
+    }
+
+    html {
+        min-height: calc(100vh - var(--spacing));
+        padding: var(--spacing);
+        text-rendering: optimizeLegibility;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+    }
+
+    h1 {
+        font-weight: 700;
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+
+    .small {
+        font-size: 0.8rem;
+    }
+
+    a, a:link, a:visited {
+        color: inherit;
+        text-decoration: underline color-mix(in srgb, var(--text-color) 50%, transparent);
+    }
+
+    .no-break {
+        white-space: nowrap;
+    }
+
+    .icon svg {
+        fill: url(#icon-gradient) !important;
+    }
+</style>

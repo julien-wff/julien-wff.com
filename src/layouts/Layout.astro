@@ -1,6 +1,5 @@
 ---
-import '@fontsource/albert-sans/400.css';
-import '@fontsource/albert-sans/700.css';
+import '../assets/style/main.css';
 import albert400 from '@fontsource/albert-sans/files/albert-sans-latin-400-normal.woff2';
 import albert700 from '@fontsource/albert-sans/files/albert-sans-latin-700-normal.woff2';
 
@@ -31,34 +30,3 @@ const defaultDescription = 'Site personnel de Julien WOLFF';
 </main>
 </body>
 </html>
-
-<style is:global>
-    :root {
-        --gradient-blue: #4DA4F4;
-        --gradient-purple: #E926FA;
-        --primary-color: #9d65f7;
-        --background-color: #f1f1f1;
-        --text-color: #002c45;
-        --light-gray: #D5DCE3;
-    }
-
-    html, body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Albert Sans', sans-serif;
-        color: var(--text-color);
-        background-color: var(--background-color);
-        scroll-behavior: smooth;
-    }
-
-    ::selection {
-        background: var(--primary-color);
-        color: white;
-        -webkit-text-fill-color: initial;
-    }
-
-    :focus-visible {
-        outline: 1px solid var(--primary-color);
-        outline-offset: 0;
-    }
-</style>

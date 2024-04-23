@@ -1,0 +1,28 @@
+export const resumeTranslations = {
+    en: {
+        'header.subtitle': 'Software engineering internship from September 2024 to February 2025.',
+        'header.description': `1ˢᵗ year student of engineering cycle (BAC +3) at CESI École d'Ingénieurs,
+                               computer science specialty. I want to become a Software Engineer.`,
+        'formation.title': 'Education',
+        'formation.cesi.title': 'CESI École d\'Ingénieurs (Engineering School)',
+        'formation.cesi.subtitle': '2021 - 2026, Nancy, France',
+        'formation.cesi.description': 'Currently in the first year of the computer science engineering cycle.',
+        'formation.lcj.title': 'Lycée Charles Jully (High School)',
+        'formation.lcj.subtitle': '2018 - 2021, Saint-Avold, France',
+        'formation.lcj.description': `High school diploma with honors with the specialties mathematics,
+                                      physics-chemistry and computer science.`,
+    },
+    fr: {
+        'header.subtitle': 'Stage en ingénierie logicielle de septembre 2024 à février 2025.',
+        'header.description': `Étudiant en 1ʳᵉ année de cycle ingénieur (BAC +3) à CESI École d'Ingénieurs,
+                               spécialité informatique. Je souhaite devenir Software Engineer.`,
+        'formation.title': 'Formation',
+        'formation.cesi.title': 'CESI École d\'Ingénieurs',
+        'formation.cesi.subtitle': '2021 - 2026, Nancy',
+        'formation.cesi.description': 'Actuellement en première année de cycle ingénieur informatique.',
+        'formation.lcj.title': 'Lycée Charles Jully',
+        'formation.lcj.subtitle': '2018 - 2021, Saint-Avold',
+        'formation.lcj.description': `Baccalauréat général mention bien avec les spécialités mathématiques,
+                                      physique-chimie et informatique.`,
+    },
+} as const;

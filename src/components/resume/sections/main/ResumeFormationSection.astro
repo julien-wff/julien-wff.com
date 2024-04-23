@@ -2,13 +2,19 @@
 import ResumeElement from '$components/resume/containers/ResumeElement.astro';
 import ResumeParagraphLine from '$components/resume/containers/ResumeParagraphLine.astro';
 import School from 'svelte-ionicons/School.svelte';
+import { useTranslations } from '$i18n/utils';
+import { resumeTranslations } from '$i18n/translations/resume';
+import type { Language } from '$i18n/utils';
+
+const language = Astro.currentLocale as Language;
+const t = useTranslations(resumeTranslations, language);
 ---
 
-<ResumeElement title="Formation" mb>
-    <ResumeParagraphLine title="CESI École d'Ingénieurs" subtitle="2021 - 2026, Nancy" icon={School}>
-        Actuellement en première année de cycle ingénieur informatique
+<ResumeElement title={t('formation.title')} mb>
+    <ResumeParagraphLine title={t('formation.cesi.title')} subtitle={t('formation.cesi.subtitle')} icon={School}>
+        {t('formation.cesi.description')}
     </ResumeParagraphLine>
-    <ResumeParagraphLine title="Lycée Charles Jully" subtitle="2018 - 2021, Saint-Avold" icon={School}>
-        Baccalauréat général mention bien avec les spécialités mathématiques, physique-chimie et informatique
+    <ResumeParagraphLine title={t('formation.lcj.title')} subtitle={t('formation.lcj.subtitle')} icon={School}>
+        {t('formation.lcj.description')}
     </ResumeParagraphLine>
 </ResumeElement>

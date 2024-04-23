@@ -2,6 +2,12 @@
 import ResumeBox from '$components/resume/containers/ResumeBox.astro';
 import { Image } from 'astro:assets';
 import profilePic from '$assets/resume/profile.png';
+import { useTranslations } from '$i18n/utils';
+import { resumeTranslations } from '$i18n/translations/resume';
+import type { Language } from '$i18n/utils';
+
+const language = Astro.currentLocale as Language;
+const t = useTranslations(resumeTranslations, language)
 ---
 
 
@@ -56,11 +62,10 @@ import profilePic from '$assets/resume/profile.png';
     <div class="info-container">
         <h1>Julien WOLFF</h1>
         <span class="bold">
-            Stage en ingénierie logicielle de septembre 2024 à février 2025.
+            {t('header.subtitle')}
         </span>
         <span>
-            Étudiant en 1ʳᵉ année de cycle ingénieur <span class="no-break">(BAC +3)</span> à CESI École d'Ingénieurs,
-            spécialité informatique. Je souhaite devenir Software Engineer.
+            {t('header.description')}
         </span>
     </div>
 </ResumeBox>

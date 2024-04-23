@@ -1,9 +1,12 @@
-<script lang="ts">
-    export let title: string;
-    export let subtitle: string;
-    export let icon: ConstructorOfATypedSvelteComponent;
-</script>
+---
+interface Props {
+    title: string;
+    subtitle: string;
+    icon: any;
+}
 
+const { title, subtitle, icon: Icon } = Astro.props;
+---
 
 <style>
     .header {
@@ -29,16 +32,15 @@
     }
 </style>
 
-
 <div class="section">
     <div class="header">
         <div class="icon">
-            <svelte:component this={icon} color="var(--primary-color)" size="2rem" />
+            <Icon color="var(--primary-color)" size="2rem"/>
         </div>
         <div class="header-text">
             <h3>{title}</h3>
             <span class="small">{subtitle}</span>
         </div>
     </div>
-    <slot />
+    <slot/>
 </div>

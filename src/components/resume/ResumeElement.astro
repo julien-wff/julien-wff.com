@@ -1,0 +1,35 @@
+---
+import ResumeBox from './ResumeBox.astro';
+
+interface Props {
+    title: string;
+    gap?: 'small' | 'medium';
+    mb?: boolean;
+}
+
+const { title, gap = 'medium', mb = false } = Astro.props;
+---
+
+
+<style>
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .gap-medium {
+        gap: var(--spacing);
+    }
+
+    .gap-small {
+        gap: calc(var(--spacing) / 2);
+    }
+</style>
+
+
+<ResumeBox {mb}>
+    <h2>{title}</h2>
+    <div class:list={[ { 'gap-small': gap === 'small', 'gap-medium': gap === 'medium' } ]}>
+        <slot/>
+    </div>
+</ResumeBox>

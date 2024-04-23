@@ -1,8 +1,11 @@
-<script lang="ts">
-    export let direction: 'row' | 'column' = 'column';
-    export let mb = false;
-</script>
+---
+interface Props {
+    direction?: 'row' | 'column';
+    mb?: boolean;
+}
 
+const { direction = 'column', mb = false } = Astro.props;
+---
 
 <style>
     div {
@@ -19,7 +22,6 @@
     }
 </style>
 
-
-<div style:flex-direction={direction} class:mb>
+<div style={{ flexDirection: direction }} class:list={[ { mb } ]}>
     <slot/>
 </div>

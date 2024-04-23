@@ -1,0 +1,35 @@
+---
+interface Props {
+    icon: any;
+    href?: string | null;
+}
+
+const { icon: Icon, href = null } = Astro.props;
+const Container = href ? 'a' : 'div';
+---
+
+<style>
+    .container {
+        display: flex;
+        align-items: center;
+        height: 2rem;
+        gap: 0.25rem;
+    }
+
+    .icon {
+        display: grid;
+        place-items: center;
+        height: 2rem;
+        width: 2rem;
+    }
+</style>
+
+
+<Container {href} rel="noreferrer, noopener" class="container">
+    <div class="container">
+        <div class="icon">
+            <Icon color="var(--primary-color)" size="1.5rem"/>
+        </div>
+        <slot/>
+    </div>
+</Container>

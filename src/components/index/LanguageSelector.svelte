@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { languagesDisplay, type Language } from '../../i18n/utils.ts';
+    import { languagesDisplay, type Language } from '$i18n/utils.ts';
 
     export let currentLanguage: Language;
 

@@ -1,7 +1,7 @@
 ---
 import LanguageSelector from "./LanguageSelector.svelte";
-import { useTranslations, type Language } from '../../i18n/utils';
-import { indexTranslations } from '../../i18n/translations';
+import { useTranslations, type Language } from '$i18n/utils';
+import { indexTranslations } from '$i18n/translations';
 
 const language = Astro.currentLocale as Language;
 const t = useTranslations(indexTranslations, language);

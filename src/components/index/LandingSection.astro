@@ -1,8 +1,8 @@
 ---
 import LandingSubtitle from './LandingSubtitle.astro';
 // import { ChevronDownOutline } from 'svelte-ionicons';
-import { useTranslations } from '../../i18n/utils';
-import { indexTranslations } from '../../i18n/translations';
+import { useTranslations } from '$i18n/utils';
+import { indexTranslations } from '$i18n/translations';
 
 const language = Astro.currentLocale;
 const t = useTranslations(indexTranslations, language as keyof typeof indexTranslations);

@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onDestroy } from 'svelte';
-    import { type Language, useTranslations } from '../../i18n/utils.ts';
-    import { indexTranslations } from '../../i18n/translations';
+    import { type Language, useTranslations } from '$i18n/utils.ts';
+    import { indexTranslations } from '$i18n/translations';
 
     export let language: Language;
 

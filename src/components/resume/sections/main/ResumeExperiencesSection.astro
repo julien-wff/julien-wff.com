@@ -1,0 +1,38 @@
+---
+import ResumeParagraphLine from '../../containers/ResumeParagraphLine.astro';
+import ResumeElement from '../../containers/ResumeElement.astro';
+import PhonePortrait from 'svelte-ionicons/PhonePortrait.svelte';
+import Business from 'svelte-ionicons/Business.svelte';
+import Server from 'svelte-ionicons/Server.svelte';
+import People from 'svelte-ionicons/People.svelte';
+import MaleFemale from 'svelte-ionicons/MaleFemale.svelte';
+---
+
+<ResumeElement title="Expériences, projets et engagements" mb>
+    <ResumeParagraphLine title="Développeur backend (stage)"
+                         subtitle="Janvier - avril 2024, Henoo, Nancy"
+                         icon={PhonePortrait}>
+        Développement en Java dans une startup, monitoring de l’infrastructure, méthode agile
+    </ResumeParagraphLine>
+    <ResumeParagraphLine title="Développeur / Data Scientist"
+                         subtitle="Avril - juillet 2023, CMA Grand Est, Metz"
+                         icon={Business}>
+        Travail sur un ESB / ETL, visualisation et traitement de données, scripts de migrations de bases de données
+    </ResumeParagraphLine>
+    <ResumeParagraphLine title="Projet personnel : serveur cloud"
+                         subtitle="Mai 2022 - aujourd'hui"
+                         icon={Server}>
+        Infrastructure Docker complète dans le cloud, avec de nombreux services auto-hébergés, le tout monitoré
+    </ResumeParagraphLine>
+    <ResumeParagraphLine title="Responsable informatique du BDE"
+                         subtitle="2021 - aujourd'hui, CESI"
+                         icon={People}>
+        Réalisation d'outils internes et du site <a href="https://bdecesinancy.fr">bdecesinancy.fr</a>
+    </ResumeParagraphLine>
+    <ResumeParagraphLine title="Label Les Elles du Numérique"
+                         subtitle="2021, CESI"
+                         icon={MaleFemale}>
+        Projet CESI, en partenariat avec Orange, visant à sensibiliser sur le sujet de la mixité dans les métiers du
+        numérique
+    </ResumeParagraphLine>
+</ResumeElement>

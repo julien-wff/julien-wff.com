@@ -1,0 +1,34 @@
+---
+import ResumeElement from '../../containers/ResumeElement.astro';
+import ResumeIconLine from '../../containers/ResumeIconLine.astro';
+import Location from 'svelte-ionicons/Location.svelte';
+import Mail from 'svelte-ionicons/Mail.svelte';
+import Globe from 'svelte-ionicons/Globe.svelte';
+import LogoLinkedin from 'svelte-ionicons/LogoLinkedin.svelte';
+import LogoGithub from 'svelte-ionicons/LogoGithub.svelte';
+import Car from 'svelte-ionicons/Car.svelte';
+---
+
+<ResumeElement title="Contact" gap="small" mb>
+    <ResumeIconLine icon={Location} href="https://www.google.com/maps/place/Nancy/">
+        Nancy, France
+    </ResumeIconLine>
+    <ResumeIconLine icon={Location} href="https://www.google.com/maps/place/57220+Boulay-Moselle/">
+        Boulay Moselle, France
+    </ResumeIconLine>
+    <ResumeIconLine icon={Mail} href="mailto:julien.wff@gmail.com">
+        julien.wff@gmail.com
+    </ResumeIconLine>
+    <ResumeIconLine icon={Globe} href="https://julien-wff.com">
+        julien-wff.com
+    </ResumeIconLine>
+    <ResumeIconLine icon={LogoLinkedin} href="https://linkedin.com/in/julien-wff">
+        linkedin.com/in/julien-wff
+    </ResumeIconLine>
+    <ResumeIconLine icon={LogoGithub} href="https://github.com/julien-wff">
+        github.com/julien-wff
+    </ResumeIconLine>
+    <ResumeIconLine icon={Car}>
+        Permis B
+    </ResumeIconLine>
+</ResumeElement>

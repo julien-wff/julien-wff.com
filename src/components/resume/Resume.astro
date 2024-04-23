@@ -1,0 +1,69 @@
+---
+import ResumeHeaderSection from './sections/main/ResumeHeaderSection.astro';
+import ResumeFormationSection from './sections/main/ResumeFormationSection.astro';
+import ResumeExperiencesSection from './sections/main/ResumeExperiencesSection.astro';
+import ResumeCompetencesSection from './sections/main/ResumeCompetencesSection.astro';
+import ResumeContactSection from './sections/secondary/ResumeContactSection.astro';
+import ResumeLanguagesSection from './sections/secondary/ResumeLanguagesSection.astro';
+import ResumeSoftSkillsSection from './sections/secondary/ResumeSoftSkillsSection.astro';
+import ResumeHobbiesSection from './sections/secondary/ResumeHobbiesSection.astro';
+---
+
+<div class="resume">
+    <ResumeHeaderSection/>
+    <div class="content">
+        <div>
+            <ResumeFormationSection/>
+            <ResumeExperiencesSection/>
+            <ResumeCompetencesSection/>
+        </div>
+
+        <div class="resume-small-elements">
+            <div>
+                <ResumeContactSection/>
+                <ResumeLanguagesSection/>
+            </div>
+
+            <div>
+                <ResumeSoftSkillsSection/>
+                <ResumeHobbiesSection/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .resume {
+        width: 100%;
+        max-width: 50rem;
+        position: relative;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing);
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: var(--spacing);
+    }
+
+    @media all and (max-width: 53rem) {
+        .content {
+            grid-template-columns: 1fr;
+        }
+
+        .resume-small-elements {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: var(--spacing);
+        }
+    }
+
+    @media all and (max-width: 35rem) {
+        .resume-small-elements {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

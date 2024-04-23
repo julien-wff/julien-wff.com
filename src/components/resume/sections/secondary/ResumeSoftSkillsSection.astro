@@ -1,0 +1,27 @@
+---
+import ResumeElement from '../../containers/ResumeElement.astro';
+import ResumeIconLine from '../../containers/ResumeIconLine.astro';
+import People from 'svelte-ionicons/People.svelte';
+import Mic from 'svelte-ionicons/Mic.svelte';
+import Help from 'svelte-ionicons/Help.svelte';
+import Barcode from 'svelte-ionicons/Barcode.svelte';
+import Cloud from 'svelte-ionicons/Cloud.svelte';
+---
+
+<ResumeElement title="Soft Skills" gap="small" mb>
+    <ResumeIconLine icon={People}>
+        Travail d'équipe
+    </ResumeIconLine>
+    <ResumeIconLine icon={Mic}>
+        Aisance orale
+    </ResumeIconLine>
+    <ResumeIconLine icon={Help}>
+        Curiosité
+    </ResumeIconLine>
+    <ResumeIconLine icon={Barcode}>
+        Rigueur
+    </ResumeIconLine>
+    <ResumeIconLine icon={Cloud}>
+        Autonomie
+    </ResumeIconLine>
+</ResumeElement>

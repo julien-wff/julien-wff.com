@@ -2,9 +2,10 @@
 interface Props {
     icon: any;
     href?: string | null;
+    subtitle?: string;
 }
 
-const { icon: Icon, href = null } = Astro.props;
+const { icon: Icon, href = null, subtitle } = Astro.props;
 const Container = href ? 'a' : 'div';
 ---
 
@@ -22,14 +23,22 @@ const Container = href ? 'a' : 'div';
         height: 2rem;
         width: 2rem;
     }
-</style>
 
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+</style>
 
 <Container {href} rel="noreferrer, noopener" class="container">
     <div class="container">
         <div class="icon">
             <Icon color="var(--primary-color)" size="1.5rem"/>
         </div>
-        <slot/>
+        <div class="content">
+            <slot/>
+            {subtitle && <span class="small">{subtitle}</span>}
+        </div>
     </div>
 </Container>

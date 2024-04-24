@@ -6,22 +6,28 @@ import Mic from 'svelte-ionicons/Mic.svelte';
 import Help from 'svelte-ionicons/Help.svelte';
 import Barcode from 'svelte-ionicons/Barcode.svelte';
 import Cloud from 'svelte-ionicons/Cloud.svelte';
+import { useTranslations } from '$i18n/utils';
+import { resumeTranslations } from '$i18n/translations/resume';
+import type { Language } from '$i18n/utils';
+
+const language = Astro.currentLocale as Language;
+const t = useTranslations(resumeTranslations, language);
 ---
 
-<ResumeElement title="Soft Skills" gap="small" mb>
+<ResumeElement title={t('skills.title')} gap="small" mb>
     <ResumeIconLine icon={People}>
-        Travail d'équipe
+        {t('skills.teamwork')}
     </ResumeIconLine>
     <ResumeIconLine icon={Mic}>
-        Aisance orale
+        {t('skills.oral')}
     </ResumeIconLine>
     <ResumeIconLine icon={Help}>
-        Curiosité
+        {t('skills.curiosity')}
     </ResumeIconLine>
     <ResumeIconLine icon={Barcode}>
-        Rigueur
+        {t('skills.rigor')}
     </ResumeIconLine>
     <ResumeIconLine icon={Cloud}>
-        Autonomie
+        {t('skills.autonomy')}
     </ResumeIconLine>
 </ResumeElement>

@@ -4,16 +4,22 @@ import ResumeIconLine from '$components/resume/containers/ResumeIconLine.astro';
 import Barbell from 'svelte-ionicons/Barbell.svelte';
 import Code from 'svelte-ionicons/Code.svelte';
 import Body from 'svelte-ionicons/Body.svelte';
+import { useTranslations } from '$i18n/utils';
+import { resumeTranslations } from '$i18n/translations/resume';
+import type { Language } from '$i18n/utils';
+
+const language = Astro.currentLocale as Language;
+const t = useTranslations(resumeTranslations, language);
 ---
 
-<ResumeElement title="Passions" gap="small">
+<ResumeElement title={t('hobbies.title')} gap="small">
     <ResumeIconLine icon={Barbell}>
-        Sport
+        {t('hobbies.sport')}
     </ResumeIconLine>
     <ResumeIconLine icon={Code}>
-        Informatique
+        {t('hobbies.it')}
     </ResumeIconLine>
     <ResumeIconLine icon={Body}>
-        Théâtre (4 ans)
+        {t('hobbies.theatre')}
     </ResumeIconLine>
 </ResumeElement>

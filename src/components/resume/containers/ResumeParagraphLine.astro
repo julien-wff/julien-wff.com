@@ -39,7 +39,7 @@ const { title, subtitle, icon: Icon } = Astro.props;
         </div>
         <div class="header-text">
             <h3>{title}</h3>
-            <span class="small">{subtitle}</span>
+            <span class="small" set:html={subtitle}/>
         </div>
     </div>
     <slot/>

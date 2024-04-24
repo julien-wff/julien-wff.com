@@ -6,33 +6,38 @@ import Business from 'svelte-ionicons/Business.svelte';
 import Server from 'svelte-ionicons/Server.svelte';
 import People from 'svelte-ionicons/People.svelte';
 import MaleFemale from 'svelte-ionicons/MaleFemale.svelte';
+import { useTranslations } from '$i18n/utils';
+import { resumeTranslations } from '$i18n/translations/resume';
+import type { Language } from '$i18n/utils';
+
+const language = Astro.currentLocale as Language;
+const t = useTranslations(resumeTranslations, language);
 ---
 
-<ResumeElement title="Expériences, projets et engagements" mb>
-    <ResumeParagraphLine title="Développeur backend (stage)"
-                         subtitle="Janvier - avril 2024, Henoo, Nancy"
+<ResumeElement title={t('experience.title')} mb>
+    <ResumeParagraphLine title={t('experience.henoo.title')}
+                         subtitle={t('experience.henoo.subtitle')}
                          icon={PhonePortrait}>
-        Développement en Java dans une startup, monitoring de l’infrastructure, méthode agile
+        {t('experience.henoo.description')}
     </ResumeParagraphLine>
-    <ResumeParagraphLine title="Développeur / Data Scientist"
-                         subtitle="Avril - juillet 2023, CMA Grand Est, Metz"
+    <ResumeParagraphLine title={t('experience.cma.title')}
+                         subtitle={t('experience.cma.subtitle')}
                          icon={Business}>
-        Travail sur un ESB / ETL, visualisation et traitement de données, scripts de migrations de bases de données
+        {t('experience.cma.description')}
     </ResumeParagraphLine>
-    <ResumeParagraphLine title="Projet personnel : serveur cloud"
-                         subtitle="Mai 2022 - aujourd'hui"
+    <ResumeParagraphLine title={t('experience.cloud-server.title')}
+                         subtitle={t('experience.cloud-server.subtitle')}
                          icon={Server}>
-        Infrastructure Docker complète dans le cloud, avec de nombreux services auto-hébergés, le tout monitoré
+        {t('experience.cloud-server.description')}
     </ResumeParagraphLine>
-    <ResumeParagraphLine title="Responsable informatique du BDE"
-                         subtitle="2021 - aujourd'hui, CESI"
+    <ResumeParagraphLine title={t('experience.bde.title')}
+                         subtitle={t('experience.bde.subtitle')}
                          icon={People}>
-        Réalisation d'outils internes et du site <a href="https://bdecesinancy.fr">bdecesinancy.fr</a>
+        {t('experience.bde.description')}{' '}<a href="https://bdecesinancy.fr" target="_blank">bdecesinancy.fr</a>.
     </ResumeParagraphLine>
-    <ResumeParagraphLine title="Label Les Elles du Numérique"
-                         subtitle="2021, CESI"
+    <ResumeParagraphLine title={t('experience.ailes.title')}
+                         subtitle={t('experience.ailes.subtitle')}
                          icon={MaleFemale}>
-        Projet CESI, en partenariat avec Orange, visant à sensibiliser sur le sujet de la mixité dans les métiers du
-        numérique
+        {t('experience.ailes.description')}
     </ResumeParagraphLine>
 </ResumeElement>

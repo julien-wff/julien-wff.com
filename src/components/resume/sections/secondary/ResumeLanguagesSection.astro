@@ -1,7 +1,7 @@
 ---
 import ResumeElement from '$components/resume/containers/ResumeElement.astro';
 import ResumeIconLine from '$components/resume/containers/ResumeIconLine.astro';
-import Language from 'svelte-ionicons/Language.svelte';
+import LanguageIcon from 'svelte-ionicons/Language.svelte';
 import { useTranslations } from '$i18n/utils';
 import { resumeTranslations } from '$i18n/translations/resume';
 import type { Language } from '$i18n/utils';
@@ -11,13 +11,13 @@ const t = useTranslations(resumeTranslations, language);
 ---
 
 <ResumeElement title={t('language.title')} gap="small" mb>
-    <ResumeIconLine icon={Language} subtitle={t('language.french.subtitle')}>
+    <ResumeIconLine icon={LanguageIcon} subtitle={t('language.french.subtitle')}>
         {t('language.french.title')}
     </ResumeIconLine>
-    <ResumeIconLine icon={Language} subtitle={t('language.english.subtitle')}>
+    <ResumeIconLine icon={LanguageIcon} subtitle={t('language.english.subtitle')}>
         {t('language.english.title')}
     </ResumeIconLine>
-    <ResumeIconLine icon={Language} subtitle={t('language.german.subtitle')}>
+    <ResumeIconLine icon={LanguageIcon} subtitle={t('language.german.subtitle')}>
         {t('language.german.title')}
     </ResumeIconLine>
 </ResumeElement>

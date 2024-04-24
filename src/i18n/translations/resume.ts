@@ -35,6 +35,13 @@ export const resumeTranslations = {
         'experience.ailes.subtitle': '2021, CESI, Nancy, France',
         'experience.ailes.description': dedent`CESI project, in partnership with Orange, aimed at raising awareness on
                                                gender diversity in digital professions.`,
+        'competences.title': 'Key skills',
+        'competences.web': 'Web: NodeJS, React, Svelte, PWA, Firebase, Figma',
+        'competences.database': 'Database: MySQL, SQL Server, MongoDB',
+        'competences.data': 'Data: Blueway, Metabase, Power BI, Python',
+        'competences.devops': 'DevOps: Linux, Docker, cloud, virtualization, CI/CD',
+        'competences.network': 'Network: Cisco hardware, CCNA1, pfSense',
+        'competences.development': 'Development: Arduino, C, C++, C#, Java, Git',
     },
     fr: {
         'header.subtitle': 'Stage en ingénierie logicielle de septembre 2024 à février 2025.',
@@ -71,5 +78,12 @@ export const resumeTranslations = {
         'experience.ailes.subtitle': '2021, CESI',
         'experience.ailes.description': dedent`Projet CESI, en partenariat avec Orange, visant à sensibiliser sur le
                                                sujet de  la mixité dans les métiers du numérique.`,
+        'competences.title': 'Compétences clés',
+        'competences.web': 'Web : NodeJS, React, Svelte, PWA, Firebase, Figma',
+        'competences.database': 'Base de données : MySQL, SQL Server, MongoDB',
+        'competences.data': 'Data : Blueway, Metabase, Power BI, Python',
+        'competences.devops': 'DevOps : Linux, Docker, cloud, virtualisation, CI/CD',
+        'competences.network': 'Réseau : matériel Cisco, CCNA1, pfSense',
+        'competences.development': 'Développement : Arduino, C, C++, C#, Java, Git',
     },
 } as const;

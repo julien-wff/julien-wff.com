@@ -1,25 +1,31 @@
 ---
 import ResumeElement from '$components/resume/containers/ResumeElement.astro';
 import ResumeBulletLine from '$components/resume/containers/ResumeBulletLine.astro';
+import { useTranslations } from '$i18n/utils';
+import { resumeTranslations } from '$i18n/translations/resume';
+import type { Language } from '$i18n/utils';
+
+const language = Astro.currentLocale as Language;
+const t = useTranslations(resumeTranslations, language);
 ---
 
-<ResumeElement title="Compétences clés" gap="small">
+<ResumeElement title={t('competences.title')} gap="small">
     <ResumeBulletLine>
-        Web : NodeJS, React, Svelte, PWA, Firebase, Figma
+        {t('competences.web')}
     </ResumeBulletLine>
     <ResumeBulletLine>
-        Base de données : MySQL, SQL Server, MongoDB
+        {t('competences.database')}
     </ResumeBulletLine>
     <ResumeBulletLine>
-        Data : Blueway, Metabase, Power BI, Python
+        {t('competences.data')}
     </ResumeBulletLine>
     <ResumeBulletLine>
-        Admin. système : cloud, Linux, Docker, virtualisation
+        {t('competences.devops')}
     </ResumeBulletLine>
     <ResumeBulletLine>
-        Réseau : matériel Cisco, CCNA1, pfSense
+        {t('competences.network')}
     </ResumeBulletLine>
     <ResumeBulletLine>
-        Développement : Arduino, C, C++, C#
+        {t('competences.development')}
     </ResumeBulletLine>
 </ResumeElement>

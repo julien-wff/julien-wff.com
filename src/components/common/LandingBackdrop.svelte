@@ -38,6 +38,12 @@
         background-color: #f5f5f5;
     }
 
+    @media print {
+        .landing-backdrop {
+            display: none;
+        }
+    }
+
     .ball {
         width: 85vw;
         height: 85vh;

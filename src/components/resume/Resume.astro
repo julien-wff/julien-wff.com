@@ -66,4 +66,20 @@ import ResumeHobbiesSection from './sections/secondary/ResumeHobbiesSection.astr
             grid-template-columns: 1fr;
         }
     }
+
+    @media print {
+        .resume {
+            max-width: calc(100% - var(--spacing) * 2);
+            padding: var(--spacing);
+            break-inside: avoid;
+        }
+
+        .content {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .resume-small-elements {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>

@@ -3,7 +3,7 @@ import ResumeElement from '$components/resume/containers/ResumeElement.astro';
 import ResumeIconLine from '$components/resume/containers/ResumeIconLine.astro';
 import People from 'svelte-ionicons/People.svelte';
 import Mic from 'svelte-ionicons/Mic.svelte';
-import Help from 'svelte-ionicons/Help.svelte';
+import Star from 'svelte-ionicons/Star.svelte';
 import Barcode from 'svelte-ionicons/Barcode.svelte';
 import Cloud from 'svelte-ionicons/Cloud.svelte';
 import { useTranslations } from '$i18n/utils';
@@ -21,8 +21,8 @@ const t = useTranslations(resumeTranslations, language);
     <ResumeIconLine icon={Mic}>
         {t('skills.oral')}
     </ResumeIconLine>
-    <ResumeIconLine icon={Help}>
-        {t('skills.curiosity')}
+    <ResumeIconLine icon={Star}>
+        {t('skills.proactive')}
     </ResumeIconLine>
     <ResumeIconLine icon={Barcode}>
         {t('skills.rigor')}

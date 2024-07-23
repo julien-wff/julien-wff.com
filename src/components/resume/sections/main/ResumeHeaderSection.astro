@@ -64,8 +64,6 @@ const t = useTranslations(resumeTranslations, language)
         <span class="bold">
             {t('header.subtitle')}
         </span>
-        <span>
-            {t('header.description')}
-        </span>
+        <span set:html={t('header.description')}/>
     </div>
 </ResumeBox>

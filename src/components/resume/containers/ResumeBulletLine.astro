@@ -10,14 +10,18 @@
         margin-left: .1rem;
         width: .75rem;
         height: .75rem;
-        border-radius: .3rem;
-        background: var(--gradient);
+        display: grid;
+        place-items: center;
     }
 </style>
 
 
 <div class="container">
-    <div class="level-bullet"/>
+    <div class="level-bullet">
+        <svg height="100%" width="100%" viewBox="0 0 100 100">
+            <rect x="0" y="0" width="100" height="100" rx="40" ry="40" fill="url(#icon-gradient)"/>
+        </svg>
+    </div>
     <div class="competence">
         <slot/>
     </div>

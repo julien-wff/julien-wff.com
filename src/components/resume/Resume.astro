@@ -7,6 +7,7 @@ import ResumeContactSection from './sections/secondary/ResumeContactSection.astr
 import ResumeLanguagesSection from './sections/secondary/ResumeLanguagesSection.astro';
 import ResumeSoftSkillsSection from './sections/secondary/ResumeSoftSkillsSection.astro';
 import ResumeHobbiesSection from './sections/secondary/ResumeHobbiesSection.astro';
+import ResumePrintPopup from './print/ResumePrintPopup.svelte';
 ---
 
 <div class="resume">
@@ -31,6 +32,8 @@ import ResumeHobbiesSection from './sections/secondary/ResumeHobbiesSection.astr
         </div>
     </div>
 </div>
+
+<ResumePrintPopup client:idle/>
 
 <style>
     .resume {

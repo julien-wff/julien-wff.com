@@ -11,8 +11,8 @@
     let underlineLinks = writable(true);
 
     let colorGradientMode = writable(true);
-    let color1 = writable('#000000');
-    let color2 = writable('#000000');
+    let color1 = writable('');
+    let color2 = writable('');
 </script>
 
 <script lang="ts">
@@ -35,9 +35,10 @@
         if (!links)
             links = document.querySelectorAll('a')!;
 
-        $color1 = style.getPropertyValue('--gradient-blue');
-        $color2 = style.getPropertyValue('--gradient-purple');
-
+        if (!$color1 || !$color2) {
+            $color1 = style.getPropertyValue('--gradient-blue');
+            $color2 = style.getPropertyValue('--gradient-purple');
+        }
     });
 
     function reflectUpdates() {

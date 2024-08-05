@@ -4,9 +4,11 @@
     let style: CSSStyleDeclaration;
     let landingBackdrop: HTMLDivElement;
     let resumeBoxes: NodeListOf<HTMLDivElement>;
+    let links: NodeListOf<HTMLAnchorElement>;
 
     let noBackgroundMode = writable(false);
     let blackAndWhiteMode = writable(false);
+    let underlineLinks = writable(true);
 
     let colorGradientMode = writable(true);
     let color1 = writable('#000000');
@@ -29,6 +31,9 @@
 
         if (!resumeBoxes)
             resumeBoxes = document.querySelectorAll('.resume-box')!;
+
+        if (!links)
+            links = document.querySelectorAll('a')!;
 
         $color1 = style.getPropertyValue('--gradient-blue');
         $color2 = style.getPropertyValue('--gradient-purple');
@@ -74,6 +79,9 @@
             });
         }
 
+        links.forEach(link => {
+            link.style.textDecoration = $underlineLinks ? 'underline' : 'none';
+        });
     }
 
     function handlePrint() {
@@ -181,6 +189,11 @@
     <label>
         <input bind:checked={$blackAndWhiteMode} on:change={reflectUpdates} type="checkbox"/>
         Black and white mode
+    </label>
+
+    <label>
+        <input bind:checked={$underlineLinks} on:change={reflectUpdates} type="checkbox"/>
+        Underline links
     </label>
 
     {#if !$blackAndWhiteMode}

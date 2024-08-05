@@ -1,3 +1,6 @@
+/cv /resume/ 301
+/:lang/cv /:lang/resume/ 301
+
 / /fr/ 301! Language=fr
 / /en/ 301!
 

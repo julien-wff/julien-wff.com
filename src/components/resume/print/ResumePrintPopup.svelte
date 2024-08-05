@@ -3,6 +3,10 @@
 
     let show = false;
     let style: CSSStyleDeclaration;
+    let landingBackdrop: HTMLDivElement;
+
+    let noBackgroundMode = false;
+    let blackAndWhiteMode = false;
 
     let colorGradientMode = true;
     let color1 = '#000000';
@@ -15,14 +19,33 @@
         color1 = style.getPropertyValue('--gradient-blue');
         color2 = style.getPropertyValue('--gradient-purple');
 
+        landingBackdrop = document.querySelector('.landing-backdrop')!;
+
         show = true;
     });
 
-    function updateColors() {
-        const col2 = colorGradientMode ? color2 : color1;
-        document.body.style.setProperty('--gradient-blue', color1);
-        document.body.style.setProperty('--gradient-purple', col2);
-        document.body.style.setProperty('--primary-color', `color-mix(in srgb, ${color1}, ${col2})`);
+    function reflectUpdates() {
+        landingBackdrop.style.visibility = noBackgroundMode || blackAndWhiteMode ? 'hidden' : 'visible';
+
+        const { body } = document;
+
+        if (blackAndWhiteMode) {
+            body.style.setProperty('--background-color', 'white');
+            body.style.setProperty('--text-color', 'black');
+            body.style.setProperty('--gradient-blue', 'black');
+            body.style.setProperty('--gradient-purple', 'black');
+            body.style.setProperty('--primary-color', 'black');
+            body.style.setProperty('filter', 'grayscale(100%)');
+        } else {
+            body.style.removeProperty('filter');
+            body.style.removeProperty('--background-color');
+            body.style.removeProperty('--text-color');
+
+            const col2 = colorGradientMode ? color2 : color1;
+            body.style.setProperty('--gradient-blue', color1);
+            body.style.setProperty('--gradient-purple', col2);
+            body.style.setProperty('--primary-color', `color-mix(in srgb, ${color1}, ${col2})`);
+        }
     }
 
     function handlePrint() {
@@ -76,6 +99,11 @@
 
     h1 {
         margin-bottom: 1rem;
+    }
+
+    h2 {
+        margin-top: 1rem;
+        margin-bottom: .5rem;
     }
 
     label {
@@ -159,25 +187,41 @@
         <div class="popup-content">
             <h1>Print menu</h1>
 
+            <h2>Global style</h2>
+
             <label>
-                <input type="checkbox" bind:checked={colorGradientMode} on:change={updateColors}/>
-                Color gradient mode
+                <input type="checkbox" bind:checked={noBackgroundMode} on:change={reflectUpdates}/>
+                No background mode
             </label>
 
             <label>
-                <input type="color" bind:value={color1} on:input={updateColors}/>
-                {#if colorGradientMode}
-                    Start Color
-                {:else}
-                    Color
-                {/if}
+                <input type="checkbox" bind:checked={blackAndWhiteMode} on:change={reflectUpdates}/>
+                Black and white mode
             </label>
 
-            {#if colorGradientMode}
+            {#if !blackAndWhiteMode}
+                <h2>Colors</h2>
+
                 <label>
-                    <input type="color" bind:value={color2} on:input={updateColors}/>
-                    End Color
+                    <input type="checkbox" bind:checked={colorGradientMode} on:change={reflectUpdates}/>
+                    Color gradient mode
                 </label>
+
+                <label>
+                    <input type="color" bind:value={color1} on:input={reflectUpdates}/>
+                    {#if colorGradientMode}
+                        Start Color
+                    {:else}
+                        Color
+                    {/if}
+                </label>
+
+                {#if colorGradientMode}
+                    <label>
+                        <input type="color" bind:value={color2} on:input={reflectUpdates}/>
+                        End Color
+                    </label>
+                {/if}
             {/if}
 
             <div class="btn-rows">

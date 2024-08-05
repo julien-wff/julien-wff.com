@@ -14,6 +14,8 @@
 
         color1 = style.getPropertyValue('--gradient-blue');
         color2 = style.getPropertyValue('--gradient-purple');
+
+        show = true;
     });
 
     function updateColors() {
@@ -60,10 +62,6 @@
         height: 100%;
         z-index: 1000;
         background-color: rgba(0, 0, 0, 0.25);
-    }
-
-    .hidden {
-        display: none;
     }
 
     .popup-content {
@@ -155,35 +153,37 @@
 <svelte:document on:keydown={handleKeyDown}/>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
-<div class="popup-backdrop" class:hidden={!show} on:click|self={closePopup} role="dialog" aria-modal="true"
-     tabindex="-1">
-    <div class="popup-content">
-        <h1>Print menu</h1>
+{#if show}
+    <div class="popup-backdrop" on:click|self={closePopup} role="dialog" aria-modal="true"
+         tabindex="-1">
+        <div class="popup-content">
+            <h1>Print menu</h1>
 
-        <label>
-            <input type="checkbox" bind:checked={colorGradientMode} on:change={updateColors}/>
-            Color gradient mode
-        </label>
-
-        <label>
-            <input type="color" bind:value={color1} on:input={updateColors}/>
-            {#if colorGradientMode}
-                Start Color
-            {:else}
-                Color
-            {/if}
-        </label>
-
-        {#if colorGradientMode}
             <label>
-                <input type="color" bind:value={color2} on:input={updateColors}/>
-                End Color
+                <input type="checkbox" bind:checked={colorGradientMode} on:change={updateColors}/>
+                Color gradient mode
             </label>
-        {/if}
 
-        <div class="btn-rows">
-            <button class="close-btn" on:click={closePopup}>Close</button>
-            <button class="print-btn" on:click={handlePrint}>Print</button>
+            <label>
+                <input type="color" bind:value={color1} on:input={updateColors}/>
+                {#if colorGradientMode}
+                    Start Color
+                {:else}
+                    Color
+                {/if}
+            </label>
+
+            {#if colorGradientMode}
+                <label>
+                    <input type="color" bind:value={color2} on:input={updateColors}/>
+                    End Color
+                </label>
+            {/if}
+
+            <div class="btn-rows">
+                <button class="close-btn" on:click={closePopup}>Close</button>
+                <button class="print-btn" on:click={handlePrint}>Print</button>
+            </div>
         </div>
     </div>
-</div>
+{/if}

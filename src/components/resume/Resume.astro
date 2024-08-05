@@ -33,7 +33,7 @@ import ResumePrintPopup from './print/ResumePrintPopup.svelte';
     </div>
 </div>
 
-<ResumePrintPopup client:idle/>
+<ResumePrintPopup client:keydown={{ ctrlKey: true, key: 'p', preventDefault: true }}/>
 
 <style>
     .resume {

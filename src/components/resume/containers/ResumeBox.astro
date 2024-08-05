@@ -22,6 +22,6 @@ const { direction = 'column', mb = false } = Astro.props;
     }
 </style>
 
-<div style={{ flexDirection: direction }} class:list={[ { mb } ]}>
+<div style={{ flexDirection: direction }} class:list={[ { mb }, 'resume-box' ]}>
     <slot/>
 </div>

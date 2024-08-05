@@ -3,6 +3,7 @@
 
     let style: CSSStyleDeclaration;
     let landingBackdrop: HTMLDivElement;
+    let resumeBoxes: NodeListOf<HTMLDivElement>;
 
     let noBackgroundMode = writable(false);
     let blackAndWhiteMode = writable(false);
@@ -25,6 +26,9 @@
 
         if (!landingBackdrop)
             landingBackdrop = document.querySelector('.landing-backdrop')!;
+
+        if (!resumeBoxes)
+            resumeBoxes = document.querySelectorAll('.resume-box')!;
 
         $color1 = style.getPropertyValue('--gradient-blue');
         $color2 = style.getPropertyValue('--gradient-purple');
@@ -53,6 +57,23 @@
             body.style.setProperty('--gradient-purple', col2);
             body.style.setProperty('--primary-color', `color-mix(in srgb, ${$color1}, ${col2})`);
         }
+
+        if ($noBackgroundMode) {
+            body.style.setProperty('--background-color', 'white');
+            resumeBoxes.forEach(box => {
+                box.style.setProperty('background-color', 'transparent');
+                box.style.setProperty('box-shadow', 'none');
+                box.style.setProperty('outline', '2px solid var(--primary-color)');
+            });
+        } else {
+            body.style.removeProperty('--background-color');
+            resumeBoxes.forEach(box => {
+                box.style.removeProperty('background-color');
+                box.style.removeProperty('box-shadow');
+                box.style.removeProperty('outline');
+            });
+        }
+
     }
 
     function handlePrint() {

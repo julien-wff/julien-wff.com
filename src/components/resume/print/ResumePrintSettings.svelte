@@ -1,34 +1,42 @@
+<script context="module" lang="ts">
+    import { writable } from 'svelte/store';
+
+    let style: CSSStyleDeclaration;
+    let landingBackdrop: HTMLDivElement;
+
+    let noBackgroundMode = writable(false);
+    let blackAndWhiteMode = writable(false);
+
+    let colorGradientMode = writable(true);
+    let color1 = writable('#000000');
+    let color2 = writable('#000000');
+</script>
+
 <script lang="ts">
     import { createEventDispatcher, onMount } from 'svelte';
 
     const dispatch = createEventDispatcher();
 
     onMount(() => {
-        const root = document.querySelector(':root')!;
-        style = getComputedStyle(root);
+        if (!style) {
+            const root = document.querySelector(':root')!;
+            style = getComputedStyle(root);
+        }
 
-        color1 = style.getPropertyValue('--gradient-blue');
-        color2 = style.getPropertyValue('--gradient-purple');
+        if (!landingBackdrop)
+            landingBackdrop = document.querySelector('.landing-backdrop')!;
 
-        landingBackdrop = document.querySelector('.landing-backdrop')!;
+        $color1 = style.getPropertyValue('--gradient-blue');
+        $color2 = style.getPropertyValue('--gradient-purple');
+
     });
 
-    let style: CSSStyleDeclaration;
-    let landingBackdrop: HTMLDivElement;
-
-    let noBackgroundMode = false;
-    let blackAndWhiteMode = false;
-
-    let colorGradientMode = true;
-    let color1 = '#000000';
-    let color2 = '#000000';
-
     function reflectUpdates() {
-        landingBackdrop.style.visibility = noBackgroundMode || blackAndWhiteMode ? 'hidden' : 'visible';
+        landingBackdrop.style.visibility = $noBackgroundMode || $blackAndWhiteMode ? 'hidden' : 'visible';
 
         const { body } = document;
 
-        if (blackAndWhiteMode) {
+        if ($blackAndWhiteMode) {
             body.style.setProperty('--background-color', 'white');
             body.style.setProperty('--text-color', 'black');
             body.style.setProperty('--gradient-blue', 'black');
@@ -40,10 +48,10 @@
             body.style.removeProperty('--background-color');
             body.style.removeProperty('--text-color');
 
-            const col2 = colorGradientMode ? color2 : color1;
-            body.style.setProperty('--gradient-blue', color1);
+            const col2 = $colorGradientMode ? $color2 : $color1;
+            body.style.setProperty('--gradient-blue', $color1);
             body.style.setProperty('--gradient-purple', col2);
-            body.style.setProperty('--primary-color', `color-mix(in srgb, ${color1}, ${col2})`);
+            body.style.setProperty('--primary-color', `color-mix(in srgb, ${$color1}, ${col2})`);
         }
     }
 
@@ -145,35 +153,35 @@
     <h2>Global style</h2>
 
     <label>
-        <input bind:checked={noBackgroundMode} on:change={reflectUpdates} type="checkbox"/>
+        <input bind:checked={$noBackgroundMode} on:change={reflectUpdates} type="checkbox"/>
         No background mode
     </label>
 
     <label>
-        <input bind:checked={blackAndWhiteMode} on:change={reflectUpdates} type="checkbox"/>
+        <input bind:checked={$blackAndWhiteMode} on:change={reflectUpdates} type="checkbox"/>
         Black and white mode
     </label>
 
-    {#if !blackAndWhiteMode}
+    {#if !$blackAndWhiteMode}
         <h2>Colors</h2>
 
         <label>
-            <input type="checkbox" bind:checked={colorGradientMode} on:change={reflectUpdates}/>
+            <input type="checkbox" bind:checked={$colorGradientMode} on:change={reflectUpdates}/>
             Color gradient mode
         </label>
 
         <label>
-            <input type="color" bind:value={color1} on:input={reflectUpdates}/>
-            {#if colorGradientMode}
+            <input type="color" bind:value={$color1} on:input={reflectUpdates}/>
+            {#if $colorGradientMode}
                 Start Color
             {:else}
-                Color
+                Theme color
             {/if}
         </label>
 
-        {#if colorGradientMode}
+        {#if $colorGradientMode}
             <label>
-                <input type="color" bind:value={color2} on:input={reflectUpdates}/>
+                <input type="color" bind:value={$color2} on:input={reflectUpdates}/>
                 End Color
             </label>
         {/if}

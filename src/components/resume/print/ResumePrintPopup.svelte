@@ -68,7 +68,7 @@
         position: relative;
         padding: 1rem;
         width: calc(100vw - 4rem);
-        max-width: 30rem;
+        max-width: 20rem;
         background-color: var(--background-color);
         border-radius: 1rem;
         box-shadow: var(--box-shadow);
@@ -152,8 +152,8 @@
 <svelte:window on:afterprint={closePopup}/>
 <svelte:document on:keydown={handleKeyDown}/>
 
-<!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
 {#if show}
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
     <div class="popup-backdrop" on:click|self={closePopup} role="dialog" aria-modal="true"
          tabindex="-1">
         <div class="popup-content">

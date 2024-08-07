@@ -12,11 +12,21 @@
 
 <div class="language-selector" style="--full-height: {fullHeight}rem">
     <button class="language">
-        {languagesDisplay[currentLanguage]}
+        <span class="language-flag">
+            {@html languagesDisplay[currentLanguage].iconRaw}
+        </span>
+        {languagesDisplay[currentLanguage].displayShort}
     </button>
     {#each Array.from(languagesKeys) as language}
+        {@const lang = languagesDisplay[language]}
         <a class="language" href="/{language}/">
-            {languagesDisplay[language]}
+            <img src={lang.icon.src}
+                 alt={lang.displayShort}
+                 height={lang.icon.height}
+                 width={lang.icon.width}
+                 decoding="async"
+                 class="language-flag"/>
+            {lang.displayShort}
         </a>
     {/each}
 </div>
@@ -53,6 +63,16 @@
         font-size: inherit;
         margin: 0;
         line-height: 1rem;
+    }
+
+    .language-flag, :global(.language-flag svg) {
+        width: auto;
+        height: .8rem;
+        border-radius: .25rem;
+    }
+
+    .language-flag {
+        margin-right: .25rem;
     }
 
     .language:hover:not(:first-child) {

@@ -1,37 +1,40 @@
-<script lang="ts">
-    import { languagesDisplay, type Language } from '$i18n/utils.ts';
+---
+import { languagesDisplay, type Language, type LanguageInfo } from '$i18n/utils.ts';
 
-    export let currentLanguage: Language;
+const currentLanguage = Astro.currentLocale as Language;
+const currentLanguageInfo = languagesDisplay[currentLanguage] as LanguageInfo;
 
-    const additionalLanguagesCount = Object.keys(languagesDisplay).length - 1;
-    const fullHeight = 3 + additionalLanguagesCount * 2.5; // Rem
+const additionalLanguagesCount = Object.keys(languagesDisplay).length - 1;
+const fullHeight = `${3 + additionalLanguagesCount * 2.5}rem`;
 
-    const languagesKeys = new Set(Object.keys(languagesDisplay) as Language[]);
-    languagesKeys.delete(currentLanguage);
-</script>
+const additionalLanguagesInfo = Object
+    .keys(languagesDisplay)
+    .filter(language => language !== currentLanguage)
+    .map(language => ({
+        key: language,
+        info: languagesDisplay[language as Language] as LanguageInfo,
+    }));
+---
 
-<div class="language-selector" style="--full-height: {fullHeight}rem">
+<div class="language-selector">
     <button class="language">
-        <span class="language-flag">
-            {@html languagesDisplay[currentLanguage].iconRaw}
-        </span>
-        {languagesDisplay[currentLanguage].displayShort}
+        <span class="language-flag" set:html={currentLanguageInfo.iconRaw}/>
+        {currentLanguageInfo.displayShort}
     </button>
-    {#each Array.from(languagesKeys) as language}
-        {@const lang = languagesDisplay[language]}
-        <a class="language" href="/{language}/">
-            <img src={lang.icon.src}
-                 alt={lang.displayShort}
-                 height={lang.icon.height}
-                 width={lang.icon.width}
-                 decoding="async"
-                 class="language-flag"/>
-            {lang.displayShort}
-        </a>
-    {/each}
+    {additionalLanguagesInfo.map(language =>
+            <a class="language" href={`/${language.key}/`}>
+                <img src={language.info.icon.src}
+                     alt={language.info.displayShort}
+                     height={language.info.icon.height}
+                     width={language.info.icon.width}
+                     decoding="async"
+                     class="language-flag"/>
+                {language.info.displayShort}
+            </a>,
+    )}
 </div>
 
-<style>
+<style define:vars={{ 'full-height': fullHeight }}>
     .language-selector {
         height: 3rem;
         display: flex;

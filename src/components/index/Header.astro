@@ -1,5 +1,5 @@
 ---
-import LanguageSelector from "./LanguageSelector.svelte";
+import LanguageSelector from "./LanguageSelector.astro";
 import { useTranslations, type Language } from '$i18n/utils';
 import { indexTranslations } from '$i18n/translations';
 
@@ -14,11 +14,11 @@ const t = useTranslations(indexTranslations, language);
         <a href="https://github.com/julien-wff" rel="noreferrer noopener">GitHub</a>
         <a href="https://linkedin.com/in/julien-wff" rel="noreferrer noopener">LinkedIn</a>
         <div class="language-mobile">
-            <LanguageSelector currentLanguage={language} client:idle/>
+            <LanguageSelector/>
         </div>
     </nav>
     <div class="language-desktop">
-        <LanguageSelector currentLanguage={language} client:idle/>
+        <LanguageSelector/>
     </div>
 </header>
 

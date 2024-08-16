@@ -7,6 +7,7 @@ import Globe from 'svelte-ionicons/Globe.svelte';
 import LogoLinkedin from 'svelte-ionicons/LogoLinkedin.svelte';
 import LogoGithub from 'svelte-ionicons/LogoGithub.svelte';
 import Car from 'svelte-ionicons/Car.svelte';
+import PhonePortrait from 'svelte-ionicons/PhonePortrait.svelte';
 import { useTranslations } from '$i18n/utils';
 import { resumeTranslations } from '$i18n/translations/resume';
 import type { Language } from '$i18n/utils';
@@ -25,6 +26,11 @@ const t = useTranslations(resumeTranslations, language);
     <ResumeIconLine icon={Mail} href="mailto:julien.wff@gmail.com">
         julien.wff@gmail.com
     </ResumeIconLine>
+    <div id="phone-container">
+        <ResumeIconLine icon={PhonePortrait} href="tel:+33.X.XX.XX.XX.XX">
+            +33.X.XX.XX.XX.XX
+        </ResumeIconLine>
+    </div>
     <ResumeIconLine icon={Globe} href="https://julien-wff.com">
         julien-wff.com
     </ResumeIconLine>
@@ -38,3 +44,10 @@ const t = useTranslations(resumeTranslations, language);
         {t('contact.driving-license')}
     </ResumeIconLine>
 </ResumeElement>
+
+
+<style>
+    #phone-container {
+        display: none;
+    }
+</style>

@@ -5,6 +5,10 @@
     let landingBackdrop: HTMLDivElement;
     let resumeBoxes: NodeListOf<HTMLDivElement>;
     let links: NodeListOf<HTMLAnchorElement>;
+    let phoneContainer: HTMLDivElement;
+
+    let showPhone = writable(false);
+    const num = [ 75, 122, 77, 122, 76, 106, 89, 117, 78, 68, 99, 117, 77, 106, 89, 117, 77, 68, 73, 117, 79, 84, 99, 61 ];
 
     let noBackgroundMode = writable(false);
     let blackAndWhiteMode = writable(false);
@@ -39,6 +43,9 @@
             $color1 = style.getPropertyValue('--gradient-blue');
             $color2 = style.getPropertyValue('--gradient-purple');
         }
+
+        if (!phoneContainer)
+            phoneContainer = document.querySelector('#phone-container')!;
     });
 
     function reflectUpdates() {
@@ -78,6 +85,15 @@
                 box.style.removeProperty('box-shadow');
                 box.style.removeProperty('outline');
             });
+        }
+
+        phoneContainer.style.display = $showPhone ? 'block' : 'none';
+        if ($showPhone) {
+            const tel = num.map(n => String.fromCharCode(n)).join('');
+            const anchor = document.querySelector('#phone-container a') as HTMLAnchorElement;
+            anchor.href = `tel:${atob(tel).replaceAll('.', '')}`;
+            const content = anchor.querySelector('.content') as HTMLDivElement;
+            content.textContent = atob(tel);
         }
 
         links.forEach(link => {
@@ -179,6 +195,13 @@
 
 <div class="popup-content">
     <h1>Print menu</h1>
+
+    <h2>Content</h2>
+
+    <label>
+        <input bind:checked={$showPhone} on:change={reflectUpdates} type="checkbox"/>
+        Show phone number
+    </label>
 
     <h2>Global style</h2>
 

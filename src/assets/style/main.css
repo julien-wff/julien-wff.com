@@ -9,7 +9,7 @@
     --background-color: #f1f1f1;
     --text-color: #002c45;
     --text-color-over-primary: #fff;
-    --light-gray: #D5DCE3;
+    --light-gray: #dce0e3;
     --gradient: linear-gradient(135deg, var(--gradient-blue) 0%, var(--gradient-purple) 100%);
 }
 

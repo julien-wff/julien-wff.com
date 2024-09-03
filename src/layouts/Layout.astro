@@ -28,5 +28,15 @@ const defaultDescription = 'Site personnel de Julien WOLFF';
 <main>
     <slot/>
 </main>
+
+<style is:global>
+    section {
+        z-index: 2;
+    }
+
+    section * {
+        z-index: inherit;
+    }
+</style>
 </body>
 </html>

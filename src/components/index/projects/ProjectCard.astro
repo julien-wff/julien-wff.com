@@ -7,6 +7,7 @@ import { Icon } from 'svelte-ionicons';
 import LogoGithub from 'svelte-ionicons/LogoGithub.svelte';
 import GlobeOutline from 'svelte-ionicons/GlobeOutline.svelte';
 import { useTranslations } from '../../../i18n/utils';
+import ProjectCardLink from './ProjectCardLink.astro';
 
 interface Props {
     title: string;
@@ -39,16 +40,14 @@ const t = useTranslations(indexTranslations, language);
         ?
             <div class="project-links">
                 {url ?
-                        <a href={url} target="_blank" rel="noopener noreferrer">
-                            <Icon icon={GlobeOutline} size={16}/>
+                        <ProjectCardLink url={url} icon={GlobeOutline}>
                             {t('projects.website')}
-                        </a>
+                        </ProjectCardLink>
                     : null}
                 {github ?
-                        <a href={github} target="_blank" rel="noopener noreferrer">
-                            <Icon icon={LogoGithub} size={16}/>
+                        <ProjectCardLink url={github} icon={LogoGithub}>
                             {t('projects.source-code')}
-                        </a>
+                        </ProjectCardLink>
                     : null}
             </div>
         : null
@@ -91,36 +90,5 @@ const t = useTranslations(indexTranslations, language);
     .project-links {
         display: flex;
         gap: 1rem;
-    }
-
-    .project-links a {
-        position: relative;
-        display: flex;
-        align-items: center;
-        gap: .5rem;
-        padding: .5rem;
-        color: inherit;
-        font-size: inherit;
-        text-decoration: none;
-        border-radius: .5rem;
-    }
-
-    .project-links a::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border-radius: .5rem;
-        background: var(--gradient);
-        z-index: 2;
-        padding: 1px;
-        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        mask-composite: exclude;
-    }
-
-    .project-links a:hover::before, .project-links a:focus::before {
-        padding: 2px;
     }
 </style>

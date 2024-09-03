@@ -1,0 +1,67 @@
+---
+import { type ComponentType } from 'svelte';
+import { Icon } from 'svelte-ionicons';
+
+interface Props {
+    url: string;
+    icon: ComponentType;
+}
+
+const { url, icon } = Astro.props;
+---
+
+<a href={url} target="_blank" rel="noopener noreferrer">
+    <Icon icon={icon} size={16}/>
+    <slot/>
+</a>
+
+
+<style>
+    a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        padding: .5rem;
+        color: inherit;
+        font-size: inherit;
+        text-decoration: none;
+        border-radius: .5rem;
+    }
+
+    @property --btn-gradient-angle {
+        syntax: "<angle>";
+        initial-value: 135deg;
+        inherits: false;
+    }
+
+    a::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: .5rem;
+        background: conic-gradient(
+                from var(--btn-gradient-angle),
+                var(--gradient-blue),
+                var(--gradient-purple),
+                var(--gradient-blue)
+        );
+        padding: 1px;
+        mask: linear-gradient(#fff, #fff) content-box, linear-gradient(#fff, #fff);
+        mask-composite: exclude;
+    }
+
+    a:hover::before, a:focus::before {
+        padding: 2px;
+        animation: btn-hover 2s infinite linear;
+    }
+
+    @keyframes btn-hover {
+        from {
+            --btn-gradient-angle: 135deg;
+        }
+        to {
+            --btn-gradient-angle: calc(360deg + 135deg);
+        }
+    }
+</style>

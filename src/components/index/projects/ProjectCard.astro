@@ -26,9 +26,9 @@ const t = useTranslations(indexTranslations, language);
 <div class="project-card">
     <Image src={preview}
            alt={title}
-           class="project-preview"
-           widths={[ 360, 480, 600 ]}
-           sizes="(max-width: 440px) 360px, (max-width: 512px) 480px, 600px"/>
+           width={preview.width / 2.5}
+           densities={[ 1.5, 2, 2.5 ]}
+           class="project-preview"/>
 
     <div class="project-info">
         <h3>{title}</h3>

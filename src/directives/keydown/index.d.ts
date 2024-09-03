@@ -4,7 +4,7 @@ declare module 'astro' {
     interface AstroClientDirectives {
         'client:keydown'?: {
             key: string;
-            ctrl?: boolean;
+            ctrlKey?: boolean;
             preventDefault?: boolean;
         };
     }

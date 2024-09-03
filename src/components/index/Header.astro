@@ -1,5 +1,5 @@
 ---
-import LanguageSelector from "./LanguageSelector.astro";
+import LanguageSelector from './LanguageSelector.astro';
 import { useTranslations, type Language } from '$i18n/utils';
 import { indexTranslations } from '$i18n/translations';
 
@@ -33,10 +33,10 @@ const t = useTranslations(indexTranslations, language);
         height: 7rem;
         z-index: 10;
         background: linear-gradient(
-            180deg,
-            var(--header-color) 0%,
-            var(--header-color) 75%,
-            transparent 100%
+                180deg,
+                var(--header-color) 0%,
+                var(--header-color) 75%,
+                transparent 100%
         );
         backdrop-filter: blur(1rem);
     }

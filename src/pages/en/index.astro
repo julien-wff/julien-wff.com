@@ -3,6 +3,7 @@ import Layout from '$layouts/Layout.astro';
 import Header from '$components/index/Header.astro';
 import LandingSection from '$components/index/LandingSection.astro';
 import LandingBackdrop from '$components/common/LandingBackdrop.svelte';
+import ProjectsSection from '../../components/index/ProjectsSection.astro';
 // import AboutMeSection from '$components/index/AboutMeSection.astro';
 ---
 
@@ -11,4 +12,5 @@ import LandingBackdrop from '$components/common/LandingBackdrop.svelte';
     <LandingBackdrop client:idle/>
     <LandingSection/>
     <!--<AboutMeSection/>-->
+    <ProjectsSection/>
 </Layout>

@@ -1,9 +1,12 @@
 ---
+import type { Language } from '$i18n/utils';
+import { indexTranslations } from '$i18n/translations';
 import { type ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 import { Icon } from 'svelte-ionicons';
 import LogoGithub from 'svelte-ionicons/LogoGithub.svelte';
 import GlobeOutline from 'svelte-ionicons/GlobeOutline.svelte';
+import { useTranslations } from '../../../i18n/utils';
 
 interface Props {
     title: string;
@@ -14,6 +17,9 @@ interface Props {
 }
 
 const { title, description, preview, url, github } = Astro.props;
+
+const language = Astro.currentLocale as Language;
+const t = useTranslations(indexTranslations, language);
 ---
 
 
@@ -31,13 +37,13 @@ const { title, description, preview, url, github } = Astro.props;
                 {url ?
                         <a href={url} target="_blank" rel="noopener noreferrer">
                             <Icon icon={GlobeOutline} size={16}/>
-                            Site web
+                            {t('projects.website')}
                         </a>
                     : null}
                 {github ?
                         <a href={github} target="_blank" rel="noopener noreferrer">
                             <Icon icon={LogoGithub} size={16}/>
-                            Code source
+                            {t('projects.source-code')}
                         </a>
                     : null}
             </div>

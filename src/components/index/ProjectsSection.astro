@@ -1,0 +1,87 @@
+---
+import { useTranslations } from '$i18n/utils';
+import { indexTranslations } from '$i18n/translations';
+import ProjectCard from './projects/ProjectCard.astro';
+import bdeCesiNancyPreview from '$assets/projects/bdecesinancy-preview.png';
+import homelabPreview from '$assets/projects/homelab-preview.png';
+import dossierSynthesePreview from '$assets/projects/dossier-synthese-preview.png';
+import easySavePreview from '$assets/projects/easysave-preview.png';
+
+const language = Astro.currentLocale;
+const t = useTranslations(indexTranslations, language as keyof typeof indexTranslations);
+---
+
+<section>
+    <h2 id="projects">{t('projects.title')}</h2>
+
+    <div class="projects-container">
+        <div class="projects">
+            <ProjectCard title="BDE CESI Nancy"
+                         description="Site web du BDE CESI Nancy"
+                         preview={bdeCesiNancyPreview}
+                         url="https://bdecesinancy.fr"
+                         github="https://github.com/julien-wff/bde-cesi-nancy"/>
+            <ProjectCard title="Homelab"
+                         description="Infrastructure de services auto-hébergés"
+                         preview={homelabPreview}/>
+            <ProjectCard title="Dossiers de synthèse"
+                         description="Visualisation et simulation de notes"
+                         preview={dossierSynthesePreview}
+                         url="https://dossier.bdecesinancy.fr"
+                         github="https://github.com/julien-wff/cesi-dossier-synthese"/>
+            <ProjectCard title="EasySave"
+                         description="Applications de sauvegarde de fichiers"
+                         preview={easySavePreview}
+                         github="https://github.com/julien-wff/easysave"/>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    section {
+        width: 100%;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin: 0;
+        scroll-margin-top: 8rem;
+    }
+
+    .projects-container {
+        display: grid;
+        place-content: center;
+        padding: 2rem;
+    }
+
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(24rem, 32rem));
+        grid-gap: 2rem;
+    }
+
+    @media (max-width: 56rem) {
+        .projects-container {
+            padding: 1rem;
+
+        }
+
+        .projects {
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 1rem;
+        }
+    }
+
+    @media screen and (max-width: 48rem) {
+        h2 {
+            scroll-margin-top: 6rem;
+        }
+    }
+</style>

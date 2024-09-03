@@ -32,6 +32,7 @@ export const indexTranslations = {
         'age.minutes': 'minutes',
         'age.seconds': 'seconds and',
         'age.milliseconds': 'milliseconds old,',
+        'projects.title': 'Flagship projects',
     },
     fr: {
         'nav.projects': 'Projets',
@@ -65,5 +66,6 @@ export const indexTranslations = {
         'age.minutes': 'minutes',
         'age.seconds': 'secondes et',
         'age.milliseconds': 'millisecondes,',
+        'projects.title': 'Projets phares',
     },
 } as const;

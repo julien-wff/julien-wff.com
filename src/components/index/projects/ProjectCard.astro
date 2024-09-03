@@ -1,0 +1,116 @@
+---
+import { type ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import { Icon } from 'svelte-ionicons';
+import LogoGithub from 'svelte-ionicons/LogoGithub.svelte';
+import GlobeOutline from 'svelte-ionicons/GlobeOutline.svelte';
+
+interface Props {
+    title: string;
+    description: string;
+    preview: ImageMetadata;
+    url?: string;
+    github?: string;
+}
+
+const { title, description, preview, url, github } = Astro.props;
+---
+
+
+<div class="project-card">
+    <Image src={preview} alt={title} class="project-preview"/>
+
+    <div class="project-info">
+        <h3>{title}</h3>
+        <p>{description}</p>
+    </div>
+
+    {url || github
+        ?
+            <div class="project-links">
+                {url ?
+                        <a href={url} target="_blank" rel="noopener noreferrer">
+                            <Icon icon={GlobeOutline} size={16}/>
+                            Site web
+                        </a>
+                    : null}
+                {github ?
+                        <a href={github} target="_blank" rel="noopener noreferrer">
+                            <Icon icon={LogoGithub} size={16}/>
+                            Code source
+                        </a>
+                    : null}
+            </div>
+        : null
+    }
+</div>
+
+
+<style>
+    .project-card {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: 1rem;
+        max-width: 30rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: rgba(255, 255, 255, .65);
+        backdrop-filter: blur(1rem);
+    }
+
+    .project-preview {
+        width: 100%;
+        height: auto;
+        border-radius: .5rem;
+    }
+
+    .project-info {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        gap: .5rem;
+    }
+
+    .project-info * {
+        margin: 0;
+    }
+
+    .project-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .project-links a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        padding: .5rem;
+        color: inherit;
+        font-size: inherit;
+        text-decoration: none;
+        border-radius: .5rem;
+    }
+
+    .project-links a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: .5rem;
+        background: var(--gradient);
+        z-index: 2;
+        padding: 1px;
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+    }
+
+    .project-links a:hover::before, .project-links a:focus::before {
+        padding: 2px;
+    }
+</style>

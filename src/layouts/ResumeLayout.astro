@@ -13,16 +13,16 @@ const { title } = Astro.props;
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="generator" content={Astro.generator}/>
     <link rel="preload" href={albert400} as="font" type="font/woff2"/>
     <link rel="preload" href={albert700} as="font" type="font/woff2"/>
     <title>{title}</title>
 </head>
 <body>
-<slot />
+<slot/>
 <svg style="width:0; height:0; position:absolute;" aria-hidden="true" focusable="false">
     <linearGradient id="icon-gradient" x2="1" y2="1">
         <stop offset="0%" stop-color="var(--gradient-blue)"/>

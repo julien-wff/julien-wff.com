@@ -6,7 +6,7 @@
 
     onMount(() => {
         show = true;
-    })
+    });
 
     function closePopup() {
         show = false;

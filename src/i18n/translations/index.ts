@@ -38,7 +38,9 @@ export const indexTranslations = {
         'projects.bdecesinancy.title': 'BDE CESI Nancy',
         'projects.bdecesinancy.description': 'Website of the Student Office of CESI Nancy',
         'projects.homelab.title': 'Homelab',
-        'projects.homelab.description': 'Self-hosted services infrastructure',
+        'projects.homelab.description': dedent`
+            Self-hosted services infrastructure on my server. NixOS for reproducible deployment, Docker Compose
+            for services, Cloudflare DNS and tunnel, HomeAssistant under KVM.`,
         'projects.cesi-dossier-synthese.title': 'Grades tools',
         'projects.cesi-dossier-synthese.description': 'Visualization and simulation of CESI grades',
         'projects.easysave.title': 'EasySave',
@@ -82,7 +84,9 @@ export const indexTranslations = {
         'projects.bdecesinancy.title': 'BDE CESI Nancy',
         'projects.bdecesinancy.description': 'Site web du Bureau des Élèves du CESI Nancy',
         'projects.homelab.title': 'Homelab',
-        'projects.homelab.description': 'Infrastructure de services auto-hébergés',
+        'projects.homelab.description': dedent`
+            Infrastructure de services auto-hébergés sur mon serveur. NixOS pour un déploiement reproductible,
+            Docker Compose pour les services, DNS et tunnel Cloudflare, HomeAssistant sous KVM.`,
         'projects.cesi-dossier-synthese.title': 'Dossiers de synthèse',
         'projects.cesi-dossier-synthese.description': 'Visualisation et simulation des notes CESI',
         'projects.easysave.title': 'EasySave',

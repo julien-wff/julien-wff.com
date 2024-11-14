@@ -3,8 +3,8 @@ import ResumeParagraphLine from '$components/resume/containers/ResumeParagraphLi
 import ResumeElement from '$components/resume/containers/ResumeElement.astro';
 import PhonePortrait from 'svelte-ionicons/PhonePortrait.svelte';
 import Business from 'svelte-ionicons/Business.svelte';
-import Server from 'svelte-ionicons/Server.svelte';
 import People from 'svelte-ionicons/People.svelte';
+import FileTrayFull from 'svelte-ionicons/FileTrayFull.svelte';
 import MaleFemale from 'svelte-ionicons/MaleFemale.svelte';
 import { useTranslations } from '$i18n/utils';
 import { resumeTranslations } from '$i18n/translations/resume';
@@ -15,6 +15,11 @@ const t = useTranslations(resumeTranslations, language);
 ---
 
 <ResumeElement title={t('experience.title')} mb>
+    <ResumeParagraphLine title={t('experience.reveals.title')}
+                         subtitle={t('experience.reveals.subtitle')}
+                         icon={Business}>
+        {t('experience.reveals.description')}
+    </ResumeParagraphLine>
     <ResumeParagraphLine title={t('experience.henoo.title')}
                          subtitle={t('experience.henoo.subtitle')}
                          icon={PhonePortrait}>
@@ -22,13 +27,8 @@ const t = useTranslations(resumeTranslations, language);
     </ResumeParagraphLine>
     <ResumeParagraphLine title={t('experience.cma.title')}
                          subtitle={t('experience.cma.subtitle')}
-                         icon={Business}>
+                         icon={FileTrayFull}>
         {t('experience.cma.description')}
-    </ResumeParagraphLine>
-    <ResumeParagraphLine title={t('experience.cloud-server.title')}
-                         subtitle={t('experience.cloud-server.subtitle')}
-                         icon={Server}>
-        {t('experience.cloud-server.description')}
     </ResumeParagraphLine>
     <ResumeParagraphLine title={t('experience.bde.title')}
                          subtitle={t('experience.bde.subtitle')}

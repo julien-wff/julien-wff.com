@@ -35,7 +35,7 @@
         align-items: center;
         height: 100vh;
         width: 100vw;
-        background-color: #f5f5f5;
+        background-color: var(--background-color);
     }
 
     @media print {
@@ -50,6 +50,12 @@
         background: linear-gradient(45deg, var(--gradient-blue), var(--gradient-purple));
         border-radius: 50%;
         transition: transform 3s linear;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .ball {
+            filter: brightness(.8);
+        }
     }
 
     .cover {

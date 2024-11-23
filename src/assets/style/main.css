@@ -2,15 +2,34 @@
 @import "@fontsource/albert-sans/700.css";
 
 :root {
+    /* Main colors */
+    --background-color: #f1f1f1;
+    --text-color: #002c45;
+    /* Theme colors */
     --gradient-blue: #4DA4F4;
     --gradient-purple: #E926FA;
     --primary-color: #9d65f7;
+    --gradient: linear-gradient(135deg, var(--gradient-blue) 0%, var(--gradient-purple) 100%);
     --danger-color: #f76565;
-    --background-color: #f1f1f1;
-    --text-color: #002c45;
+    /* Other colors */
     --text-color-over-primary: #fff;
     --light-gray: #dce0e3;
-    --gradient: linear-gradient(135deg, var(--gradient-blue) 0%, var(--gradient-purple) 100%);
+    --card-background-color: color-mix(in srgb, var(--background-color) 65%, transparent 35%);
+    /* Utilities */
+    --box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #141f26;
+        --text-color: #f1f1f1;
+        --light-gray: #1f2a34;
+        --card-background-color: color-mix(
+                in srgb,
+                color-mix(in srgb, var(--background-color) 80%, white 20%) 50%,
+                transparent 50%
+        );
+    }
 }
 
 html, body {

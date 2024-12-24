@@ -5,6 +5,17 @@ import ProjectCard from './projects/ProjectCard.astro';
 import bdeCesiNancyPreview from '$assets/projects/bdecesinancy-preview.png';
 import homelabPreview from '$assets/projects/homelab-preview.png';
 import dossierSynthesePreview from '$assets/projects/dossier-synthese-preview.png';
+import cloudflare from '$assets/icons/cloudflare.svg';
+import csharp from '$assets/icons/csharp.svg';
+import docker from '$assets/icons/docker.svg';
+import dotnet from '$assets/icons/dotnet.svg';
+import figma from '$assets/icons/figma.svg';
+import githubActions from '$assets/icons/githubactions.svg';
+import golang from '$assets/icons/golang.svg';
+import nixos from '$assets/icons/nixos.svg';
+import nodejs from '$assets/icons/nodejs.svg';
+import svelte from '$assets/icons/svelte.svg';
+import typescript from '$assets/icons/typescript.svg';
 import easySavePreview from '$assets/projects/easysave-preview.png';
 
 const language = Astro.currentLocale;
@@ -20,19 +31,43 @@ const t = useTranslations(indexTranslations, language as keyof typeof indexTrans
                          description={t('projects.bdecesinancy.description')}
                          preview={bdeCesiNancyPreview}
                          url="https://bdecesinancy.fr"
-                         github="https://github.com/julien-wff/bde-cesi-nancy"/>
+                         github="https://github.com/julien-wff/bde-cesi-nancy"
+                         tech={[
+                             [ cloudflare, 'Cloudflare' ],
+                             [ docker, 'Docker' ],
+                             [ figma, 'Figma' ],
+                             [ nodejs, 'Node.js' ],
+                             [ svelte, 'Svelte' ],
+                             [ typescript, 'TypeScript' ],
+                         ]}/>
             <ProjectCard title={t('projects.homelab.title')}
                          description={t('projects.homelab.description')}
-                         preview={homelabPreview}/>
+                         preview={homelabPreview}
+                         tech={[
+                             [ cloudflare, 'Cloudflare' ],
+                             [ docker, 'Docker' ],
+                             [ nixos, 'NixOS' ],
+                         ]}/>
             <ProjectCard title={t('projects.cesi-dossier-synthese.title')}
                          description={t('projects.cesi-dossier-synthese.description')}
                          preview={dossierSynthesePreview}
                          url="https://dossier.bdecesinancy.fr"
-                         github="https://github.com/julien-wff/cesi-dossier-synthese"/>
+                         github="https://github.com/julien-wff/cesi-dossier-synthese"
+                         tech={[
+                             [ docker, 'Docker' ],
+                             [ golang, 'Golang' ],
+                             [ svelte, 'Svelte' ],
+                             [ typescript, 'TypeScript' ],
+                         ]}/>
             <ProjectCard title={t('projects.easysave.title')}
                          description={t('projects.easysave.description')}
                          preview={easySavePreview}
-                         github="https://github.com/julien-wff/easysave"/>
+                         github="https://github.com/julien-wff/easysave"
+                         tech={[
+                             [ csharp, 'C#' ],
+                             [ dotnet, '.NET' ],
+                             [ githubActions, 'GitHub Actions' ],
+                         ]}/>
         </div>
     </div>
 </section>

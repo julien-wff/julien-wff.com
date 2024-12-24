@@ -14,9 +14,17 @@ interface Props {
     preview: ImageMetadata;
     url?: string;
     github?: string;
+    tech?: [ ImageMetadata, string ][];
 }
 
-const { title, description, preview, url, github } = Astro.props;
+const {
+    title,
+    description,
+    preview,
+    url,
+    github,
+    tech = [],
+} = Astro.props;
 
 const language = Astro.currentLocale as Language;
 const t = useTranslations(indexTranslations, language);
@@ -24,6 +32,15 @@ const t = useTranslations(indexTranslations, language);
 
 
 <div class="project-card">
+    <div class="tech-row">
+        {tech.map(([ icon, name ]) => (
+                <div class="tech-badge">
+                    <Image src={icon} alt={name} class="tech-icon"/>
+                    <div>{name}</div>
+                </div>
+        ))}
+    </div>
+
     <Image src={preview}
            alt={title}
            width={preview.width / 2.5}
@@ -57,6 +74,7 @@ const t = useTranslations(indexTranslations, language);
 <style>
     .project-card {
         display: flex;
+        position: relative;
         flex-direction: column;
         align-items: start;
         justify-content: start;
@@ -67,6 +85,49 @@ const t = useTranslations(indexTranslations, language);
         background-color: var(--card-background-color);
         backdrop-filter: blur(1rem);
         box-shadow: var(--box-shadow);
+    }
+
+    .tech-row {
+        display: flex;
+        gap: .25rem;
+        justify-content: end;
+        width: 100%;
+        position: absolute;
+        top: -.5rem;
+        right: -.5rem;
+        z-index: 3;
+    }
+
+    .tech-badge {
+        background-color: var(--background-color);
+        border-radius: 1rem;
+        padding: .25rem;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: .25rem;
+        height: 1.5rem;
+        max-width: 1.5rem;
+        overflow: clip;
+        transition: max-width .25s linear;
+        box-shadow: var(--box-shadow);
+    }
+
+    .tech-badge:hover {
+        max-width: 10rem;
+        transition: max-width .25s linear;
+    }
+
+    .tech-badge div {
+        cursor: none;
+        padding-right: .25rem;
+        white-space: nowrap;
+    }
+
+    .tech-icon {
+        height: 100%;
+        width: auto;
+        border-radius: .25rem;
     }
 
     .project-preview {

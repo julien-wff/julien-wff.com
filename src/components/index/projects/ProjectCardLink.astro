@@ -1,17 +1,16 @@
 ---
-import type Icon from 'svelte-ionicons/Icon.svelte';
+import { type Icon } from 'svelte-ionicons';
 
 interface Props {
     url: string;
     icon: typeof Icon;
 }
 
-const { url, icon: IconComponent } = Astro.props;
+const { url, icon: LinkIcon } = Astro.props;
 ---
 
 <a href={url} target="_blank" rel="noopener noreferrer">
-    <!-- @ts-ignore Props not inferred properly -->
-    <IconComponent size={16}/>
+    <LinkIcon size={16}/>
     <slot/>
 </a>
 

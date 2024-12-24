@@ -1,8 +1,8 @@
 import type { ImageMetadata } from 'astro';
-import frFlag from '../assets/flags/fr.svg';
-import frFlagRaw from '../assets/flags/fr.svg?raw';
-import gbFlag from '../assets/flags/gb.svg';
-import gbFlagRaw from '../assets/flags/gb.svg?raw';
+import frFlag from '$assets/flags/fr.svg';
+import frFlagRaw from '$assets/flags/fr.svg?raw';
+import gbFlag from '$assets/flags/gb.svg';
+import gbFlagRaw from '$assets/flags/gb.svg?raw';
 
 export interface LanguageInfo {
     displayShort: string;

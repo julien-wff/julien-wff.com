@@ -2,14 +2,14 @@
 import Layout from '$layouts/Layout.astro';
 import Header from '$components/index/Header.astro';
 import LandingSection from '$components/index/LandingSection.astro';
-import LandingBackdrop from '$components/common/LandingBackdrop.svelte';
-import ProjectsSection from '../../components/index/ProjectsSection.astro';
+import LandingBackdrop from '$components/common/LandingBackdrop.astro';
+import ProjectsSection from '$components/index/ProjectsSection.astro';
 // import AboutMeSection from '$components/index/AboutMeSection.astro';
 ---
 
 <Layout title="Julien WOLFF">
     <Header/>
-    <LandingBackdrop client:idle/>
+    <LandingBackdrop/>
     <LandingSection/>
     <!--<AboutMeSection/>-->
     <ProjectsSection/>

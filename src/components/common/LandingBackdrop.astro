@@ -1,28 +1,5 @@
-<script lang="ts">
-    import { onDestroy, onMount } from 'svelte';
-
-    let ball: HTMLElement;
-    let timer: number;
-
-    onMount(() => {
-        applyRandomTransform();
-        timer = setInterval(applyRandomTransform, 3100);
-    });
-
-    onDestroy(() => {
-        clearInterval(timer);
-    });
-
-    function applyRandomTransform() {
-        const x = (Math.random() - .5) * 30;
-        const y = (Math.random() - .5) * 30;
-        const scale = Math.random() * .5 + .5;
-        ball.style.transform = `translate(${x}%, ${y}%) scale(${scale})`;
-    }
-</script>
-
 <div class="landing-backdrop">
-    <div class="ball" bind:this={ball}/>
+    <div class="ball"/>
     <div class="cover"/>
 </div>
 
@@ -67,3 +44,19 @@
         backdrop-filter: blur(100px);
     }
 </style>
+
+<script>
+    const balls = document.querySelectorAll<HTMLDivElement>('.landing-backdrop .ball');
+
+    balls.forEach(ball => {
+        applyRandomTransform(ball);
+        setInterval(() => applyRandomTransform(ball), 3100);
+    });
+
+    function applyRandomTransform(ball: HTMLDivElement) {
+        const x = (Math.random() - .5) * 30;
+        const y = (Math.random() - .5) * 30;
+        const scale = Math.random() * .5 + .5;
+        ball.style.transform = `translate(${x}%, ${y}%) scale(${scale})`;
+    }
+</script>

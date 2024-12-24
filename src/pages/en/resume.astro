@@ -1,10 +1,10 @@
 ---
 import ResumeLayout from '$layouts/ResumeLayout.astro';
-import LandingBackdrop from '$components/common/LandingBackdrop.svelte';
+import LandingBackdrop from '$components/common/LandingBackdrop.astro';
 import CompleteResume from '$components/resume/Resume.astro';
 ---
 
 <ResumeLayout title="Julien Wolff - Résumé">
-    <LandingBackdrop client:idle/>
+    <LandingBackdrop/>
     <CompleteResume/>
 </ResumeLayout>

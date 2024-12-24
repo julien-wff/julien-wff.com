@@ -44,7 +44,7 @@ export const indexTranslations = {
         'projects.cesi-dossier-synthese.title': 'Grades tools',
         'projects.cesi-dossier-synthese.description': 'Visualization and simulation of CESI grades',
         'projects.easysave.title': 'EasySave',
-        'projects.easysave.description': 'File backup applications',
+        'projects.easysave.description': 'CLI and WPF file backup applications',
     },
     fr: {
         'nav.projects': 'Projets',
@@ -90,6 +90,6 @@ export const indexTranslations = {
         'projects.cesi-dossier-synthese.title': 'Dossiers de synthèse',
         'projects.cesi-dossier-synthese.description': 'Visualisation et simulation des notes CESI',
         'projects.easysave.title': 'EasySave',
-        'projects.easysave.description': 'Applications de sauvegarde de fichiers',
+        'projects.easysave.description': 'Applications de sauvegarde de fichiers CLI et WPF',
     },
 } as const;

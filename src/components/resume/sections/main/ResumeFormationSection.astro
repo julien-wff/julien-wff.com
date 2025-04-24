@@ -2,7 +2,7 @@
 import ResumeElement from '$components/resume/containers/ResumeElement.astro';
 import ResumeParagraphLine from '$components/resume/containers/ResumeParagraphLine.astro';
 import School from 'svelte-ionicons/School.svelte';
-import Flag from 'svelte-ionicons/Flag.svelte';
+import Airplane from 'svelte-ionicons/Airplane.svelte';
 import { useTranslations } from '$i18n/utils';
 import { resumeTranslations } from '$i18n/translations/resume';
 import type { Language } from '$i18n/utils';
@@ -15,7 +15,7 @@ const t = useTranslations(resumeTranslations, language);
     <ResumeParagraphLine title={t('formation.cesi.title')} subtitle={t('formation.cesi.subtitle')} icon={School}>
         {t('formation.cesi.description')}
     </ResumeParagraphLine>
-    <ResumeParagraphLine title={t('formation.aau.title')} subtitle={t('formation.aau.subtitle')} icon={Flag}>
+    <ResumeParagraphLine title={t('formation.aau.title')} subtitle={t('formation.aau.subtitle')} icon={Airplane}>
         {t('formation.aau.description')}
     </ResumeParagraphLine>
 </ResumeElement>

@@ -45,6 +45,10 @@ export const indexTranslations = {
         'projects.cesi-dossier-synthese.description': 'Visualization and simulation of CESI grades',
         'projects.easysave.title': 'EasySave',
         'projects.easysave.description': 'CLI and WPF file backup applications',
+        'projects.backry.title': 'Backry',
+        'projects.backry.description': 'Self-hostable database backup solution',
+        'projects.health-ai.title': 'Health AI',
+        'projects.health-ai.description': 'Mobile chatbot application for health advice',
     },
     fr: {
         'nav.projects': 'Projets',
@@ -91,5 +95,9 @@ export const indexTranslations = {
         'projects.cesi-dossier-synthese.description': 'Visualisation et simulation des notes CESI',
         'projects.easysave.title': 'EasySave',
         'projects.easysave.description': 'Applications de sauvegarde de fichiers CLI et WPF',
+        'projects.backry.title': 'Backry',
+        'projects.backry.description': 'Backup pour bases de données auto-hébergeable',
+        'projects.health-ai.title': 'Health AI',
+        'projects.health-ai.description': 'Application mobile de chatbot pour conseils santé',
     },
 } as const;

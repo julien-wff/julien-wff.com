@@ -2,21 +2,28 @@
 import { useTranslations } from '$i18n/utils';
 import { indexTranslations } from '$i18n/translations';
 import ProjectCard from './projects/ProjectCard.astro';
+import backryPreview from '$assets/projects/backry-preview.png';
 import bdeCesiNancyPreview from '$assets/projects/bdecesinancy-preview.png';
-import homelabPreview from '$assets/projects/homelab-preview.png';
 import dossierSynthesePreview from '$assets/projects/dossier-synthese-preview.png';
+import easySavePreview from '$assets/projects/easysave-preview.png';
+import healthAiPreview from '$assets/projects/health-ai-preview.png';
+import homelabPreview from '$assets/projects/homelab-preview.png';
+import bun from '$assets/icons/bun.svg';
 import cloudflare from '$assets/icons/cloudflare.svg';
 import csharp from '$assets/icons/csharp.svg';
 import docker from '$assets/icons/docker.svg';
 import dotnet from '$assets/icons/dotnet.svg';
+import expo from '$assets/icons/expo.svg';
 import figma from '$assets/icons/figma.svg';
 import githubActions from '$assets/icons/githubactions.svg';
+import googleCloud from '$assets/icons/google-cloud.svg';
 import golang from '$assets/icons/golang.svg';
 import nixos from '$assets/icons/nixos.svg';
 import nodejs from '$assets/icons/nodejs.svg';
+import react from '$assets/icons/react.svg';
+import sqlite from '$assets/icons/sqlite.svg';
 import svelte from '$assets/icons/svelte.svg';
 import typescript from '$assets/icons/typescript.svg';
-import easySavePreview from '$assets/projects/easysave-preview.png';
 
 const language = Astro.currentLocale;
 const t = useTranslations(indexTranslations, language as keyof typeof indexTranslations);
@@ -47,6 +54,28 @@ const t = useTranslations(indexTranslations, language as keyof typeof indexTrans
                              [ cloudflare, 'Cloudflare' ],
                              [ docker, 'Docker' ],
                              [ nixos, 'NixOS' ],
+                         ]}/>
+            <ProjectCard title={t('projects.backry.title')}
+                         description={t('projects.backry.description')}
+                         preview={backryPreview}
+                         github="https://github.com/julien-wff/backry"
+                         tech={[
+                             [ bun, 'Bun' ],
+                             [ docker, 'Docker' ],
+                             [ githubActions, 'GitHub Actions' ],
+                             [ sqlite, 'SQLite' ],
+                             [ svelte, 'Svelte' ],
+                             [ typescript, 'TypeScript' ],
+                         ]}/>
+            <ProjectCard title={t('projects.health-ai.title')}
+                         description={t('projects.health-ai.description')}
+                         preview={healthAiPreview}
+                         github="https://github.com/julien-wff/health-ai"
+                         tech={[
+                             [ expo, 'Expo' ],
+                             [ googleCloud, 'Google Cloud' ],
+                             [ react, 'React Native' ],
+                             [ typescript, 'TypeScript' ],
                          ]}/>
             <ProjectCard title={t('projects.cesi-dossier-synthese.title')}
                          description={t('projects.cesi-dossier-synthese.description')}

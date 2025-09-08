@@ -26,7 +26,7 @@
         height: 85vh;
         background: linear-gradient(45deg, var(--gradient-blue), var(--gradient-purple));
         border-radius: 50%;
-        transition: transform 3s linear;
+        transition: transform 10s ease;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -50,7 +50,7 @@
 
     balls.forEach(ball => {
         applyRandomTransform(ball);
-        setInterval(() => applyRandomTransform(ball), 3100);
+        setInterval(() => applyRandomTransform(ball), 10000);
     });
 
     function applyRandomTransform(ball: HTMLDivElement) {

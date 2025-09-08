@@ -1,7 +1,7 @@
 ---
 import ResumeBox from '$components/resume/containers/ResumeBox.astro';
 import { Image } from 'astro:assets';
-import profilePic from '$assets/resume/profile.png';
+import profilePic from '$assets/resume/profile.jpg';
 import { useTranslations } from '$i18n/utils';
 import { resumeTranslations } from '$i18n/translations/resume';
 import type { Language } from '$i18n/utils';
@@ -57,7 +57,7 @@ const t = useTranslations(resumeTranslations, language);
 
 <ResumeBox direction="row">
     <div class="img-container">
-        <Image src={profilePic} alt="Julien Wolff" loading="eager"/>
+        <Image src={profilePic} alt="Julien Wolff" densities={[1, 1.5, 2, 4]} width={profilePic.width / 4}/>
     </div>
     <div class="info-container">
         <h1>Julien WOLFF</h1>

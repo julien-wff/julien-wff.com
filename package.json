@@ -12,19 +12,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@fontsource/albert-sans": "^5.2.6",
+    "@fontsource/albert-sans": "^5.2.8",
     "dedent": "^1.7.0",
     "svelte-ionicons": "^2.0.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/svelte": "^7.1.1",
-    "astro": "^5.13.6",
+    "@astrojs/svelte": "^7.2.0",
+    "astro": "^5.14.4",
     "autoprefixer": "^10.4.21",
     "cssnano": "^7.1.1",
-    "nanoid": ">=5.1.5",
-    "sharp": "^0.34.3",
-    "svelte": "^5.38.7",
-    "typescript": "^5.9.2"
+    "nanoid": ">=5.1.6",
+    "sharp": "^0.34.4",
+    "svelte": "^5.39.11",
+    "typescript": "^5.9.3"
   }
 }

@@ -27,27 +27,20 @@
     let { onhide }: Props = $props();
 
     onMount(() => {
-        if (!style) {
-            const root = document.querySelector(':root')!;
-            style = getComputedStyle(root);
+        if (style) {
+            return;
         }
 
-        if (!landingBackdrop)
-            landingBackdrop = document.querySelector('.landing-backdrop')!;
+        const root = document.querySelector(':root')!;
+        style = getComputedStyle(root);
 
-        if (!resumeBoxes)
-            resumeBoxes = document.querySelectorAll('.resume-box')!;
+        landingBackdrop = document.querySelector('.landing-backdrop')!;
+        resumeBoxes = document.querySelectorAll('.resume-box')!;
+        phoneContainer = document.querySelector('#phone-container')!;
+        links = document.querySelectorAll('a')!;
 
-        if (!links)
-            links = document.querySelectorAll('a')!;
-
-        if (!color1 || !color2) {
-            color1 = style.getPropertyValue('--gradient-blue');
-            color2 = style.getPropertyValue('--gradient-purple');
-        }
-
-        if (!phoneContainer)
-            phoneContainer = document.querySelector('#phone-container')!;
+        color1 = style.getPropertyValue('--gradient-blue');
+        color2 = style.getPropertyValue('--gradient-purple');
     });
 
     function reflectUpdates() {

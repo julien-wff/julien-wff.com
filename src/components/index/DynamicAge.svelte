@@ -3,15 +3,19 @@
     import { type Language, useTranslations } from '$i18n/utils.ts';
     import { indexTranslations } from '$i18n/translations';
 
-    export let language: Language;
+    interface Props {
+        language: Language;
+    }
+
+    let { language }: Props = $props();
 
     const t = useTranslations(indexTranslations, language);
 
     const birthday = new Date('2003-05-29 08:00:00').getTime();
 
-    let currentAge = getAge();
+    let currentAge = $state(getAge());
     let continueAnimation = true;
-    let revealFullAge = false;
+    let revealFullAge = $state(false);
 
     // TODO: inexact calculation to a few hours, but who cares
     // I already spent too much time on this
@@ -56,7 +60,7 @@
     });
 </script>
 
-<span on:mouseenter={handleMouseHover} on:mouseleave={handleMouseLeave} role="note">
+<span onmouseenter={handleMouseHover} onmouseleave={handleMouseLeave} role="note">
     {#if !revealFullAge}
         {currentAge.years}&nbsp;{t("age.years-old")}*,
     {:else}

@@ -2,11 +2,19 @@
     import ResumePrintSettings from '$components/resume/print/ResumePrintSettings.svelte';
     import { onMount } from 'svelte';
 
-    let show = false;
+    let show = $state(false);
 
     onMount(() => {
         show = true;
     });
+
+    function handleBackdropClick(ev: Event) {
+        const target = ev.target as EventTarget & HTMLDivElement;
+
+        if (target.classList.contains('popup-backdrop')) {
+            closePopup();
+        }
+    }
 
     function closePopup() {
         show = false;
@@ -50,13 +58,12 @@
     }
 </style>
 
-<svelte:window on:afterprint={closePopup}/>
-<svelte:document on:keydown={handleKeyDown}/>
+<svelte:window onafterprint={closePopup}/>
+<svelte:document onkeydown={handleKeyDown}/>
 
 {#if show}
-    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
-    <div class="popup-backdrop" on:click|self={closePopup} role="dialog" aria-modal="true"
-         tabindex="-1">
-        <ResumePrintSettings on:hide={closePopup}/>
+    <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
+    <div class="popup-backdrop" onclick={handleBackdropClick} role="dialog" aria-modal="true" tabindex="-1">
+        <ResumePrintSettings onhide={closePopup}/>
     </div>
 {/if}

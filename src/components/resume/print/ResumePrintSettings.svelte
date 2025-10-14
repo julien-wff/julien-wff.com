@@ -1,28 +1,30 @@
-<script context="module" lang="ts">
-    import { writable } from 'svelte/store';
-
+<script module lang="ts">
     let style: CSSStyleDeclaration;
     let landingBackdrop: HTMLDivElement;
     let resumeBoxes: NodeListOf<HTMLDivElement>;
     let links: NodeListOf<HTMLAnchorElement>;
     let phoneContainer: HTMLDivElement;
 
-    let showPhone = writable(false);
+    let showPhone = $state(false);
     const num = [ 75, 122, 77, 122, 76, 106, 89, 117, 78, 68, 99, 117, 77, 106, 89, 117, 77, 68, 73, 117, 79, 84, 99, 61 ];
 
-    let noBackgroundMode = writable(false);
-    let blackAndWhiteMode = writable(false);
-    let underlineLinks = writable(true);
+    let noBackgroundMode = $state(false);
+    let blackAndWhiteMode = $state(false);
+    let underlineLinks = $state(true);
 
-    let colorGradientMode = writable(true);
-    let color1 = writable('');
-    let color2 = writable('');
+    let colorGradientMode = $state(true);
+    let color1 = $state('');
+    let color2 = $state('');
 </script>
 
 <script lang="ts">
-    import { createEventDispatcher, onMount } from 'svelte';
+    import { onMount } from 'svelte';
 
-    const dispatch = createEventDispatcher();
+    interface Props {
+        onhide?: () => void;
+    }
+
+    let { onhide }: Props = $props();
 
     onMount(() => {
         if (!style) {
@@ -39,9 +41,9 @@
         if (!links)
             links = document.querySelectorAll('a')!;
 
-        if (!$color1 || !$color2) {
-            $color1 = style.getPropertyValue('--gradient-blue');
-            $color2 = style.getPropertyValue('--gradient-purple');
+        if (!color1 || !color2) {
+            color1 = style.getPropertyValue('--gradient-blue');
+            color2 = style.getPropertyValue('--gradient-purple');
         }
 
         if (!phoneContainer)
@@ -49,11 +51,11 @@
     });
 
     function reflectUpdates() {
-        landingBackdrop.style.visibility = $noBackgroundMode || $blackAndWhiteMode ? 'hidden' : 'visible';
+        landingBackdrop.style.visibility = noBackgroundMode || blackAndWhiteMode ? 'hidden' : 'visible';
 
         const { body } = document;
 
-        if ($blackAndWhiteMode) {
+        if (blackAndWhiteMode) {
             body.style.setProperty('--background-color', 'white');
             body.style.setProperty('--text-color', 'black');
             body.style.setProperty('--gradient-blue', 'black');
@@ -65,13 +67,13 @@
             body.style.removeProperty('--background-color');
             body.style.removeProperty('--text-color');
 
-            const col2 = $colorGradientMode ? $color2 : $color1;
-            body.style.setProperty('--gradient-blue', $color1);
+            const col2 = colorGradientMode ? color2 : color1;
+            body.style.setProperty('--gradient-blue', color1);
             body.style.setProperty('--gradient-purple', col2);
-            body.style.setProperty('--primary-color', `color-mix(in srgb, ${$color1}, ${col2})`);
+            body.style.setProperty('--primary-color', `color-mix(in srgb, ${color1}, ${col2})`);
         }
 
-        if ($noBackgroundMode) {
+        if (noBackgroundMode) {
             body.style.setProperty('--background-color', 'white');
             resumeBoxes.forEach(box => {
                 box.style.setProperty('background-color', 'transparent');
@@ -87,8 +89,8 @@
             });
         }
 
-        phoneContainer.style.display = $showPhone ? 'block' : 'none';
-        if ($showPhone) {
+        phoneContainer.style.display = showPhone ? 'block' : 'none';
+        if (showPhone) {
             const tel = num.map(n => String.fromCharCode(n)).join('');
             const anchor = document.querySelector('#phone-container a') as HTMLAnchorElement;
             anchor.href = `tel:${atob(tel).replaceAll('.', '')}`;
@@ -97,7 +99,7 @@
         }
 
         links.forEach(link => {
-            link.style.textDecoration = $underlineLinks ? 'underline' : 'none';
+            link.style.textDecoration = underlineLinks ? 'underline' : 'none';
         });
     }
 
@@ -199,54 +201,54 @@
     <h2>Content</h2>
 
     <label>
-        <input bind:checked={$showPhone} on:change={reflectUpdates} type="checkbox"/>
+        <input bind:checked={showPhone} onchange={reflectUpdates} type="checkbox"/>
         Show phone number
     </label>
 
     <h2>Global style</h2>
 
     <label>
-        <input bind:checked={$noBackgroundMode} on:change={reflectUpdates} type="checkbox"/>
+        <input bind:checked={noBackgroundMode} onchange={reflectUpdates} type="checkbox"/>
         No background mode
     </label>
 
     <label>
-        <input bind:checked={$blackAndWhiteMode} on:change={reflectUpdates} type="checkbox"/>
+        <input bind:checked={blackAndWhiteMode} onchange={reflectUpdates} type="checkbox"/>
         Black and white mode
     </label>
 
     <label>
-        <input bind:checked={$underlineLinks} on:change={reflectUpdates} type="checkbox"/>
+        <input bind:checked={underlineLinks} onchange={reflectUpdates} type="checkbox"/>
         Underline links
     </label>
 
-    {#if !$blackAndWhiteMode}
+    {#if !blackAndWhiteMode}
         <h2>Colors</h2>
 
         <label>
-            <input type="checkbox" bind:checked={$colorGradientMode} on:change={reflectUpdates}/>
+            <input type="checkbox" bind:checked={colorGradientMode} onchange={reflectUpdates}/>
             Color gradient mode
         </label>
 
         <label>
-            <input type="color" bind:value={$color1} on:input={reflectUpdates}/>
-            {#if $colorGradientMode}
+            <input type="color" bind:value={color1} oninput={reflectUpdates}/>
+            {#if colorGradientMode}
                 Start Color
             {:else}
                 Theme color
             {/if}
         </label>
 
-        {#if $colorGradientMode}
+        {#if colorGradientMode}
             <label>
-                <input type="color" bind:value={$color2} on:input={reflectUpdates}/>
+                <input type="color" bind:value={color2} oninput={reflectUpdates}/>
                 End Color
             </label>
         {/if}
     {/if}
 
     <div class="btn-rows">
-        <button class="close-btn" on:click={() => dispatch('hide')}>Close</button>
-        <button class="print-btn" on:click={handlePrint}>Print</button>
+        <button class="close-btn" onclick={onhide}>Close</button>
+        <button class="print-btn" onclick={handlePrint}>Print</button>
     </div>
 </div>

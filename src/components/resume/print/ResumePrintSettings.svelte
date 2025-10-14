@@ -187,6 +187,11 @@
         background-color: var(--primary-color);
         color: var(--text-color-over-primary);
     }
+
+    label:has(input[disabled]) {
+        opacity: .5;
+        cursor: not-allowed;
+    }
 </style>
 
 
@@ -217,29 +222,27 @@
         Underline links
     </label>
 
-    {#if !blackAndWhiteMode}
-        <h2>Colors</h2>
+    <h2>Colors</h2>
 
-        <label>
-            <input type="checkbox" bind:checked={colorGradientMode} onchange={reflectUpdates}/>
-            Color gradient mode
-        </label>
+    <label>
+        <input type="checkbox" bind:checked={colorGradientMode} onchange={reflectUpdates} disabled={blackAndWhiteMode}/>
+        Color gradient mode
+    </label>
 
-        <label>
-            <input type="color" bind:value={color1} oninput={reflectUpdates}/>
-            {#if colorGradientMode}
-                Start Color
-            {:else}
-                Theme color
-            {/if}
-        </label>
-
+    <label>
+        <input type="color" bind:value={color1} oninput={reflectUpdates} disabled={blackAndWhiteMode}/>
         {#if colorGradientMode}
-            <label>
-                <input type="color" bind:value={color2} oninput={reflectUpdates}/>
-                End Color
-            </label>
+            Start Color
+        {:else}
+            Theme color
         {/if}
+    </label>
+
+    {#if colorGradientMode}
+        <label>
+            <input type="color" bind:value={color2} oninput={reflectUpdates} disabled={blackAndWhiteMode}/>
+            End Color
+        </label>
     {/if}
 
     <div class="btn-rows">

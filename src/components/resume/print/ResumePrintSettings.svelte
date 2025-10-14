@@ -4,6 +4,7 @@
     let resumeBoxes: NodeListOf<HTMLDivElement>;
     let links: NodeListOf<HTMLAnchorElement>;
     let phoneContainer: HTMLDivElement;
+    let resumeContainer: HTMLDivElement;
 
     let showPhone = $state(false);
     const num = [ 75, 122, 77, 122, 76, 106, 89, 117, 78, 68, 99, 117, 77, 106, 89, 117, 77, 68, 73, 117, 79, 84, 99, 61 ];
@@ -38,6 +39,7 @@
         resumeBoxes = document.querySelectorAll('.resume-box')!;
         phoneContainer = document.querySelector('#phone-container')!;
         links = document.querySelectorAll('a')!;
+        resumeContainer = document.querySelector('.resume')!;
 
         color1 = style.getPropertyValue('--gradient-blue');
         color2 = style.getPropertyValue('--gradient-purple');
@@ -54,11 +56,11 @@
             body.style.setProperty('--gradient-blue', 'black');
             body.style.setProperty('--gradient-purple', 'black');
             body.style.setProperty('--primary-color', 'black');
-            body.style.setProperty('filter', 'grayscale(100%)');
+            resumeContainer.style.setProperty('filter', 'grayscale(100%)');
         } else {
-            body.style.removeProperty('filter');
             body.style.removeProperty('--background-color');
             body.style.removeProperty('--text-color');
+            resumeContainer.style.removeProperty('filter');
 
             const col2 = colorGradientMode ? color2 : color1;
             body.style.setProperty('--gradient-blue', color1);

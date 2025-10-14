@@ -2,11 +2,11 @@
     import ResumePrintSettings from '$components/resume/print/ResumePrintSettings.svelte';
     import { onMount } from 'svelte';
 
-    let show = $state(false);
+    let hidePopup = $state(true);
 
     onMount(() => {
-        show = true;
-    });
+        hidePopup = false;
+    })
 
     function handleBackdropClick(ev: Event) {
         const target = ev.target as EventTarget & HTMLDivElement;
@@ -17,11 +17,11 @@
     }
 
     function closePopup() {
-        show = false;
+        hidePopup = true;
     }
 
     function togglePopup() {
-        show = !show;
+        hidePopup = !hidePopup;
     }
 
     function handleKeyDown(ev: KeyboardEvent) {
@@ -51,6 +51,10 @@
         background-color: rgba(0, 0, 0, 0.25);
     }
 
+    .modal-closed {
+        display: none;
+    }
+
     @media print {
         .popup-backdrop {
             display: none;
@@ -61,9 +65,12 @@
 <svelte:window onafterprint={closePopup}/>
 <svelte:document onkeydown={handleKeyDown}/>
 
-{#if show}
-    <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
-    <div class="popup-backdrop" onclick={handleBackdropClick} role="dialog" aria-modal="true" tabindex="-1">
-        <ResumePrintSettings onhide={closePopup}/>
-    </div>
-{/if}
+<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
+<div class="popup-backdrop"
+     class:modal-closed={hidePopup}
+     onclick={handleBackdropClick}
+     role="dialog"
+     aria-modal="true"
+     tabindex="-1">
+    <ResumePrintSettings onhide={closePopup}/>
+</div>

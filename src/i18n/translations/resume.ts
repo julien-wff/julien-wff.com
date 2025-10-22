@@ -3,8 +3,8 @@ import dedent from 'dedent';
 export const resumeTranslations = {
     en: {
         'header.subtitle': 'Computer Science student',
-        'header.description': dedent`Looking for a 6-month end-of-study internship in Software Engineering or DevOps,
-                                     from February to July 2026.`,
+        'header.description': dedent`Looking for a 6-month end-of-study internship in Software Engineering, Data or
+                                     DevOps, from February to July 2026.`,
         'formation.title': 'Education',
         'formation.cesi.title': 'CESI École d\'Ingénieurs (Engineering School)',
         'formation.cesi.subtitle': '2021 - 2026, Nancy, France',
@@ -67,8 +67,8 @@ export const resumeTranslations = {
     },
     fr: {
         'header.subtitle': 'Étudiant en informatique',
-        'header.description': dedent`À la recherche d'un stage de fin d'études de 6 mois en Software Engineering ou DevOps,
-                                     de février à juillet 2026.`,
+        'header.description': dedent`À la recherche d'un stage de fin d'études de 6 mois en Software Engineering, Data
+                                     ou DevOps, de février à juillet 2026.`,
         'formation.title': 'Formation',
         'formation.cesi.title': 'CESI École d\'Ingénieurs',
         'formation.cesi.subtitle': '2021 - 2026, Nancy, France',

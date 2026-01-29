@@ -1,9 +1,7 @@
 ---
-import { type Icon } from 'svelte-ionicons';
-
 interface Props {
     url: string;
-    icon: typeof Icon;
+    icon: any;
 }
 
 const { url, icon: LinkIcon } = Astro.props;

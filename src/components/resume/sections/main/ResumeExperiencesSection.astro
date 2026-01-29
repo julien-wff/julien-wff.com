@@ -6,6 +6,7 @@ import Business from 'svelte-ionicons/Business.svelte';
 import People from 'svelte-ionicons/People.svelte';
 import FileTrayFull from 'svelte-ionicons/FileTrayFull.svelte';
 import MaleFemale from 'svelte-ionicons/MaleFemale.svelte';
+import Medkit from 'svelte-ionicons/Medkit.svelte';
 import { useTranslations } from '$i18n/utils';
 import { resumeTranslations } from '$i18n/translations/resume';
 import type { Language } from '$i18n/utils';
@@ -15,6 +16,11 @@ const t = useTranslations(resumeTranslations, language);
 ---
 
 <ResumeElement title={t('experience.title')} mb>
+    <ResumeParagraphLine title={t('experience.doctolib.title')}
+                         subtitle={t('experience.doctolib.subtitle')}
+                         icon={Medkit}>
+        {t('experience.doctolib.description')}
+    </ResumeParagraphLine>
     <ResumeParagraphLine title={t('experience.reveals.title')}
                          subtitle={t('experience.reveals.subtitle')}
                          icon={Business}>
@@ -29,15 +35,5 @@ const t = useTranslations(resumeTranslations, language);
                          subtitle={t('experience.cma.subtitle')}
                          icon={FileTrayFull}>
         {t('experience.cma.description')}
-    </ResumeParagraphLine>
-    <ResumeParagraphLine title={t('experience.bde.title')}
-                         subtitle={t('experience.bde.subtitle')}
-                         icon={People}>
-        {t('experience.bde.description')}{' '}<a href="https://bdecesinancy.fr" target="_blank">bdecesinancy.fr</a>.
-    </ResumeParagraphLine>
-    <ResumeParagraphLine title={t('experience.ailes.title')}
-                         subtitle={t('experience.ailes.subtitle')}
-                         icon={MaleFemale}>
-        {t('experience.ailes.description')}
     </ResumeParagraphLine>
 </ResumeElement>

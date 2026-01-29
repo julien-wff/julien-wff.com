@@ -2,9 +2,9 @@ import dedent from 'dedent';
 
 export const resumeTranslations = {
     en: {
-        'header.subtitle': 'Computer Science student',
-        'header.description': dedent`Looking for a 6-month end-of-study internship in Software Engineering, Data or
-                                     DevOps, from February to July 2026.`,
+        'header.subtitle': 'Computer Science engineering student',
+        'header.description': dedent`Currently doing my final internship at Doctolib (Paris). 
+                                     I specialize in Software Engineering, Data Science and DevOps.`,
         'formation.title': 'Education',
         'formation.cesi.title': 'CESI École d\'Ingénieurs (Engineering School)',
         'formation.cesi.subtitle': '2021 - 2026, Nancy, France',
@@ -50,7 +50,7 @@ export const resumeTranslations = {
         'competences.devops': 'DevOps: Linux, Docker, cloud, virtualization, CI/CD',
         'competences.development': 'Development: Arduino, C, C++, C#, Golang, Java, Git',
         'contact.title': 'Contact',
-        'contact.drivers-license': 'Driver\'s license',
+        'contact.drivers-license': 'Driver\'s license (no car)',
         'language.title': 'Languages',
         'language.french.title': 'French',
         'language.french.subtitle': 'Native',
@@ -70,9 +70,9 @@ export const resumeTranslations = {
         'hobbies.theatre': 'Theater (4 years total)',
     },
     fr: {
-        'header.subtitle': 'Étudiant en informatique',
-        'header.description': dedent`À la recherche d'un stage de fin d'études de 6 mois en Software Engineering, Data
-                                     ou DevOps, de février à juillet 2026.`,
+        'header.subtitle': 'Étudiant en ingénierie informatique',
+        'header.description': dedent`En stage de fin d'études chez Doctolib (Paris). 
+                                     Je me spécialise en Software Engineering, Data Science et DevOps.`,
         'formation.title': 'Formation',
         'formation.cesi.title': 'CESI École d\'Ingénieurs',
         'formation.cesi.subtitle': '2021 - 2026, Nancy, France',
@@ -117,7 +117,7 @@ export const resumeTranslations = {
         'competences.devops': 'DevOps : Linux, Docker, cloud, virtualisation, CI/CD',
         'competences.development': 'Développement : Arduino, C, C++, C#, Golang, Java, Git',
         'contact.title': 'Contact',
-        'contact.drivers-license': 'Permis B',
+        'contact.drivers-license': 'Permis B (non véhiculé)',
         'language.title': 'Langues',
         'language.french.title': 'Français',
         'language.french.subtitle': 'Langue maternelle',

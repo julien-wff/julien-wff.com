@@ -2,13 +2,15 @@
 interface Props {
     url: string;
     icon: any;
+    target?: string;
+    big?: boolean;
 }
 
-const { url, icon: LinkIcon } = Astro.props;
+const { url, icon: LinkIcon, target = '_blank', big = false } = Astro.props;
 ---
 
-<a href={url} target="_blank" rel="noopener noreferrer">
-    <LinkIcon size={16}/>
+<a href={url} target={target} rel="noopener noreferrer" class:list={{ big }}>
+    <LinkIcon size={big ? 20 : 16}/>
     <slot/>
 </a>
 
@@ -24,6 +26,11 @@ const { url, icon: LinkIcon } = Astro.props;
         font-size: inherit;
         text-decoration: none;
         border-radius: .5rem;
+    }
+
+    a.big {
+        font-size: 1.15rem;
+        padding: .75rem 1rem;
     }
 
     @property --btn-gradient-angle {
@@ -48,9 +55,13 @@ const { url, icon: LinkIcon } = Astro.props;
         mask-composite: exclude;
     }
 
-    a:hover::before, a:focus::before {
+    a:hover::before, a:focus::before, a.big::before {
         padding: 2px;
         animation: btn-hover 2s infinite linear;
+    }
+
+    a.big:hover::before, a.big:focus::before {
+        padding: 3px;
     }
 
     @keyframes btn-hover {

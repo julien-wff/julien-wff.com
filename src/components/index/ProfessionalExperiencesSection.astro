@@ -1,0 +1,132 @@
+---
+import { useTranslations } from '$i18n/utils';
+import { indexTranslations } from '$i18n/translations';
+import ProjectCard from './projects/ProjectCard.astro';
+import DocumentTextOutline from 'svelte-ionicons/DocumentTextOutline.svelte';
+import doctolibPreview from '$assets/experiences/doctolib.png';
+import revealsPreview from '$assets/experiences/reveals.png';
+import henooPreview from '$assets/experiences/henoo.png';
+import cmaPreview from '$assets/experiences/cma.png';
+import docker from '$assets/icons/docker.svg';
+import figma from '$assets/icons/figma.svg';
+import githubActions from '$assets/icons/githubactions.svg';
+import java from '$assets/icons/java.svg';
+import kotlin from '$assets/icons/kotlin.svg';
+import nodejs from '$assets/icons/nodejs.svg';
+import react from '$assets/icons/react.svg';
+import postgres from '$assets/icons/postgres.svg';
+import powerbi from '$assets/icons/powerbi.svg';
+import python from '$assets/icons/python.svg';
+import sqlServer from '$assets/icons/sqlserver.svg';
+import springBoot from '$assets/icons/springboot.svg';
+import typescript from '$assets/icons/typescript.svg';
+import ProjectCardLink from '$components/index/projects/ProjectCardLink.astro';
+
+const language = Astro.currentLocale;
+const t = useTranslations(indexTranslations, language as keyof typeof indexTranslations);
+---
+
+<section>
+    <h2 id="experiences">{t('experiences.title')}</h2>
+
+    <div class="experiences-container">
+        <div class="experiences">
+            <ProjectCard title={t('experiences.doctolib.title')}
+                         description={t('experiences.doctolib.description')}
+                         preview={doctolibPreview}
+                         url="https://www.doctolib.fr"
+                         tech={[
+                             [ docker, 'Docker' ],
+                             [ kotlin, 'Kotlin' ],
+                             [ react, 'React' ],
+                             [ typescript, 'TypeScript' ],
+                         ]}/>
+            <ProjectCard title={t('experiences.reveals.title')}
+                         description={t('experiences.reveals.description')}
+                         preview={revealsPreview}
+                         url="https://www.reveals.lu"
+                         tech={[
+                             [ figma, 'Figma' ],
+                             [ docker, 'Docker' ],
+                             [ githubActions, 'GitHub Actions' ],
+                             [ powerbi, 'Power BI' ],
+                             [ python, 'Python' ],
+                             [ sqlServer, 'SQL Server' ],
+                         ]}/>
+            <ProjectCard title={t('experiences.henoo.title')}
+                         description={t('experiences.henoo.description')}
+                         preview={henooPreview}
+                         url="https://web.archive.org/web/20250813071237/http://henoo.fr/"
+                         tech={[
+                             [ docker, 'Docker' ],
+                             [ java, 'Java' ],
+                             [ postgres, 'PostgreSQL' ],
+                             [ springBoot, 'Spring Boot' ],
+                         ]}/>
+            <ProjectCard title={t('experiences.cma.title')}
+                         description={t('experiences.cma.description')}
+                         preview={cmaPreview}
+                         url="https://www.cma-alsace-moselle-grandest.fr/grand-est?department=meurthe-et-moselle"
+                         tech={[
+                             [ nodejs, 'Node.js' ],
+                             [ sqlServer, 'SQL Server' ],
+                             [ typescript, 'TypeScript' ],
+                         ]}/>
+        </div>
+    </div>
+
+    <ProjectCardLink url="./resume" icon={DocumentTextOutline} target="_self" big>
+        {t('experiences.see-resume')}
+    </ProjectCardLink>
+</section>
+
+
+<style>
+    section {
+        width: 100%;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+        margin: 0;
+        scroll-margin-top: 8rem;
+    }
+
+    .experiences-container {
+        display: grid;
+        place-content: center;
+        padding: 2rem;
+    }
+
+    .experiences {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(24rem, 32rem));
+        grid-gap: 2rem;
+    }
+
+    @media (max-width: 56rem) {
+        .experiences-container {
+            padding: 1rem;
+
+        }
+
+        .experiences {
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 1rem;
+        }
+    }
+
+    @media screen and (max-width: 48rem) {
+        h2 {
+            scroll-margin-top: 6rem;
+        }
+    }
+</style>

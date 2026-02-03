@@ -7,20 +7,8 @@ import doctolibPreview from '$assets/experiences/doctolib.png';
 import revealsPreview from '$assets/experiences/reveals.png';
 import henooPreview from '$assets/experiences/henoo.png';
 import cmaPreview from '$assets/experiences/cma.png';
-import docker from '$assets/icons/docker.svg';
-import figma from '$assets/icons/figma.svg';
-import githubActions from '$assets/icons/githubactions.svg';
-import java from '$assets/icons/java.svg';
-import kotlin from '$assets/icons/kotlin.svg';
-import nodejs from '$assets/icons/nodejs.svg';
-import react from '$assets/icons/react.svg';
-import postgres from '$assets/icons/postgres.svg';
-import powerbi from '$assets/icons/powerbi.svg';
-import python from '$assets/icons/python.svg';
-import sqlServer from '$assets/icons/sqlserver.svg';
-import springBoot from '$assets/icons/springboot.svg';
-import typescript from '$assets/icons/typescript.svg';
 import ProjectCardLink from '$components/index/projects/ProjectCardLink.astro';
+import { techIcons } from '$assets/icons';
 
 const language = Astro.currentLocale;
 const t = useTranslations(indexTranslations, language as keyof typeof indexTranslations);
@@ -36,41 +24,41 @@ const t = useTranslations(indexTranslations, language as keyof typeof indexTrans
                          preview={doctolibPreview}
                          url="https://www.doctolib.fr"
                          tech={[
-                             [ docker, 'Docker' ],
-                             [ kotlin, 'Kotlin' ],
-                             [ react, 'React' ],
-                             [ typescript, 'TypeScript' ],
+                             techIcons.docker,
+                             techIcons.kotlin,
+                             techIcons.react,
+                             techIcons.typescript,
                          ]}/>
             <ProjectCard title={t('experiences.reveals.title')}
                          description={t('experiences.reveals.description')}
                          preview={revealsPreview}
                          url="https://www.reveals.lu"
                          tech={[
-                             [ figma, 'Figma' ],
-                             [ docker, 'Docker' ],
-                             [ githubActions, 'GitHub Actions' ],
-                             [ powerbi, 'Power BI' ],
-                             [ python, 'Python' ],
-                             [ sqlServer, 'SQL Server' ],
+                             techIcons.docker,
+                             techIcons.figma,
+                             techIcons.githubActions,
+                             techIcons.powerbi,
+                             techIcons.python,
+                             techIcons.sqlServer,
                          ]}/>
             <ProjectCard title={t('experiences.henoo.title')}
                          description={t('experiences.henoo.description')}
                          preview={henooPreview}
                          url="https://web.archive.org/web/20250813071237/http://henoo.fr/"
                          tech={[
-                             [ docker, 'Docker' ],
-                             [ java, 'Java' ],
-                             [ postgres, 'PostgreSQL' ],
-                             [ springBoot, 'Spring Boot' ],
+                             techIcons.docker,
+                             techIcons.java,
+                             techIcons.postgresql,
+                             techIcons.springBoot,
                          ]}/>
             <ProjectCard title={t('experiences.cma.title')}
                          description={t('experiences.cma.description')}
                          preview={cmaPreview}
                          url="https://www.cma-alsace-moselle-grandest.fr/grand-est?department=meurthe-et-moselle"
                          tech={[
-                             [ nodejs, 'Node.js' ],
-                             [ sqlServer, 'SQL Server' ],
-                             [ typescript, 'TypeScript' ],
+                             techIcons.nodejs,
+                             techIcons.sqlServer,
+                             techIcons.typescript,
                          ]}/>
         </div>
     </div>

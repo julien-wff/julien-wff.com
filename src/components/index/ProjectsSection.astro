@@ -8,22 +8,7 @@ import dossierSynthesePreview from '$assets/projects/dossier-synthese-preview.pn
 import easySavePreview from '$assets/projects/easysave-preview.png';
 import healthAiPreview from '$assets/projects/health-ai-preview.png';
 import homelabPreview from '$assets/projects/homelab-preview.png';
-import bun from '$assets/icons/bun.svg';
-import cloudflare from '$assets/icons/cloudflare.svg';
-import csharp from '$assets/icons/csharp.svg';
-import docker from '$assets/icons/docker.svg';
-import dotnet from '$assets/icons/dotnet.svg';
-import expo from '$assets/icons/expo.svg';
-import figma from '$assets/icons/figma.svg';
-import githubActions from '$assets/icons/githubactions.svg';
-import googleCloud from '$assets/icons/google-cloud.svg';
-import golang from '$assets/icons/golang.svg';
-import nixos from '$assets/icons/nixos.svg';
-import nodejs from '$assets/icons/nodejs.svg';
-import react from '$assets/icons/react.svg';
-import sqlite from '$assets/icons/sqlite.svg';
-import svelte from '$assets/icons/svelte.svg';
-import typescript from '$assets/icons/typescript.svg';
+import { techIcons } from '$assets/icons';
 
 const language = Astro.currentLocale;
 const t = useTranslations(indexTranslations, language as keyof typeof indexTranslations);
@@ -40,42 +25,42 @@ const t = useTranslations(indexTranslations, language as keyof typeof indexTrans
                          url="https://bdecesinancy.fr"
                          github="https://github.com/julien-wff/bde-cesi-nancy"
                          tech={[
-                             [ cloudflare, 'Cloudflare' ],
-                             [ docker, 'Docker' ],
-                             [ figma, 'Figma' ],
-                             [ nodejs, 'Node.js' ],
-                             [ svelte, 'Svelte' ],
-                             [ typescript, 'TypeScript' ],
+                             techIcons.cloudflare,
+                             techIcons.docker,
+                             techIcons.figma,
+                             techIcons.nodejs,
+                             techIcons.svelte,
+                             techIcons.typescript,
                          ]}/>
             <ProjectCard title={t('projects.homelab.title')}
                          description={t('projects.homelab.description')}
                          preview={homelabPreview}
                          tech={[
-                             [ cloudflare, 'Cloudflare' ],
-                             [ docker, 'Docker' ],
-                             [ nixos, 'NixOS' ],
+                             techIcons.cloudflare,
+                             techIcons.docker,
+                             techIcons.nixos,
                          ]}/>
             <ProjectCard title={t('projects.backry.title')}
                          description={t('projects.backry.description')}
                          preview={backryPreview}
                          github="https://github.com/julien-wff/backry"
                          tech={[
-                             [ bun, 'Bun' ],
-                             [ docker, 'Docker' ],
-                             [ githubActions, 'GitHub Actions' ],
-                             [ sqlite, 'SQLite' ],
-                             [ svelte, 'Svelte' ],
-                             [ typescript, 'TypeScript' ],
+                             techIcons.bun,
+                             techIcons.docker,
+                             techIcons.githubActions,
+                             techIcons.sqlite,
+                             techIcons.svelte,
+                             techIcons.typescript,
                          ]}/>
             <ProjectCard title={t('projects.health-ai.title')}
                          description={t('projects.health-ai.description')}
                          preview={healthAiPreview}
                          github="https://github.com/julien-wff/health-ai"
                          tech={[
-                             [ expo, 'Expo' ],
-                             [ googleCloud, 'Google Cloud' ],
-                             [ react, 'React Native' ],
-                             [ typescript, 'TypeScript' ],
+                             techIcons.expo,
+                             techIcons.googleCloud,
+                             techIcons.react,
+                             techIcons.typescript,
                          ]}/>
             <ProjectCard title={t('projects.cesi-dossier-synthese.title')}
                          description={t('projects.cesi-dossier-synthese.description')}
@@ -83,19 +68,19 @@ const t = useTranslations(indexTranslations, language as keyof typeof indexTrans
                          url="https://dossier.bdecesinancy.fr"
                          github="https://github.com/julien-wff/cesi-dossier-synthese"
                          tech={[
-                             [ docker, 'Docker' ],
-                             [ golang, 'Golang' ],
-                             [ svelte, 'Svelte' ],
-                             [ typescript, 'TypeScript' ],
+                             techIcons.docker,
+                             techIcons.golang,
+                             techIcons.svelte,
+                             techIcons.typescript,
                          ]}/>
             <ProjectCard title={t('projects.easysave.title')}
                          description={t('projects.easysave.description')}
                          preview={easySavePreview}
                          github="https://github.com/julien-wff/easysave"
                          tech={[
-                             [ csharp, 'C#' ],
-                             [ dotnet, '.NET' ],
-                             [ githubActions, 'GitHub Actions' ],
+                             techIcons.csharp,
+                             techIcons.dotnet,
+                             techIcons.githubActions,
                          ]}/>
         </div>
     </div>

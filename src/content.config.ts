@@ -8,7 +8,7 @@ const projectCollection = defineCollection({
         description: z.string(),
         startDate: z.date(),
         visibility: z.enum([ 'flagship', 'timeline' ]).default('timeline'),
-        type: z.enum([ 'personal', 'work' ]).default('personal'),
+        type: z.enum([ 'personal', 'school', 'work' ]).default('personal'),
         image: image(),
         github: z.string().url().optional(),
         url: z.string().url().optional(),

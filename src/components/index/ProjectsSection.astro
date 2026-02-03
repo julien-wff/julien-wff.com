@@ -9,7 +9,7 @@ const t = useTranslations(indexTranslations, language);
 
 const projects = await projectsForLanguage(language);
 const flagshipProjects = projects
-    .filter(p => p.data.visibility === 'flagship' && p.data.type === 'personal')
+    .filter(p => p.data.visibility === 'flagship' && [ 'personal', 'school' ].includes(p.data.type))
     .toSorted((a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf());
 ---
 
@@ -18,16 +18,14 @@ const flagshipProjects = projects
 
     <div class="projects-container">
         <div class="projects">
-            {flagshipProjects.map((project) =>
-                <ProjectCard
-                    title={project.data.title}
-                    description={project.data.description}
-                    preview={project.data.image}
-                    github={project.data.github}
-                    url={project.data.url}
-                    tech={project.data.tech.map((tech) => techIcons[tech])}
-                />
-            )}
+            {flagshipProjects.map((project) => (
+                    <ProjectCard title={project.data.title}
+                                 description={project.data.description}
+                                 preview={project.data.image}
+                                 github={project.data.github}
+                                 url={project.data.url}
+                                 tech={project.data.tech.map((tech) => techIcons[tech])}/>
+            ))}
         </div>
     </div>
 </section>

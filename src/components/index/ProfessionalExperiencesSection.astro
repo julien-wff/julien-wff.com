@@ -20,17 +20,14 @@ const experiences = projects
 
     <div class="experiences-container">
         <div class="experiences">
-            {
-                experiences.map(experience => (
-                    <ProjectCard
-                        title={experience.data.title}
-                        description={experience.data.description}
-                        preview={experience.data.image}
-                        url={experience.data.url}
-                        tech={experience.data.tech.map(tech => techIcons[tech])}
+            {experiences.map(experience => (
+                    <ProjectCard title={experience.data.title}
+                                 description={experience.data.description}
+                                 preview={experience.data.image}
+                                 url={experience.data.url}
+                                 tech={experience.data.tech.map(tech => techIcons[tech])}
                     />
-                ))
-            }
+            ))}
         </div>
     </div>
 

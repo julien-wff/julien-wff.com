@@ -1,17 +1,16 @@
 ---
-import { useTranslations } from '$i18n/utils';
+import { projectsForLanguage, useTranslations } from '$i18n/utils';
 import { indexTranslations } from '$i18n/translations';
 import ProjectCard from './projects/ProjectCard.astro';
-import backryPreview from '$assets/projects/backry-preview.png';
-import bdeCesiNancyPreview from '$assets/projects/bdecesinancy-preview.png';
-import dossierSynthesePreview from '$assets/projects/dossier-synthese-preview.png';
-import easySavePreview from '$assets/projects/easysave-preview.png';
-import healthAiPreview from '$assets/projects/health-ai-preview.png';
-import homelabPreview from '$assets/projects/homelab-preview.png';
 import { techIcons } from '$assets/icons';
 
-const language = Astro.currentLocale;
-const t = useTranslations(indexTranslations, language as keyof typeof indexTranslations);
+const language = Astro.currentLocale as keyof typeof indexTranslations;
+const t = useTranslations(indexTranslations, language);
+
+const projects = await projectsForLanguage(language);
+const flagshipProjects = projects
+    .filter(p => p.data.visibility === 'flagship' && p.data.type === 'personal')
+    .toSorted((a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf());
 ---
 
 <section>
@@ -19,69 +18,16 @@ const t = useTranslations(indexTranslations, language as keyof typeof indexTrans
 
     <div class="projects-container">
         <div class="projects">
-            <ProjectCard title={t('projects.bdecesinancy.title')}
-                         description={t('projects.bdecesinancy.description')}
-                         preview={bdeCesiNancyPreview}
-                         url="https://bdecesinancy.fr"
-                         github="https://github.com/julien-wff/bde-cesi-nancy"
-                         tech={[
-                             techIcons.cloudflare,
-                             techIcons.docker,
-                             techIcons.figma,
-                             techIcons.nodejs,
-                             techIcons.svelte,
-                             techIcons.typescript,
-                         ]}/>
-            <ProjectCard title={t('projects.homelab.title')}
-                         description={t('projects.homelab.description')}
-                         preview={homelabPreview}
-                         tech={[
-                             techIcons.cloudflare,
-                             techIcons.docker,
-                             techIcons.nixos,
-                         ]}/>
-            <ProjectCard title={t('projects.backry.title')}
-                         description={t('projects.backry.description')}
-                         preview={backryPreview}
-                         github="https://github.com/julien-wff/backry"
-                         tech={[
-                             techIcons.bun,
-                             techIcons.docker,
-                             techIcons.githubActions,
-                             techIcons.sqlite,
-                             techIcons.svelte,
-                             techIcons.typescript,
-                         ]}/>
-            <ProjectCard title={t('projects.health-ai.title')}
-                         description={t('projects.health-ai.description')}
-                         preview={healthAiPreview}
-                         github="https://github.com/julien-wff/health-ai"
-                         tech={[
-                             techIcons.expo,
-                             techIcons.googleCloud,
-                             techIcons.react,
-                             techIcons.typescript,
-                         ]}/>
-            <ProjectCard title={t('projects.cesi-dossier-synthese.title')}
-                         description={t('projects.cesi-dossier-synthese.description')}
-                         preview={dossierSynthesePreview}
-                         url="https://dossier.bdecesinancy.fr"
-                         github="https://github.com/julien-wff/cesi-dossier-synthese"
-                         tech={[
-                             techIcons.docker,
-                             techIcons.golang,
-                             techIcons.svelte,
-                             techIcons.typescript,
-                         ]}/>
-            <ProjectCard title={t('projects.easysave.title')}
-                         description={t('projects.easysave.description')}
-                         preview={easySavePreview}
-                         github="https://github.com/julien-wff/easysave"
-                         tech={[
-                             techIcons.csharp,
-                             techIcons.dotnet,
-                             techIcons.githubActions,
-                         ]}/>
+            {flagshipProjects.map((project) =>
+                <ProjectCard
+                    title={project.data.title}
+                    description={project.data.description}
+                    preview={project.data.image}
+                    github={project.data.github}
+                    url={project.data.url}
+                    tech={project.data.tech.map((tech) => techIcons[tech])}
+                />
+            )}
         </div>
     </div>
 </section>

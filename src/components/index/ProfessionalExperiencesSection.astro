@@ -1,17 +1,18 @@
 ---
-import { useTranslations } from '$i18n/utils';
+import { projectsForLanguage, useTranslations } from '$i18n/utils';
 import { indexTranslations } from '$i18n/translations';
 import ProjectCard from './projects/ProjectCard.astro';
 import DocumentTextOutline from 'svelte-ionicons/DocumentTextOutline.svelte';
-import doctolibPreview from '$assets/experiences/doctolib.png';
-import revealsPreview from '$assets/experiences/reveals.png';
-import henooPreview from '$assets/experiences/henoo.png';
-import cmaPreview from '$assets/experiences/cma.png';
 import ProjectCardLink from '$components/index/projects/ProjectCardLink.astro';
 import { techIcons } from '$assets/icons';
 
-const language = Astro.currentLocale;
-const t = useTranslations(indexTranslations, language as keyof typeof indexTranslations);
+const language = Astro.currentLocale as keyof typeof indexTranslations;
+const t = useTranslations(indexTranslations, language);
+
+const projects = await projectsForLanguage(language);
+const experiences = projects
+    .filter(p => p.data.type === 'work')
+    .toSorted((a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf());
 ---
 
 <section>
@@ -19,47 +20,17 @@ const t = useTranslations(indexTranslations, language as keyof typeof indexTrans
 
     <div class="experiences-container">
         <div class="experiences">
-            <ProjectCard title={t('experiences.doctolib.title')}
-                         description={t('experiences.doctolib.description')}
-                         preview={doctolibPreview}
-                         url="https://www.doctolib.fr"
-                         tech={[
-                             techIcons.docker,
-                             techIcons.kotlin,
-                             techIcons.react,
-                             techIcons.typescript,
-                         ]}/>
-            <ProjectCard title={t('experiences.reveals.title')}
-                         description={t('experiences.reveals.description')}
-                         preview={revealsPreview}
-                         url="https://www.reveals.lu"
-                         tech={[
-                             techIcons.docker,
-                             techIcons.figma,
-                             techIcons.githubActions,
-                             techIcons.powerbi,
-                             techIcons.python,
-                             techIcons.sqlServer,
-                         ]}/>
-            <ProjectCard title={t('experiences.henoo.title')}
-                         description={t('experiences.henoo.description')}
-                         preview={henooPreview}
-                         url="https://web.archive.org/web/20250813071237/http://henoo.fr/"
-                         tech={[
-                             techIcons.docker,
-                             techIcons.java,
-                             techIcons.postgresql,
-                             techIcons.springBoot,
-                         ]}/>
-            <ProjectCard title={t('experiences.cma.title')}
-                         description={t('experiences.cma.description')}
-                         preview={cmaPreview}
-                         url="https://www.cma-alsace-moselle-grandest.fr/grand-est?department=meurthe-et-moselle"
-                         tech={[
-                             techIcons.nodejs,
-                             techIcons.sqlServer,
-                             techIcons.typescript,
-                         ]}/>
+            {
+                experiences.map(experience => (
+                    <ProjectCard
+                        title={experience.data.title}
+                        description={experience.data.description}
+                        preview={experience.data.image}
+                        url={experience.data.url}
+                        tech={experience.data.tech.map(tech => techIcons[tech])}
+                    />
+                ))
+            }
         </div>
     </div>
 
@@ -67,7 +38,6 @@ const t = useTranslations(indexTranslations, language as keyof typeof indexTrans
         {t('experiences.see-resume')}
     </ProjectCardLink>
 </section>
-
 
 <style>
     section {
@@ -103,7 +73,6 @@ const t = useTranslations(indexTranslations, language as keyof typeof indexTrans
     @media (max-width: 56rem) {
         .experiences-container {
             padding: 1rem;
-
         }
 
         .experiences {

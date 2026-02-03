@@ -3,6 +3,7 @@ import frFlag from '$assets/flags/fr.svg';
 import frFlagRaw from '$assets/flags/fr.svg?raw';
 import gbFlag from '$assets/flags/gb.svg';
 import gbFlagRaw from '$assets/flags/gb.svg?raw';
+import { getCollection } from 'astro:content';
 
 export interface LanguageInfo {
     displayShort: string;
@@ -35,4 +36,10 @@ export function useTranslations<T extends Translations>(translations: T, lang: k
     return function t(key: keyof T[typeof lang]) {
         return translations[lang][key] || key;
     };
+}
+
+export async function projectsForLanguage(lang: Language) {
+    const projects = await getCollection('projects');
+    const langFileRegex = new RegExp(String.raw`\.${lang}\.mdx?$`);
+    return projects.filter(p => langFileRegex.test(p.id));
 }

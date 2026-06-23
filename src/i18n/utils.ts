@@ -41,5 +41,5 @@ export function useTranslations<T extends Translations>(translations: T, lang: k
 export async function projectsForLanguage(lang: Language) {
     const projects = await getCollection('projects');
     const langFileRegex = new RegExp(String.raw`\.${lang}\.mdx?$`);
-    return projects.filter(p => langFileRegex.test(p.id));
+    return projects.filter(p => p.filePath && langFileRegex.test(p.filePath));
 }

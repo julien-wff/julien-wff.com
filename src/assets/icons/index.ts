@@ -10,12 +10,14 @@ import githubActions from './githubactions.svg';
 import golang from './golang.svg';
 import googleCloud from './google-cloud.svg';
 import java from './java.svg';
+import jira from './jira.svg';
 import kotlin from './kotlin.svg';
 import nixos from './nixos.svg';
 import nodejs from './nodejs.svg';
 import postgresql from './postgres.svg';
 import powerbi from './powerbi.svg';
 import python from './python.svg';
+import rails from './rails.svg';
 import react from './react.svg';
 import springBoot from './springboot.svg';
 import sqlite from './sqlite.svg';
@@ -35,12 +37,14 @@ export const techIcons = {
     golang: [ golang, 'Golang' ],
     googleCloud: [ googleCloud, 'Google Cloud' ],
     java: [ java, 'Java' ],
+    jira: [ jira, 'Jira' ],
     kotlin: [ kotlin, 'Kotlin' ],
     nixos: [ nixos, 'NixOS' ],
     nodejs: [ nodejs, 'Node.js' ],
     postgresql: [ postgresql, 'PostgreSQL' ],
     powerbi: [ powerbi, 'Power BI' ],
     python: [ python, 'Python' ],
+    rails: [ rails, 'Ruby on Rails' ],
     react: [ react, 'React' ],
     springBoot: [ springBoot, 'Spring Boot' ],
     sqlite: [ sqlite, 'SQLite' ],
